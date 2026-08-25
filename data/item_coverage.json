@@ -1,0 +1,117 @@
+{
+  "format_version": 1,
+  "basis": {
+    "current_wiki_last_modified": "2024-04-14",
+    "binary": "Guild_Second v5.10",
+    "binary_exact_equipment_rows": 668,
+    "known_gems": 57,
+    "selectable_total": 725
+  },
+  "categories": [
+    {
+      "category_id": 1,
+      "name": "細剣",
+      "wiki_current": 60,
+      "v510_exact": 51,
+      "unresolved": 9
+    },
+    {
+      "category_id": 2,
+      "name": "剣",
+      "wiki_current": 125,
+      "v510_exact": 119,
+      "unresolved": 6
+    },
+    {
+      "category_id": 3,
+      "name": "刀",
+      "wiki_current": 54,
+      "v510_exact": 46,
+      "unresolved": 8
+    },
+    {
+      "category_id": 4,
+      "name": "弓",
+      "wiki_current": 52,
+      "v510_exact": 41,
+      "unresolved": 11
+    },
+    {
+      "category_id": 5,
+      "name": "鎧",
+      "wiki_current": 47,
+      "v510_exact": 44,
+      "unresolved": 3
+    },
+    {
+      "category_id": 6,
+      "name": "重鎧",
+      "wiki_current": 53,
+      "v510_exact": 43,
+      "unresolved": 10
+    },
+    {
+      "category_id": 7,
+      "name": "盾",
+      "wiki_current": 48,
+      "v510_exact": 32,
+      "unresolved": 16
+    },
+    {
+      "category_id": 8,
+      "name": "小手",
+      "wiki_current": 37,
+      "v510_exact": 34,
+      "unresolved": 3
+    },
+    {
+      "category_id": 9,
+      "name": "ワンド",
+      "wiki_current": 47,
+      "v510_exact": 40,
+      "unresolved": 7
+    },
+    {
+      "category_id": 10,
+      "name": "ロッド",
+      "wiki_current": 35,
+      "v510_exact": 33,
+      "unresolved": 2
+    },
+    {
+      "category_id": 11,
+      "name": "魔道書",
+      "wiki_current": 68,
+      "v510_exact": 64,
+      "unresolved": 4
+    },
+    {
+      "category_id": 12,
+      "name": "法衣",
+      "wiki_current": 38,
+      "v510_exact": 34,
+      "unresolved": 4
+    },
+    {
+      "category_id": 13,
+      "name": "宝石",
+      "wiki_current": 57,
+      "v510_exact": 57,
+      "unresolved": 0
+    },
+    {
+      "category_id": 14,
+      "name": "その他",
+      "wiki_current": 110,
+      "v510_exact": 87,
+      "unresolved": 23
+    }
+  ],
+  "current_unresolved_total_categories_1_14": 106,
+  "additional_current_categories": {
+    "16_種族専用装備": 68,
+    "17_合成用": 97,
+    "18_魔造素材": 38
+  },
+  "policy": "Never infer a writable internal ID from Wiki order alone; only selectable after binary/save/historical-ID corroboration."
+}

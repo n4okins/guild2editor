@@ -1,202 +1,726 @@
-base_id	name	category_id	confidence	source
-0101	レイピア	1	high	wiki/order
-0102	ミスリルレイピア	1	high	wiki/order
-0103	ロイヤルレイピア	1	high	wiki/order
-0104	カイザーサーベル	1	high	wiki/order
-0105	エンシェントサーベル	1	high	wiki/order
-0109	カイザーナックル	1	high	screenshot+save
-0110	ドラゴンナックル	1	high	screenshot+save
-0113	ロングソード	2	high	wiki/order
-0114	ミスリルソード	2	high	wiki/order
-0115	ロイヤルソード	2	high	wiki/order
-0116	カイザーソード	2	high	wiki/order
-0117	エンシェントソード	2	high	wiki/order
-0118	ドラゴンソード	2	high	wiki/order
-0119	アダマントソード	2	high	wiki/order
-0120	神魔ソード	2	high	wiki/order
-0121	日本刀	3	high	wiki/order
-0122	名刀コテツ	3	high	wiki/order
-0123	菊一文字	3	high	wiki/order
-0124	国綱の太刀	3	high	wiki/order
-0125	村正	3	high	wiki/order
-0126	竜刀	3	high	wiki/order
-0127	金剛刀	3	high	wiki/order
-0128	神魔刀	3	high	wiki/order
-0129	ロングボウ	4	high	wiki/order
-0130	ミスリルボウ	4	high	wiki/order
-0131	ロイヤルボウ	4	high	wiki/order
-0132	カイザーボウ	4	high	wiki/order
-0133	エンシェントボウ	4	high	wiki/order
-0134	ドラゴンボウ	4	high	wiki/order
-0135	アダマントボウ	4	high	wiki/order
-0136	神魔弓	4	high	wiki/order
-0137	アーマー	5	high	wiki/order
-0138	ミスリルアーマー	5	high	wiki/order
-0139	ロイヤルアーマー	5	high	wiki/order
-0140	カイザーアーマー	5	high	wiki/order
-0141	エンシェントアーマー	5	high	wiki/order
-0142	ドラゴンアーマー	5	high	wiki/order
-0143	アダマントアーマー	5	high	wiki/order
-0144	神魔アーマー	5	high	wiki/order
-0145	フルプレート	6	high	screenshot+wiki
-0146	ミスリルプレート	6	high	screenshot+wiki
-0147	ロイヤルプレート	6	high	screenshot+wiki
-0148	カイザープレート	6	high	screenshot+wiki
-0149	エンシェントプレート	6	high	screenshot+wiki
-0150	ドラゴンプレート	6	high	screenshot+wiki
-0151	アダマントプレート	6	high	screenshot+wiki
-0152	神魔重鎧	6	high	screenshot+wiki
-0153	シールド	7	high	wiki/order
-0154	ミスリルシールド	7	high	wiki/order
-0155	ロイヤルシールド	7	high	wiki/order
-0156	カイザーシールド	7	high	wiki/order
-0157	エンシェントシールド	7	high	wiki/order
-0158	ドラゴンシールド	7	high	wiki/order
-0159	アダマントシールド	7	high	wiki/order
-0160	神魔シールド	7	high	wiki/order
-0161	ガントレット	8	high	wiki/order
-0162	ミスリルガントレット	8	high	wiki/order
-0163	ロイヤルガントレット	8	high	wiki/order
-0164	カイザーガントレット	8	high	wiki/order
-0165	エンシェントガントレット	8	high	wiki/order
-0166	ドラゴンガントレット	8	high	wiki/order
-0167	アダマントガントレット	8	high	wiki/order
-0168	神魔ガントレット	8	high	wiki/order
-0169	ワンド	9	medium	wiki/order
-0170	ミスリルワンド	9	medium	wiki/order
-0171	ロイヤルワンド	9	medium	wiki/order
-0172	カイザーワンド	9	medium	wiki/order
-0173	エンシェントワンド	9	medium	wiki/order
-0174	ドラゴンワンド	9	medium	wiki/order
-0175	アダマントワンド	9	medium	wiki/order
-0176	神魔ワンド	9	medium	wiki/order
-0177	ロッド	10	high	wiki/order
-0178	ミスリルロッド	10	high	wiki/order
-0179	ロイヤルロッド	10	high	wiki/order
-0180	カイザーロッド	10	high	wiki/order
-0181	エンシェントロッド	10	high	wiki/order
-0182	ドラゴンロッド	10	high	wiki/order
-0183	アダマントロッド	10	high	wiki/order
-0184	神魔ロッド	10	high	wiki/order
-0213	ローブ	12	high	wiki/order
-0214	ミスリルローブ	12	high	wiki/order
-0215	ロイヤルローブ	12	high	wiki/order
-0216	カイザーローブ	12	high	wiki/order
-0217	エンシェントローブ	12	high	wiki/order
-0218	ドラゴンローブ	12	high	wiki/order
-0219	アダマントローブ	12	high	wiki/order
-0220	神魔ローブ	12	high	wiki/order
-0229	シープガープ	14	confirmed	screenshot+save
-0231	大盗賊の小道具	14	confirmed	report item-code pairing
-0242	生命の護符150	14	confirmed	screenshot+save
-0259	魔女の帽子※サイキック専用	14	confirmed	screenshot+save
-0267	逆鱗※女性専用※ドラゴニュート専用	14	confirmed	screenshot+save
-0501	騎士の突剣	1	high	save/wiki
-0502	フェンシングサーベル	1	high	save/wiki
-0503	急所突きの小剣	1	high	save/wiki
-0504	魔獣の爪	1	high	save/wiki
-0505	マジックレイピア	1	high	save/wiki
-0506	脇差し	1	high	save/wiki
-0507	小太刀	1	high	save/wiki
-0508	妖獣の爪	1	high	save/wiki
-0515	ギガントナックル	1	confirmed	screenshot+save
-1001	急所突きの剣	2	high	save/wiki
-1002	クルセイダーソード	2	high	save/wiki
-1003	アサシンダガー	2	high	save/wiki
-1004	ロードプレート	2	high	save/wiki
-1005	魔性の剣	2	high	save/wiki
-1006	ドラゴンキラー	2	high	save/wiki
-1007	吸血の剣	2	high	save/wiki
-1008	タワーソード	2	high	save/wiki
-1009	英雄の剣	2	high	save/wiki
-1010	テンプルソード	2	high	save/wiki
-1011	ルミナスソード	2	high	save/wiki
-1012	デーモンソード	2	high	save/wiki
-1013	大地の剣	2	high	save/wiki
-1014	吹雪の剣	2	high	save/wiki
-1015	ダインスレイフ	2	high	save/wiki
-1016	クレイモア	2	high	save/wiki
-1019	ディフェンダー	2	high	save/wiki
-1029	方天画戟	2	high	save/wiki
-1034	マサムネ	2	high	save/wiki
-1037	アンバーソード	2	high	save/wiki
-1040	闇討ちの剣	2	high	save/wiki
-1041	ホーリーソード	2	high	save/wiki
-1042	黒騎士の剣	2	high	save/wiki
-1043	ハイランダーソード	2	high	save/wiki
-1501	木刀	3	confirmed	screenshot+save
-1505	備前長船	3	confirmed	screenshot+save
-2004	竜殺しの弓	4	high	save/wiki
-2502	暗殺者の服	5	confirmed	screenshot+save
-4001	盗賊の小手	8	confirmed	screenshot+save
-4003	パワーリスト	8	confirmed	screenshot+save
-4511	魔力を帯びた杖	9	confirmed	screenshot+save
-5001	プリーストロッド	10	confirmed	screenshot+save
-5510	神聖教典Lv3『治療の法』	11	confirmed	screenshot+save
-6001	ニンジャガープ	14	confirmed	screenshot+save
-6005	力士の帯	14	confirmed	screenshot+save
-6501	[宝石]ダイヤモンド	13	high	wiki/order
-6502	[宝石]サファイア	13	high	wiki/order
-6503	[宝石]ラピスラズリ	13	high	wiki/order
-6504	[宝石]エメラルド	13	high	wiki/order
-6505	[宝石]ムーンストーン	13	high	wiki/order
-6506	[宝石]ブラッドストーン	13	high	wiki/order
-6507	[宝石]ルビー	13	high	wiki/order
-6508	[宝石]アクアマリン	13	high	wiki/order
-6509	[宝石]ガーネット	13	high	wiki/order
-6510	[宝石]トパーズ	13	high	wiki/order
-6511	[宝石]ターコイズ	13	high	wiki/order
-6512	[宝石]アメジスト	13	high	wiki/order
-6513	[宝石]オブシディアン	13	high	wiki/order
-6514	[宝石]ブラックオパール	13	high	wiki/order
-6515	[宝石]オパール	13	high	wiki/order
-6516	[宝石]ジルコン	13	high	wiki/order
-6517	[宝石]トルマリン	13	high	wiki/order
-6518	[宝石]パール	13	high	wiki/order
-6519	[宝石]クリスタル	13	high	wiki/order
-6520	[宝石]キャッツアイ	13	high	wiki/order
-6521	[宝石]アレクサンドライト	13	high	wiki/order
-6522	[宝石]マラカイト	13	high	wiki/order
-6523	[宝石]ローズクォーツ	13	high	wiki/order
-6524	[宝石]ヘリオライト	13	high	wiki/order
-6525	[宝石]アパタイト	13	high	wiki/order
-6526	[宝石]インカローズ	13	high	wiki/order
-6527	[宝石]クォーツ	13	high	wiki/order
-6528	[宝石]マーブル	13	high	wiki/order
-6529	[宝石]アマゾナイト	13	high	wiki/order
-6530	[宝石]アンモライト	13	high	wiki/order
-6531	[宝石]スピネル	13	high	wiki/order
-6532	[宝石]タイガーズアイ	13	high	wiki/order
-6533	[宝石]タンザナイト	13	high	wiki/order
-6534	[宝石]フローライト	13	high	wiki/order
-6535	[宝石]ヘリオドール	13	high	wiki/order
-6536	[宝石]ペリドット	13	high	wiki/order
-6537	[宝石]ユークレース	13	high	wiki/order
-6538	[宝石]カーネリアン	13	high	wiki/order
-6539	[宝石]サンストーン	13	high	wiki/order
-6540	[宝石]セレスタイト	13	high	wiki/order
-6541	[宝石]チタナイト	13	high	wiki/order
-6542	[宝石]アズライト	13	high	wiki/order
-6543	[宝石]アンバー	13	high	wiki/order
-6544	[宝石]カイヤナイト	13	high	wiki/order
-6545	[宝石]ジェダイト	13	high	wiki/order
-6546	[宝石]ハイアシンス	13	high	wiki/order
-6547	[宝石]パイロープ	13	high	wiki/order
-6548	[宝石]モルガナイト	13	high	wiki/order
-6549	[宝石]ルチル	13	high	wiki/order
-6550	[宝石]アイオライト	13	high	wiki/order
-6551	[宝石]ヴィリュアイト	13	high	wiki/order
-6552	[宝石]カルサイト	13	high	wiki/order
-6553	[宝石]クンツァイト	13	high	wiki/order
-6554	[宝石]スフェーン	13	high	wiki/order
-6555	[宝石]ゾイサイト	13	high	wiki/order
-6556	[宝石]トリフェーン	13	high	wiki/order
-6557	[宝石]プラシオライト	13	high	wiki/order
-7001	頭陀袋	14	confirmed	screenshot+save
-7002	座敷童子の頭巾	14	confirmed	screenshot+save
-7003	幸運のコイン	14	confirmed	screenshot+save
-7005	火竜の秘石	14	confirmed	screenshot+save
-7026	貯金箱	14	confirmed	screenshot+save
-9012	身体強化術※人間専用	16	confirmed	screenshot+save
-9014	暗黒教典※ノーム専用	16	confirmed	screenshot+save
-9021	竜の爪※女性専用※ドラゴニュート専用	16	confirmed	screenshot+save
+base_id	name	category_id	subgroup	confidence	source	observed_version	status
+0101	レイピア	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0102	ミスリルレイピア	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0103	ロイヤルレイピア	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0104	カイザーサーベル	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0105	エンシェントサーベル	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0106	ドラゴンサーベル	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0107	アダマントサーベル	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0108	神魔サーベル	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0109	カイザーナックル	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0110	ドラゴンナックル	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0501	騎士の突剣	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0502	フェンシングサーベル	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0503	急所突きの小剣	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0504	魔獣の爪	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0505	マジックレイピア	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0506	脇差し	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0507	小太刀	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0508	妖獣の爪	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0509	舞姫の小剣	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0510	含み針	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0511	手裏剣	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0513	風魔手裏剣	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0514	エストック	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0515	ギガントナックル	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0516	特注のサーベル	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0518	ジャックナイフ	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0519	つらぬきの短刀	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0520	クリスナイフ	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0521	スクリュードライバー	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0522	クイックレイピア	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0523	王家の小剣	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0524	白銀に輝く神剣	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0525	熊の爪	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0526	バーバリアンナックル	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0527	マスターナックル	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0528	チェイサーナイフ	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0529	黄泉の戦輪	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0531	金剛円月輪	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0533	悪のサーベル	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0534	恐竜の爪	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0535	トリケラトプスの角	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0537	点牙突剣	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0538	魔王の爪	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0539	アークウィップ	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0540	九尾の鞭	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0541	虹色小剣	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0542	クイーンビュート	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0543	神罰のムチ	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0544	断罪のサーベル	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0546	ライトセイバー	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0547	次元ナイフ	1	Wep1	confirmed	ipa-v5.10-static	5.10	selectable
+0113	ロングソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+0114	ミスリルソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+0115	ロイヤルソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+0116	カイザーソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+0117	エンシェントソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+0118	ドラゴンソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+0119	アダマントソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+0120	神魔ソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1001	アサシンダガー	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1002	モンスターキラー	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1003	アンデッドキラー	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1004	ドラゴンキラー	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1005	ゴッドキラー	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1006	ナイトソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1007	ニンジャソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1008	マスターソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1009	魔剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1010	ファルシオン	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1011	フランベルジュ	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1012	バスタードソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1013	クレイモア	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1014	グレートソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1015	草薙の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1016	パラディンソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1017	竜牙の長剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1018	特注の大剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1019	捨て身の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1020	盲人の呪剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1021	狂戦士の魔剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1022	仁王の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1023	七光りの剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1024	不死者の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1025	魔法使いの守護剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1026	僧侶の守護剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1027	戦士の守護剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1028	忍者の守護剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1029	賢者の守護剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1030	君主の守護剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1031	マジックソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1032	マジックソード改	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1033	魔法の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1034	眠りの剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1035	紅蓮の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1036	吹雪の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1037	軍神の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1038	稲妻の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1039	破壊の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1040	癒しの剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1041	守護の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1042	妖精の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1043	回復の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1044	結界の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1045	女神の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1046	神秘の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1047	魔法剣『魔矢』	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1048	魔法剣『幻夢』	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1049	魔法剣『紅蓮』	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1050	魔法剣『吹雪』	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1051	魔法剣『軍神』	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1052	魔法剣『稲妻』	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1053	魔法剣『破壊』	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1055	魔法剣『守護』	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1056	魔法剣『妖精』	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1058	魔法剣『結界』	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1059	魔法剣『女神』	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1061	トゥハンドソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1062	ディフェンダー	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1063	フレイムタン	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1064	アイスブランド	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1065	オートクレール	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1066	雷神剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1067	勇者の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1068	キルソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1069	テンプルソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1070	ハイランダーソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1071	ルミナスソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1072	赤竜の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1074	龍王の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1075	名剣バルムンク	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1076	ブリュンヒルドの剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1077	神殺しの剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1078	天轟雲剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1079	建御雷神剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1080	傭兵の大剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1081	剣聖の守護剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1082	侍の守護剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1083	王族の守護剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1084	秘法剣士の守護剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1085	神魔の守護剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1086	クリティカルソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1087	クルセイダーソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1088	アンバーソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1089	ブレイブブレイド	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1090	ギガントブレイド	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1091	闇討ちの剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1092	ホーリーソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1093	黒騎士の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1094	阿修羅の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1095	トリプルソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1096	天竜剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1097	巨大剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1098	リチャードの剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1099	シャイニングソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1100	ゴッズボルボソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1101	悪魔将軍の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1102	デビルソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1103	プリンセスソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1104	光輝の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1105	ドミニオンソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1106	麒麟の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1107	エクスカリバー	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1108	デスブリンガー	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1109	魔人の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1110	皆殺しの剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1111	ヴァルキリーソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1112	ミラクルソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1113	オメガパーツ『剣』	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1114	ヴォーパルソード	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+1115	覇者の剣	2	Wep2	confirmed	ipa-v5.10-static	5.10	selectable
+0121	日本刀	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+0122	名刀コテツ	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+0123	菊一文字	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+0124	国綱の太刀	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+0125	村正	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+0126	竜刀	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+0127	金剛刀	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+0128	神魔刀	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1501	木刀	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1502	長刀物干竿	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1503	斬馬刀	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1504	小烏丸	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1505	備前長船	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1506	大典太光世	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1507	三日月宗近	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1509	陸奥守吉行	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1510	バトルアクス	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1511	グレートアクス	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1512	巨人の戦斧	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1513	一撃の魔斧	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1514	雷衝槍	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1515	陽炎の刀	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1516	武士の魂	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1517	方天画戟	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1518	魔獣の太刀	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1519	クロスハンマー	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1520	チェーンソー	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1521	竜砕きの斧	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1522	氷竜の槍	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1523	七支刀	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1524	数珠丸恒次	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1525	海竜の太刀	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1526	原始の斧	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1528	神威の大太刀	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1529	獅子王刀	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1530	鬼丸国綱	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1531	竜人王の槍	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1532	国護りの刀	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1533	聖なる槍	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1535	神獣の槍	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1536	雷切	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1537	マサムネ	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1538	魔人の刀	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1539	妖刀村雨	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1540	破壊の斧	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+1542	ヘラクレスの棍棒	3	Wep3	confirmed	ipa-v5.10-static	5.10	selectable
+0129	ロングボウ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+0130	ミスリルボウ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+0131	ロイヤルボウ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+0132	カイザーボウ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+0133	エンシェントボウ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+0134	ドラゴンボウ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+0135	アダマントボウ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+0136	神魔弓	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2001	キラーボウ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2002	シルバーボウ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2003	狩人の弓	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2004	竜殺しの弓	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2005	ゴッドハンター	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2006	ボウガン	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2007	マジックボウ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2009	大弓	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2010	アーバレスト	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2011	エルブンボウ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2012	ミラクルボウ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2013	クロスボウ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2014	呂布の弓	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2015	勇者の弓	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2016	黒塗りの弓	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2017	ハイランダーボウ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2019	クイーンボウ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2021	短銃	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2022	長銃	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2026	連弩	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2028	天使の弓	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2029	摩天楼の弓	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2030	将軍の弓	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2031	トリトンの弓	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2033	黄金の弓	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2034	エーテルライフル	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2035	剛弓サジタリウス	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2036	ガーンデーヴァ	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2037	ヘラクレスの弓	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2038	アルテミスの弓	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2039	竜星弓	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2040	ロングライフル	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+2041	バズーカ砲	4	Wep4	confirmed	ipa-v5.10-static	5.10	selectable
+0137	アーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+0138	ミスリルアーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+0139	ロイヤルアーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+0140	カイザーアーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+0141	エンシェントアーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+0142	ドラゴンアーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+0143	アダマントアーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+0144	神魔アーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2502	暗殺者の服	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2503	舞姫の衣	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2504	仁王の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2505	歴戦の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2506	パラディンアーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2507	頑固な鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2508	機械の体	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2509	溶ける鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2510	血塗られた鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2511	豪華な鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2512	大鱗の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2513	ケブラーアーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2514	ミラーアーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2515	ドラゴンメイル	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2516	ライトアーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2517	ブルーメタルアーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2518	深紅の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2519	白銀の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2520	緑竜の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2522	王家の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2523	英雄の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2524	金竜の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2526	ファフニールの竜血	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2527	勇者の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2528	ヒドラアーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2529	赤胴の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2530	黒騎士の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2531	アークナイトアーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2532	クルセイダーアーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2533	ボーンアーマー	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2534	デモンズメイル	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2535	源氏の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2536	防刃の陣羽織	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2537	悪魔王の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2538	黄金の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+2539	冥界の鎧	5	Amr1	confirmed	ipa-v5.10-static	5.10	selectable
+0145	フルプレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0146	ミスリルプレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0147	ロイヤルプレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0148	カイザープレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0149	エンシェントプレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0150	ドラゴンプレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0151	アダマントプレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0152	神魔プレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0269	ヘビィメイル	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0270	ミスリルヘビィメイル	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0271	ロイヤルヘビィメイル	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0272	カイザーヘビィメイル	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0273	エンシェントヘビィメイル	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0274	ドラゴンヘビィメイル	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0275	アダマントヘビィメイル	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0276	神魔ヘビィメイル	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3002	ジャイアントプレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3004	合金の重鎧	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3005	重装甲鎧	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3006	ガーディアンプレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3007	ダマスカスプレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3008	アイスプレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3009	ファイヤープレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3010	ジェネラルプレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3012	フルメタルプレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3013	マッスルスーツ	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3015	ウェディングドレス	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3016	金剛武者鎧	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3018	赤竜鱗超重鎧	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3019	氷竜鱗超重鎧	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3020	雷竜鱗超重鎧	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3021	黒竜鱗超重鎧	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3022	緑竜鱗超重鎧	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3023	銀竜鱗超重鎧	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3024	金竜鱗超重鎧	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3025	亀の甲羅	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3026	サンダープレート	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3028	ゴールドクロス	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3031	オメガパーツ『重鎧』	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3032	パワードスーツ	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3033	ダマスカスヘビィメイル	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3034	パワーヘビィメイル	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+3035	ホーリーヘビィメイル	6	Amr2	confirmed	ipa-v5.10-static	5.10	selectable
+0153	シールド	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+0154	ミスリルシールド	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+0155	ロイヤルシールド	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+0156	カイザーシールド	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+0157	エンシェントシールド	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+0158	ドラゴンシールド	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+0159	アダマントシールド	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+0160	神魔シールド	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3501	竜騎士の盾	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3502	水鏡の盾	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3503	神の盾	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3508	マジックアローガード	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3509	ファイヤーガード	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3510	ブリザードガード	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3511	サンダーガード	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3512	ニュークリアガード	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3513	ルーンシールド	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3514	雷竜の盾	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3517	ブルーメタルシールド	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3518	王家の盾	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3521	竜攻障壁	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3522	クルセイダーシールド	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3523	タワーシールド	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3526	闘神の盾	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3527	ボーンシールド	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3528	歪んだ障壁	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3529	金剛障壁	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3530	怪しい盾	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3534	天竜の盾	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3535	オメガパーツ『盾』	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3538	戦友の盾	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+3539	八岐大蛇の鱗盾	7	Shi	confirmed	ipa-v5.10-static	5.10	selectable
+0161	ガントレット	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+0162	ミスリルガントレット	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+0163	ロイヤルガントレット	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+0164	カイザーガントレット	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+0165	エンシェントガントレット	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+0166	ドラゴンガントレット	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+0167	アダマントガントレット	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+0168	神魔ガントレット	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4001	盗賊の小手	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4002	忍者の手甲	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4003	パワーリスト	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4004	ナイトガントレット	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4005	銀の小手	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4006	魔法の小手	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4007	狂戦士の小手	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4008	深紅の小手	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4009	将軍の小手	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4010	氷竜の小手	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4012	十の手足	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4013	ファイナルビート	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4014	亡霊の小手	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4015	星降る腕輪	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4016	光る腕輪	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4017	白い腕輪	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4018	黒い腕輪	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4019	ゴッドハンド	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4020	死竜の小手	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4021	黄金の腕輪	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4022	奇跡の腕輪	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4023	武神の小手	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4024	源氏の小手	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4025	オメガパーツ『小手』	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4026	激闘の小手	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+4027	竜人王の小手	8	Gnt	confirmed	ipa-v5.10-static	5.10	selectable
+0169	ワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+0170	ミスリルワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+0171	ロイヤルワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+0172	カイザーワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+0173	エンシェントワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+0174	ドラゴンワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+0175	アダマントワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+0176	神魔ワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4501	ウィザードワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4502	森の杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4503	神の杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4504	竜の杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4505	マジックワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4506	ファイアーワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4507	アイスワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4508	サンダーワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4509	ニュークリアワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4510	ネクロマンサーの杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4511	魔力を帯びた杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4512	燃えさかる杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4513	凍りついた杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4514	帯電した杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4515	魔竜の牙杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4516	火竜の牙杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4517	氷竜の牙杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4518	雷竜の牙杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4519	神竜の牙杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4520	核暴走	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4521	ルーンスタッフ	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4524	暗黒魔導士の杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4525	大魔導師の杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4526	魔女の杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4528	ダークワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4529	ルミナスワンド	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4530	隠者の杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4531	隕石の杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4532	悪魔の杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4533	古竜の杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4534	ねじれの杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+4535	魔王の杖	9	Wnd1	confirmed	ipa-v5.10-static	5.10	selectable
+0177	ロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+0178	ミスリルロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+0179	ロイヤルロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+0180	カイザーロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+0181	エンシェントロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+0182	ドラゴンロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+0183	アダマントロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+0184	神魔ロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5001	プリーストロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5002	ヒールロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5003	ヒールプラスロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5004	パーティヒールロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5005	癒しのタブレット	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5006	回復のタブレット	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5007	神秘のタブレット	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5008	令嬢の杖	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5009	ナイチンゲール	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5010	エルフの杖	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5011	バリアロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5012	白魔導士の杖	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5013	王女の杖	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5014	精霊の杖	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5015	エンジェルロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5016	スターロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5017	ミストロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5018	プラチナロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5019	レイズロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5020	ドリームロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5021	プロテクトロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5022	光の杖	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5023	タートルロッド	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5024	王者の杖	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+5025	大僧正の杖	10	Wnd2	confirmed	ipa-v5.10-static	5.10	selectable
+0185	魔書『魔矢の基礎』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0187	魔書『火炎の基礎』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0188	魔書『氷結の基礎』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0190	魔書『稲妻の基礎』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0191	魔書『核力の基礎』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0192	神書『回復の基礎』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0195	神書『大回復の基礎』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0198	神書『全体回復の基礎』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0199	忘却の書『マジックアロー』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0200	忘却の書『スリープクラウド』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0201	忘却の書『ファイアーボール』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0202	忘却の書『ブリザード』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0203	忘却の書『アタックアップ』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0204	忘却の書『サンダーボルト』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0205	忘却の書『ニュークリア』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0206	忘却の書『ヒール』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0207	忘却の書『シールドバリア』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0208	忘却の書『キュア』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0209	忘却の書『ヒールプラス』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0210	忘却の書『マジックバリア』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0211	忘却の書『フルヒール』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0212	忘却の書『パーティヒール』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5501	魔道教典Lv1『魔法の矢』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5502	魔道教典Lv2『眠りの雲』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5503	魔道教典Lv3『炎の玉』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5504	魔道教典Lv4『凍える吹雪』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5505	魔道教典Lv5『狂気の解放』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5506	魔道教典Lv6『神の雷』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5507	魔道教典Lv7『禁断の力』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5508	神聖教典Lv1『癒しの法』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5509	神聖教典Lv2『守護の法』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5510	神聖教典Lv3『治療の法』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5511	神聖教典Lv4『回復の法』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5512	神聖教典Lv5『結界の法』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5513	神聖教典Lv6『女神の法』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5514	神聖教典Lv7『神秘の法』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5515	呪文書『魔法の矢』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5516	呪文書『眠りの雲』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5517	呪文書『炎の玉』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5518	呪文書『凍える吹雪』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5519	呪文書『狂気の解放』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5520	呪文書『神の雷』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5521	呪文書『禁断の力』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5524	忘却の書Lv5	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5525	忘却の書『炎氷』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5526	忘却の書『雷矢』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5527	忘却の書『幻軍』	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5528	白魔術の極意書	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5529	黒魔術の極意書	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5530	冒険者マニュアル	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5531	スペルブック	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5532	分厚い本	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5533	賢者の書	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5534	攻めの極意書	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5537	邪神の書	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5538	悪魔教典	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5539	魂のアルバム	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5540	鬼神の技書	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5541	達人の技書	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5542	魔矢の技書	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5543	保身の書	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5545	必殺連撃の技書	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5546	天罰の書	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+5547	進化の書	11	Book	confirmed	ipa-v5.10-static	5.10	selectable
+0213	ローブ	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+0214	ミスリルローブ	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+0215	ロイヤルローブ	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+0216	カイザーローブ	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+0217	エンシェントローブ	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+0218	ドラゴンローブ	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+0219	アダマントローブ	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+0220	神魔ローブ	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+0229	シープガープ	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6001	ニンジャガープ	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6002	ナイトクローク	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6003	パラディンクローク	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6004	司祭の法衣	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6005	力士の帯	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6007	ねじりはちまき	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6008	マジカルローブ	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6009	白のマント	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6010	黒のマント	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6011	ルミナスローブ	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6014	エーテルマント	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6015	毛皮のコート	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6016	聖なる法衣	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6017	クルセイダークローク	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6018	影のローブ	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6019	天妖の衣	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6020	角竜の衣	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6022	霧隠れの衣	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6023	断罪の黒衣	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6024	天の羽衣	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6026	ミラクルローブ	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6027	魔侯爵の衣	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6028	オメガパーツ『衣』	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6029	偽りのローブ	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6030	神子の法衣	12	Rob	confirmed	ipa-v5.10-static	5.10	selectable
+6501	ダイヤモンド	13	Gem	high	save-analysis+wiki	current	selectable
+6502	サファイア	13	Gem	high	save-analysis+wiki	current	selectable
+6503	ラピスラズリ	13	Gem	high	save-analysis+wiki	current	selectable
+6504	エメラルド	13	Gem	high	save-analysis+wiki	current	selectable
+6505	ムーンストーン	13	Gem	high	save-analysis+wiki	current	selectable
+6506	ブラッドストーン	13	Gem	high	save-analysis+wiki	current	selectable
+6507	ルビー	13	Gem	high	save-analysis+wiki	current	selectable
+6508	アクアマリン	13	Gem	high	save-analysis+wiki	current	selectable
+6509	ガーネット	13	Gem	high	save-analysis+wiki	current	selectable
+6510	トパーズ	13	Gem	high	save-analysis+wiki	current	selectable
+6511	ターコイズ	13	Gem	high	save-analysis+wiki	current	selectable
+6512	アメジスト	13	Gem	high	save-analysis+wiki	current	selectable
+6513	オブシディアン	13	Gem	high	save-analysis+wiki	current	selectable
+6514	ブラックオパール	13	Gem	high	save-analysis+wiki	current	selectable
+6515	オパール	13	Gem	high	save-analysis+wiki	current	selectable
+6516	ジルコン	13	Gem	high	save-analysis+wiki	current	selectable
+6517	トルマリン	13	Gem	high	save-analysis+wiki	current	selectable
+6518	パール	13	Gem	high	save-analysis+wiki	current	selectable
+6519	クリスタル	13	Gem	high	save-analysis+wiki	current	selectable
+6520	キャッツアイ	13	Gem	high	save-analysis+wiki	current	selectable
+6521	アレクサンドライト	13	Gem	high	save-analysis+wiki	current	selectable
+6522	マラカイト	13	Gem	high	save-analysis+wiki	current	selectable
+6523	ローズクォーツ	13	Gem	high	save-analysis+wiki	current	selectable
+6524	ヘリオライト	13	Gem	high	save-analysis+wiki	current	selectable
+6525	アパタイト	13	Gem	high	save-analysis+wiki	current	selectable
+6526	インカローズ	13	Gem	high	save-analysis+wiki	current	selectable
+6527	クォーツ	13	Gem	high	save-analysis+wiki	current	selectable
+6528	マーブル	13	Gem	high	save-analysis+wiki	current	selectable
+6529	アマゾナイト	13	Gem	high	save-analysis+wiki	current	selectable
+6530	アンモライト	13	Gem	high	save-analysis+wiki	current	selectable
+6531	スピネル	13	Gem	high	save-analysis+wiki	current	selectable
+6532	タイガーズアイ	13	Gem	high	save-analysis+wiki	current	selectable
+6533	タンザナイト	13	Gem	high	save-analysis+wiki	current	selectable
+6534	フローライト	13	Gem	high	save-analysis+wiki	current	selectable
+6535	ヘリオドール	13	Gem	high	save-analysis+wiki	current	selectable
+6536	ペリドット	13	Gem	high	save-analysis+wiki	current	selectable
+6537	ユークレース	13	Gem	high	save-analysis+wiki	current	selectable
+6538	カーネリアン	13	Gem	high	save-analysis+wiki	current	selectable
+6539	サンストーン	13	Gem	high	save-analysis+wiki	current	selectable
+6540	セレスタイト	13	Gem	high	save-analysis+wiki	current	selectable
+6541	チタナイト	13	Gem	high	save-analysis+wiki	current	selectable
+6542	アズライト	13	Gem	high	save-analysis+wiki	current	selectable
+6543	アンバー	13	Gem	high	save-analysis+wiki	current	selectable
+6544	カイヤナイト	13	Gem	high	save-analysis+wiki	current	selectable
+6545	ジェダイト	13	Gem	high	save-analysis+wiki	current	selectable
+6546	ハイアシンス	13	Gem	high	save-analysis+wiki	current	selectable
+6547	パイロープ	13	Gem	high	save-analysis+wiki	current	selectable
+6548	モルガナイト	13	Gem	high	save-analysis+wiki	current	selectable
+6549	ルチル	13	Gem	high	save-analysis+wiki	current	selectable
+6550	アイオライト	13	Gem	high	save-analysis+wiki	current	selectable
+6551	ヴィリュアイト	13	Gem	high	save-analysis+wiki	current	selectable
+6552	カルサイト	13	Gem	high	save-analysis+wiki	current	selectable
+6553	クンツァイト	13	Gem	high	save-analysis+wiki	current	selectable
+6554	スフェーン	13	Gem	high	save-analysis+wiki	current	selectable
+6555	ゾイサイト	13	Gem	high	save-analysis+wiki	current	selectable
+6556	トリフェーン	13	Gem	high	save-analysis+wiki	current	selectable
+6557	プラシオライト	13	Gem	high	save-analysis+wiki	current	selectable
+0230	盗賊の小道具	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0231	大盗賊の小道具	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0232	怪盗の小道具	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0233	大怪盗の小道具	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0234	忍者の小道具	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0235	隠遁者の小道具	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0238	生命の護符40	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0239	生命の護符60	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0240	生命の護符80	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0241	生命の護符100	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0242	生命の護符150	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0247	結界のオーブ	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0252	魔導士の杖	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0253	爆炎の杖	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0254	吹雪の杖	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0255	稲妻の杖	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0256	核の杖	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+0257	行商人お断りの札	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7001	頭陀袋	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7002	座敷童子の頭巾	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7003	幸運のコイン	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7004	奇跡のコイン	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7005	火竜の秘石	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7006	氷竜の秘石	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7007	雷竜の秘石	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7008	先制の指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7009	鈍足の指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7010	神秘の石	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7011	賢者の石	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7012	吸血鬼の杯	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7013	恐竜の卵	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7014	ピッキングツール	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7015	ロケットブーツ	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7017	ルナストーン	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7018	雪女の結晶	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7019	生命の果実	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7020	成長と財産の宝珠	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7023	不死身の薬	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7024	アイテムでるでる	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7025	隠れ蓑	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7026	貯金箱	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7027	パワードギブス	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7028	危険な薬	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7029	サキュバスリップ	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7030	なぞなぞ	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7031	氷のオーブ	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7032	特権階級章	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7033	騎士の勲章	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7034	竜薬	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7037	金のガチョウ	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7039	八咫鏡	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7041	大天使の羽根	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7042	狂宴の杯	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7043	ロケットブースター	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7044	炎を司る悪魔像	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7045	悪魔の吐息	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7047	招き猫	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7048	ドラゴンオーブ	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7049	魔神像	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7050	竜人の秘薬	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7051	怪力の薬	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7052	屈せぬ心	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7053	ブレイブハート	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7054	反魂香	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7055	八岐の勾玉	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7056	大蛇の血	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7057	天駆ける戦車	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7058	国崩しの宝珠	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7201	力の指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7202	精神の指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7203	知恵の指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7204	体力の指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7205	敏捷の指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7206	運の指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7207	守りの指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7208	保護の指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7209	みかわしの指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7210	癒しの指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7211	悪魔の指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7212	王家の指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7213	やすらぎの指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7214	ニーベルングの指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7215	竜王の指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7216	生贄の指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7219	支配者の指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7223	神獣の指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable
+7226	ソロモンの指輪	14	Oth	confirmed	ipa-v5.10-static	5.10	selectable

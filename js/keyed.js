@@ -50,7 +50,7 @@ class KeyedArchive{
   arrayRaw(ref){const o=this.raw(ref);if(!['NSArray','NSMutableArray','NSSet','NSMutableSet'].includes(this.className(o)))throw Error('arrayではありません');return o;}
   arrayRefs(ref){return [...(this.arrayRaw(ref)['NS.objects']||[])];}
   setArray(ref,vals){this.arrayRaw(ref)['NS.objects']=vals.map(v=>this.makeRef(v));this.dirty=true;}
-  toBytes(){return BPList.write(this.root);}
+  toBytes(){return !this.dirty&&this.originalBytes?this.originalBytes:BPList.write(this.root);}
 }
 function isBplist(u){return u instanceof Uint8Array&&new TextDecoder().decode(u.slice(0,8))==='bplist00';}
 g.G2Keyed={KeyedArchive,isBplist};

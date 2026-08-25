@@ -1,0 +1,52 @@
+name: Publish g2e to n4okins.com
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-g2e
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Guild2 Editor source
+        uses: actions/checkout@v4
+
+      - name: Checkout public Pages repository
+        uses: actions/checkout@v4
+        with:
+          repository: n4okins/n4okins.github.io
+          token: ${{ secrets.G2E_PUBLISH_TOKEN }}
+          path: _public
+
+      - name: Stage static site under /g2e
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf _public/g2e
+          mkdir -p _public/g2e
+          cp index.html _public/g2e/index.html
+          cp -R css js data _public/g2e/
+          printf '%s\n' "${GITHUB_SHA}" > _public/g2e/.source-commit
+
+      - name: Commit and push public artifacts
+        shell: bash
+        working-directory: _public
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A g2e
+          if git diff --cached --quiet; then
+            echo "No public artifact changes."
+            exit 0
+          fi
+          git commit -m "Publish g2e from guild2editor ${GITHUB_SHA::7}"
+          git push origin HEAD:main

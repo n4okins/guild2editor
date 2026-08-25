@@ -1,25 +1,57 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#17120d">
 <title>Guild2 Editor</title>
 <link rel="stylesheet" href="css/guild2.css">
 </head>
 <body>
 <div class="app-shell">
-  <header class="topbar"><div class="crest">G2</div><div><h1>冒険者ギルド物語2</h1><div class="subtitle">SAVE EDITOR</div></div><div class="top-actions"><button id="openBtn" class="gold">セーブを開く</button><button id="exportBtn" disabled>ZIP書き出し</button><input id="fileInput" type="file" accept=".zip,.tmp2,.plist" hidden></div></header>
-  <section class="statusbar"><span id="fileStatus">セーブ未読込</span><span id="dirtyStatus">未変更</span><span id="tmp3Status">tmp3 —</span></section>
-  <nav class="tabs"><button class="tab active" data-tab="overview">概要</button><button class="tab" data-tab="characters">冒険者</button><button class="tab" data-tab="items">アイテム</button><button class="tab" data-tab="resources">資源・状態</button><button class="tab" data-tab="raw">高度編集</button></nav>
-  <main>
-    <section id="overview" class="panel active"><div class="hero-card"><div><div class="eyebrow">SAVE DATA</div><h2>セーブデータエディタ</h2><p>ZIPをブラウザへ読み込み、編集結果をローカルで再構成します。セーブデータはサーバーへ送信しません。</p></div><div class="drop" id="drop"><strong>ZIPをここへ</strong><span>または「セーブを開く」</span></div></div><div id="summary" class="grid"></div><div class="notice">v5.10系のZIP import64ではtmp3の64桁値の前半32桁が内容検証に使われます。後半は移行先で再生成される値です。</div></section>
-    <section id="characters" class="panel"><div class="section-head"><div><div class="eyebrow">CHARACTERS</div><h2>冒険者</h2></div><button id="addChar" disabled>複製して追加</button></div><div id="charList" class="list"></div></section>
-    <section id="items" class="panel"><div class="section-head"><div><div class="eyebrow">INVENTORY</div><h2>アイテム</h2></div><button id="addItem" disabled>追加</button></div><div id="itemList" class="list"></div></section>
-    <section id="resources" class="panel"><div class="section-head"><div><div class="eyebrow">GUILD STATUS</div><h2>資源・状態</h2></div></div><div id="resourceForm" class="form-grid"></div></section>
-    <section id="raw" class="panel"><div class="section-head"><div><div class="eyebrow">ADVANCED</div><h2>高度編集</h2></div><button id="validateBtn" disabled>整合性検査</button></div><div id="rawInfo"></div><textarea id="rawJson" spellcheck="false" placeholder="読込後にNSKeyedArchiverの概要が表示されます"></textarea></section>
+  <header class="game-header">
+    <div class="brand-seal" aria-hidden="true"><span>冒</span></div>
+    <div class="brand"><div class="brand-main">冒険者ギルド物語２</div><div class="brand-sub">SAVE DATA EDITOR</div></div>
+    <div class="header-actions"><button id="openBtn" class="game-button primary">セーブを開く</button><button id="exportBtn" class="game-button" disabled>書き出す</button><input id="fileInput" type="file" accept=".zip" hidden></div>
+  </header>
+  <div class="status-strip"><span id="fileStatus">セーブデータ未読込</span><span id="saveMeta">—</span><span id="dirtyStatus">変更なし</span></div>
+  <nav class="game-tabs" aria-label="編集項目">
+    <button class="tab active" data-tab="home">ギルド</button><button class="tab" data-tab="characters">冒険者</button><button class="tab" data-tab="items">倉庫</button><button class="tab" data-tab="resources">資源</button><button class="tab" data-tab="advanced">内部情報</button>
+  </nav>
+  <main class="game-main">
+    <section id="home" class="panel active">
+      <div class="story-box"><div class="story-title">Guild2 Save Editor</div><p>セーブZIPを端末内だけで解析・編集します。ファイル内容はこのサイトから外部へ送信しません。</p></div>
+      <div id="drop" class="drop-zone"><div class="drop-icon">ZIP</div><strong>セーブデータをここへドロップ</strong><span>または上部の「セーブを開く」</span></div>
+      <div id="summary" class="summary-grid"></div>
+      <div id="startupNotice" class="notice">データ定義を読み込み中…</div>
+    </section>
+
+    <section id="characters" class="panel">
+      <div class="panel-title"><div><small>ADVENTURERS</small><h1>冒険者一覧</h1></div><button id="cloneCharBtn" class="game-button" disabled>選択中を複製</button></div>
+      <div class="split-view"><aside><div id="charList" class="char-list"></div></aside><article id="charEditor" class="editor-card empty">冒険者を選択してください。</article></div>
+    </section>
+
+    <section id="items" class="panel">
+      <div class="panel-title"><div><small>WAREHOUSE</small><h1>倉庫アイテム</h1></div><button id="addItemBtn" class="game-button" disabled>アイテム追加</button></div>
+      <div class="filter-row"><input id="itemSearch" class="game-input" placeholder="名称 / ID / 称号で検索"><select id="itemCategory" class="game-input"><option value="">全カテゴリ</option></select></div>
+      <div class="table-wrap"><table class="game-table"><thead><tr><th>名称</th><th>ID</th><th>分類</th><th>個数</th><th></th></tr></thead><tbody id="itemRows"></tbody></table></div>
+    </section>
+
+    <section id="resources" class="panel">
+      <div class="panel-title"><div><small>GUILD STATUS</small><h1>資源・アドオン</h1></div></div>
+      <div id="resourceForm" class="resource-grid"></div>
+    </section>
+
+    <section id="advanced" class="panel">
+      <div class="panel-title"><div><small>ADVANCED DATA</small><h1>内部情報</h1></div><button id="validateBtn" class="game-button" disabled>整合性検査</button></div>
+      <div id="validation" class="notice">未検査</div>
+      <div class="advanced-grid"><div class="editor-card"><h2>トップレベル項目</h2><input id="entrySearch" class="game-input" placeholder="キー検索"><div id="entryList" class="entry-list"></div></div><div class="editor-card"><h2>選択項目</h2><div id="entryEditor">左から項目を選択してください。</div></div></div>
+    </section>
   </main>
-  <footer><span>Guild2 Editor — client-side static build</span><span id="build">v0.1-static</span></footer>
+  <footer><span>Guild2 Editor</span><span id="buildLabel">static v0.2</span></footer>
 </div>
-<div id="toast" class="toast"></div>
-<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-<script src="js/md5.js"></script><script src="js/bplist.js"></script><script src="js/model.js"></script><script src="js/app.js"></script>
+<dialog id="itemDialog" class="game-dialog"><form method="dialog"><h2>アイテム追加</h2><label>基礎アイテム<select id="addBase" class="game-input"></select></label><label>カテゴリ<select id="addCategory" class="game-input"></select></label><label>通常称号<select id="addTitle" class="game-input"></select></label><label>超レア称号<select id="addUltra" class="game-input"></select></label><label>個数<input id="addQuantity" class="game-input" type="number" min="1" value="1"></label><div id="addCodePreview" class="code-preview"></div><div class="dialog-actions"><button value="cancel" class="game-button">キャンセル</button><button id="confirmAddItem" value="default" class="game-button primary">追加</button></div></form></dialog>
+<div id="toast" class="toast" role="status"></div>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous"></script>
+<script src="js/md5.js"></script><script src="js/bplist.js"></script><script src="js/keyed.js"></script><script src="js/model.js"></script><script src="js/app.js"></script>
 </body></html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guild2 Editor</title>
+<link rel="stylesheet" href="css/guild2.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar"><div class="crest">G2</div><div><h1>冒険者ギルド物語2</h1><div class="subtitle">SAVE EDITOR</div></div><div class="top-actions"><button id="openBtn" class="gold">セーブを開く</button><button id="exportBtn" disabled>ZIP書き出し</button><input id="fileInput" type="file" accept=".zip,.tmp2,.plist" hidden></div></header>
+  <section class="statusbar"><span id="fileStatus">セーブ未読込</span><span id="dirtyStatus">未変更</span><span id="tmp3Status">tmp3 —</span></section>
+  <nav class="tabs"><button class="tab active" data-tab="overview">概要</button><button class="tab" data-tab="characters">冒険者</button><button class="tab" data-tab="items">アイテム</button><button class="tab" data-tab="resources">資源・状態</button><button class="tab" data-tab="raw">高度編集</button></nav>
+  <main>
+    <section id="overview" class="panel active"><div class="hero-card"><div><div class="eyebrow">SAVE DATA</div><h2>セーブデータエディタ</h2><p>ZIPをブラウザへ読み込み、編集結果をローカルで再構成します。セーブデータはサーバーへ送信しません。</p></div><div class="drop" id="drop"><strong>ZIPをここへ</strong><span>または「セーブを開く」</span></div></div><div id="summary" class="grid"></div><div class="notice">v5.10系のZIP import64ではtmp3の64桁値の前半32桁が内容検証に使われます。後半は移行先で再生成される値です。</div></section>
+    <section id="characters" class="panel"><div class="section-head"><div><div class="eyebrow">CHARACTERS</div><h2>冒険者</h2></div><button id="addChar" disabled>複製して追加</button></div><div id="charList" class="list"></div></section>
+    <section id="items" class="panel"><div class="section-head"><div><div class="eyebrow">INVENTORY</div><h2>アイテム</h2></div><button id="addItem" disabled>追加</button></div><div id="itemList" class="list"></div></section>
+    <section id="resources" class="panel"><div class="section-head"><div><div class="eyebrow">GUILD STATUS</div><h2>資源・状態</h2></div></div><div id="resourceForm" class="form-grid"></div></section>
+    <section id="raw" class="panel"><div class="section-head"><div><div class="eyebrow">ADVANCED</div><h2>高度編集</h2></div><button id="validateBtn" disabled>整合性検査</button></div><div id="rawInfo"></div><textarea id="rawJson" spellcheck="false" placeholder="読込後にNSKeyedArchiverの概要が表示されます"></textarea></section>
+  </main>
+  <footer><span>Guild2 Editor — client-side static build</span><span id="build">v0.1-static</span></footer>
+</div>
+<div id="toast" class="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="js/md5.js"></script><script src="js/bplist.js"></script><script src="js/model.js"></script><script src="js/app.js"></script>
+</body></html>

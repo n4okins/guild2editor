@@ -1,0 +1,26 @@
+{
+  "source": "provided save / analysis",
+  "observedKeys": [
+    "_title",
+    "_level",
+    "_number",
+    "_dungeon",
+    "_limitFloor",
+    "_search_Level",
+    "_dungeon_Addition",
+    "_limitTime",
+    "_excuse",
+    "_trapChallenge",
+    "tryDungeon",
+    "_rabbit_used",
+    "_finishDate",
+    "_startDate",
+    "_partyNumber",
+    "_eventCount",
+    "_floorEventCount",
+    "_finishedNumber",
+    "_overTime",
+    "NS.time"
+  ],
+  "confidence": "observed"
+}

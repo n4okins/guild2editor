@@ -1,0 +1,37 @@
+name: Apply v0.5.1 repair patch
+
+on:
+  push:
+    branches: [fix/abnormal-superrare-format]
+    paths: [.github/workflows/apply-v051-fix.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/abnormal-superrare-format
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply fix
+        run: python tools/apply_v051_fix.py
+      - name: Validate generated files
+        run: |
+          node --check js/app.js
+          node --check js/model.js
+          python -m json.tool data/catalog.json >/dev/null
+          python -m json.tool data/rules.json >/dev/null
+          grep -q 'BBBBUUTTGGGG' data/catalog.json
+          grep -q 'sysAPov' js/model.js
+      - name: Commit generated changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add js/app.js js/model.js index.html data/catalog.json data/rules.json .github/workflows/web-validate.yml
+          git commit -m "Fix addon budget detection and super-rare item flags"
+          git push origin HEAD:fix/abnormal-superrare-format

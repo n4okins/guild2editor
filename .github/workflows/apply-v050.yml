@@ -19,7 +19,15 @@ jobs:
         with:
           python-version: '3.12'
       - name: Apply patch
-        run: python tools/apply_v050_patch.py
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('tools/apply_v050_patch.py')
+          s=p.read_text()
+          s=s.replace('out,n=re.subn(pattern,repl,text,count=1,flags=flags)','out,n=re.subn(pattern,lambda _m: repl,text,count=1,flags=flags)')
+          p.write_text(s)
+          PY
+          python tools/apply_v050_patch.py
       - name: Validate syntax
         run: |
           node --check js/app.js

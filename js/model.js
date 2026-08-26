@@ -101,6 +101,16 @@ function repairInventoryDiscoveryFlags(){
   if(added.length){const a=entry('flagItems').archive;a.setArray(a.rootRef(),flags);state.dirty=true;}
   return{changed:added.length,items,added,missingKey:false};
 }
+function canonicalPlainMaterialCode(code){const p=itemParts(code);return `${p.base}00030000`;}
+function specialMaterialIssue(row){if(![17,18].includes(Number(row?.category))||!ITEM_CODE.test(String(row?.code)))return null;const fixed=canonicalPlainMaterialCode(row.code);return String(row.code)===fixed?null:{fixed,category:Number(row.category),old:String(row.code)};}
+function repairSpecialMaterialCodes(){
+  const fixes=[];
+  for(const row of [...state.inventory]){
+    const issue=specialMaterialIssue(row);if(!issue)continue;const a=row.archive,vals=a.decodeRoot(),existing=Number(vals?.[issue.fixed]||0);
+    a.dictDelete(a.rootRef(),row.code);a.dictSet(a.rootRef(),issue.fixed,existing+row.quantity);ensureItemDiscovery(issue.fixed);fixes.push({...issue,quantity:row.quantity});
+  }
+  if(fixes.length){state.dirty=true;loadInventory();}return{changed:fixes.length,fixes};
+}
 function addInventory(category,code,q=1){
   category=Number(category);code=String(code);q=Number(q);
   if(!Number.isInteger(category)||category<0||category>18||!state.entries.has(`items${category}`))throw Error('アイテムカテゴリが不正です');
@@ -196,6 +206,7 @@ function validateCurrent(){
   for(const r of state.inventory){
     if(!ITEM_CODE.test(r.code))errors.push(`${r.key}: 不正なアイテムID ${r.code}`);
     if(!validQuantity(r.quantity)||r.quantity<1)errors.push(`${r.key}/${r.code}: 個数が不正`);
+    const materialIssue=specialMaterialIssue(r);if(materialIssue)errors.push(`${r.code}: カテゴリ${r.category}は無称号固定です。正規ID ${materialIssue.fixed}`);
     if(discovery&&ITEM_CODE.test(r.code)){const missing=itemDiscoveryHashes(r.code).filter(h=>!discovery.has(h));if(missing.length)warnings.push(`${r.code}: flagItemsの発見フラグが${missing.length}件不足`);}
     const p=itemParts(r.code),gem=Number(p.gem),legacy=legacyUltraIssue(r.code);if(legacy)errors.push(`${r.code}: v0.5旧形式の超レア誤書込みです。修復候補 ${legacy.fixed}`);else if(p.gem!=='0000'&&!(Number.isInteger(gem)&&gem>=6501&&gem<=6557))errors.push(`${r.code}: gem欄 ${p.gem} は 0000 または6501～6557である必要があります`);if(p.ultra!=='00'&&!state.catalog?.ultra_titles?.[p.ultra])warnings.push(`${r.code}: 超レア/UQ ID ${p.ultra} はカタログ未登録`);
     const expected=catalogCategoryForCode(r.code);if(expected!==null&&expected!==r.category)warnings.push(`${r.code}: セーブ上カテゴリ${r.category} / カタログ定義${expected}。既存データは保持（カタログの版差・誤同定候補）`);
@@ -214,5 +225,5 @@ function validateCurrent(){
   const abnormal=abnormalFlagReport();for(const h of abnormal.hits)errors.push(`異常フラグ既知条件: ${h.field}=${h.current} ${h.op} ${h.value}`);if(abnormal.flag_present&&!abnormal.paired_present)warnings.push(`異常フラグ ${abnormal.flag} が保存済みです`);
   return{ok:errors.length===0,errors,warnings,abnormal};
 }
-return{state,loadEntries,loadCharacters,loadInventory,entry,get,setScalar,setCharacterField,setCharacterLevel,setCharacterGrowth,setCharacterLineage,raceRule,levelCap,setTraits,setInventory,addInventory,itemDiscoveryFlags,itemDiscoveryHashes,ensureItemDiscovery,repairInventoryDiscoveryFlags,flush,itemParts,itemName,summary,specialCodes,cloneCharacter,deleteCharacter,validateCurrent,catalogCategoryForCode,flagsList,addonPointBudget,unlockAddonMaximum,addonAllocation,setAddon,repairAddonAbnormalFlags,parsePremiumTime,setPremiumTime,refreshTwitterBonus,abnormalFlagReport,legacyUltraIssue,repairLegacyUltra,ultraTitleMeta};
+return{state,loadEntries,loadCharacters,loadInventory,entry,get,setScalar,setCharacterField,setCharacterLevel,setCharacterGrowth,setCharacterLineage,raceRule,levelCap,setTraits,setInventory,addInventory,itemDiscoveryFlags,itemDiscoveryHashes,ensureItemDiscovery,repairInventoryDiscoveryFlags,canonicalPlainMaterialCode,specialMaterialIssue,repairSpecialMaterialCodes,flush,itemParts,itemName,summary,specialCodes,cloneCharacter,deleteCharacter,validateCurrent,catalogCategoryForCode,flagsList,addonPointBudget,unlockAddonMaximum,addonAllocation,setAddon,repairAddonAbnormalFlags,parsePremiumTime,setPremiumTime,refreshTwitterBonus,abnormalFlagReport,legacyUltraIssue,repairLegacyUltra,ultraTitleMeta};
 })();

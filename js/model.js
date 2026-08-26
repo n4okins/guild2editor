@@ -114,6 +114,22 @@ function parsePremiumTime(){
   if(!state.entries.has('premiumTimePoint'))return null;const s=String(get('premiumTimePoint')),r=state.rules?.premium_time||{};
   if(!/^\d{24}$/.test(s))return{valid:false,raw:s,values:[],total:null};const values=[...s].map(Number),valid=values.every(v=>v>=(r.hour_min??0)&&v<=(r.hour_max??3)),total=values.reduce((a,b)=>a+b,0);return{valid:valid&&total<=(r.total_max??32),raw:s,values,total};
 }
+function setPremiumTime(values){
+  const r=state.rules?.premium_time||{},vals=Array.from(values||[],Number);if(vals.length!==(r.hours??24))throw Error('Premium Timeは24時間分必要です');
+  if(vals.some(v=>!Number.isInteger(v)||v<(r.hour_min??0)||v>(r.hour_max??3)))throw Error('Premium Timeは各時間0～3です');
+  const total=vals.reduce((a,b)=>a+b,0);if(total>(r.total_max??32))throw Error(`Premium Time合計は${r.total_max??32}以下です`);
+  const s=vals.join('');setScalar(r.key||'premiumTimePoint',s);const mirror=r.mirror_key||'premiumTimePoint_appo';if(state.entries.has(mirror))setScalar(mirror,s);return{values:vals,total,raw:s,valid:true};
+}
+function refreshTwitterBonus(){
+  const tr=state.rules?.twitter_bonus||{},key=tr.key||'twitter_last_time';if(!state.entries.has(key))return null;
+  let trusted=0,source=null;for(const k of (tr.trusted_time_keys||['last_net_time','last_inner_time']))if(state.entries.has(k)){const v=Number(get(k));if(Number.isSafeInteger(v)&&v>trusted){trusted=v;source=k;}}
+  if(!trusted)return null;setScalar(key,trusted);return{time:trusted,source};
+}
+function abnormalFlagReport(){
+  const r=state.rules?.abnormal_flag||{},hits=[];for(const t of (r.triggers||[])){if(!state.entries.has(t.field))continue;const v=Number(get(t.field));let hit=false;if(t.op==='>')hit=v>t.value;else if(t.op==='>=')hit=v>=t.value;else if(t.op==='<')hit=v<t.value;else if(t.op==='<=')hit=v<=t.value;if(hit)hits.push({...t,current:v});}
+  let flags=[];if(state.entries.has(r.flags_key||'flags')){const v=get(r.flags_key||'flags');if(Array.isArray(v))flags=v.map(String);}
+  return{flag:r.flag||'8d84d86dd',paired_flag:r.paired_flag||'86dd8d84d',flag_present:flags.includes(r.flag||'8d84d86dd'),paired_present:flags.includes(r.paired_flag||'86dd8d84d'),hits};
+}
 function flush(){for(const e of state.entries.values())if(e.archive.dirty){state.outer.raw(e.dataObjectIndex)['NS.data']=e.archive.toBytes();state.outer.dirty=true;}return state.outer.toBytes();}
 function itemParts(code){const s=String(code).padStart(12,'0');return{base:s.slice(0,4),title:s.slice(4,8),ultra:s.slice(8,12)};}
 function itemName(code){const p=itemParts(code),c=state.catalog||{},base=c.items?.[p.base]?.name||`ID ${p.base}`,t=c.normal_titles?.[p.title]||'',u=c.ultra_titles?.[p.ultra]||'';return [u,t==='称号なし'||t==='無称号'?'':t,base].filter(Boolean).join(' ');}
@@ -143,9 +159,10 @@ function validateCurrent(){
   if(state.entries.has('adon_time')){const v=Number(get('adon_time'));if(v!==0)warnings.push(`adon_time=${v}: Ver2.00で廃止された旧時間短縮配分の互換フィールド。v7.30では0維持を推奨`);}
   if(state.entries.has('rabbit')){const v=Number(get('rabbit')),rr=state.rules?.resources?.rabbit||{min:0,max:999};if(!Number.isInteger(v)||v<rr.min||v>rr.max)errors.push(`rabbit=${v}: 許容範囲${rr.min}～${rr.max}外`);}
   for(const k of ['gp','rp','rpPoint'])if(state.entries.has(k)){const v=Number(get(k));if(!Number.isSafeInteger(v)||v<0)errors.push(`${k}=${v}: 0以上の安全な整数ではありません`);}
-  const pt=parsePremiumTime();if(pt&&!pt.valid)warnings.push(`premiumTimePoint=${pt.raw}: 24桁(各0～3、合計32以下)の形式から外れています`);
+  const pt=parsePremiumTime();if(pt&&!pt.valid)errors.push(`premiumTimePoint=${pt.raw}: 24桁(各0～3、合計32以下)の形式から外れています`);
   if(state.entries.has('addition_Number')){const v=Number(get('addition_Number'));if(!Number.isInteger(v)||v<0)warnings.push(`addition_Number=${v}: 負値/非整数`);}
-  return{ok:errors.length===0,errors,warnings};
+  const abnormal=abnormalFlagReport();for(const h of abnormal.hits)errors.push(`異常フラグ既知条件: ${h.field}=${h.current} ${h.op} ${h.value}`);if(abnormal.flag_present&&!abnormal.paired_present)warnings.push(`異常フラグ ${abnormal.flag} が保存済みです`);
+  return{ok:errors.length===0,errors,warnings,abnormal};
 }
-return{state,loadEntries,loadCharacters,loadInventory,entry,get,setScalar,setCharacterField,setCharacterLevel,setCharacterGrowth,setCharacterLineage,raceRule,levelCap,setTraits,setInventory,addInventory,flush,itemParts,itemName,summary,specialCodes,cloneCharacter,deleteCharacter,validateCurrent,catalogCategoryForCode,addonAllocation,setAddon,parsePremiumTime};
+return{state,loadEntries,loadCharacters,loadInventory,entry,get,setScalar,setCharacterField,setCharacterLevel,setCharacterGrowth,setCharacterLineage,raceRule,levelCap,setTraits,setInventory,addInventory,flush,itemParts,itemName,summary,specialCodes,cloneCharacter,deleteCharacter,validateCurrent,catalogCategoryForCode,addonAllocation,setAddon,parsePremiumTime,setPremiumTime,refreshTwitterBonus,abnormalFlagReport};
 })();

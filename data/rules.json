@@ -1,62 +1,440 @@
 {
-  "format_version": 2,
-  "data_version": "2026-08-26-ranges-v2",
+  "format_version": 3,
+  "data_version": "2026-08-26-ranges-v3",
   "character": {
-    "level": {"min": 1, "reset_next_exp_on_change": true},
+    "level": {
+      "min": 1,
+      "reset_next_exp_on_change": true
+    },
     "growth": {
       "min": 0,
       "max": 10,
-      "fields": {"_p_str":"力","_p_int":"知恵","_p_men":"精神","_p_vit":"体力","_p_agi":"敏捷","_p_luk":"運"}
+      "fields": {
+        "_p_str": "力",
+        "_p_int": "知恵",
+        "_p_men": "精神",
+        "_p_vit": "体力",
+        "_p_agi": "敏捷",
+        "_p_luk": "運"
+      }
     },
-    "current_hp": {"editable": false}
+    "current_hp": {
+      "editable": false
+    }
   },
   "races": {
-    "1":{"name":"人間男","max_level":200,"base":{"str":7,"int":7,"men":8,"vit":7,"agi":7,"luk":7}},
-    "2":{"name":"人間女","max_level":200,"base":{"str":6,"int":6,"men":7,"vit":8,"agi":8,"luk":8}},
-    "3":{"name":"エルフ","max_level":150,"base":{"str":6,"int":10,"men":13,"vit":7,"agi":11,"luk":12}},
-    "4":{"name":"サイキック","max_level":140,"base":{"str":5,"int":15,"men":10,"vit":6,"agi":7,"luk":8}},
-    "5":{"name":"ワーキャット","max_level":135,"base":{"str":9,"int":6,"men":6,"vit":9,"agi":11,"luk":11}},
-    "6":{"name":"ドラゴニュート","max_level":135,"base":{"str":11,"int":7,"men":6,"vit":12,"agi":7,"luk":9}},
-    "7":{"name":"アマゾネス","max_level":135,"base":{"str":11,"int":8,"men":7,"vit":10,"agi":10,"luk":8}},
-    "8":{"name":"ピグミーチャム","max_level":135,"base":{"str":7,"int":9,"men":7,"vit":6,"agi":12,"luk":15}},
-    "9":{"name":"ノーム","max_level":140,"base":{"str":8,"int":10,"men":12,"vit":9,"agi":5,"luk":9}},
-    "10":{"name":"ドワーフ","max_level":140,"base":{"str":12,"int":6,"men":8,"vit":12,"agi":6,"luk":9}},
-    "11":{"name":"ダークエルフ","max_level":150,"base":{"str":9,"int":12,"men":5,"vit":8,"agi":10,"luk":7}},
-    "12":{"name":"吸血鬼","max_level":130,"base":{"str":12,"int":10,"men":6,"vit":11,"agi":9,"luk":10}},
-    "13":{"name":"魔造生物","max_level":99,"base":{"str":5,"int":5,"men":5,"vit":5,"agi":5,"luk":5}},
-    "14":{"name":"アンデッドマン","max_level":140,"base":{"str":8,"int":8,"men":8,"vit":16,"agi":8,"luk":8}},
-    "15":{"name":"鬼","max_level":130,"base":{"str":15,"int":6,"men":9,"vit":10,"agi":7,"luk":8}},
-    "16":{"name":"巨人","max_level":130,"base":{"str":13,"int":5,"men":9,"vit":15,"agi":5,"luk":6}},
-    "17":{"name":"天狗","max_level":130,"base":{"str":8,"int":11,"men":8,"vit":7,"agi":13,"luk":7}},
-    "18":{"name":"サイボーグ","max_level":130,"base":{"str":8,"int":7,"men":6,"vit":7,"agi":15,"luk":10}},
-    "19":{"name":"NPCヒューマノイド男","max_level":null,"base":{"str":6,"int":7,"men":6,"vit":7,"agi":6,"luk":4}},
-    "20":{"name":"NPCヒューマノイド女","max_level":null,"base":{"str":4,"int":11,"men":12,"vit":4,"agi":8,"luk":3}}
+    "1": {
+      "name": "人間男",
+      "max_level": 200,
+      "base": {
+        "str": 7,
+        "int": 7,
+        "men": 8,
+        "vit": 7,
+        "agi": 7,
+        "luk": 7
+      }
+    },
+    "2": {
+      "name": "人間女",
+      "max_level": 200,
+      "base": {
+        "str": 6,
+        "int": 6,
+        "men": 7,
+        "vit": 8,
+        "agi": 8,
+        "luk": 8
+      }
+    },
+    "3": {
+      "name": "エルフ",
+      "max_level": 150,
+      "base": {
+        "str": 6,
+        "int": 10,
+        "men": 13,
+        "vit": 7,
+        "agi": 11,
+        "luk": 12
+      }
+    },
+    "4": {
+      "name": "サイキック",
+      "max_level": 140,
+      "base": {
+        "str": 5,
+        "int": 15,
+        "men": 10,
+        "vit": 6,
+        "agi": 7,
+        "luk": 8
+      }
+    },
+    "5": {
+      "name": "ワーキャット",
+      "max_level": 135,
+      "base": {
+        "str": 9,
+        "int": 6,
+        "men": 6,
+        "vit": 9,
+        "agi": 11,
+        "luk": 11
+      }
+    },
+    "6": {
+      "name": "ドラゴニュート",
+      "max_level": 135,
+      "base": {
+        "str": 11,
+        "int": 7,
+        "men": 6,
+        "vit": 12,
+        "agi": 7,
+        "luk": 9
+      }
+    },
+    "7": {
+      "name": "アマゾネス",
+      "max_level": 135,
+      "base": {
+        "str": 11,
+        "int": 8,
+        "men": 7,
+        "vit": 10,
+        "agi": 10,
+        "luk": 8
+      }
+    },
+    "8": {
+      "name": "ピグミーチャム",
+      "max_level": 135,
+      "base": {
+        "str": 7,
+        "int": 9,
+        "men": 7,
+        "vit": 6,
+        "agi": 12,
+        "luk": 15
+      }
+    },
+    "9": {
+      "name": "ノーム",
+      "max_level": 140,
+      "base": {
+        "str": 8,
+        "int": 10,
+        "men": 12,
+        "vit": 9,
+        "agi": 5,
+        "luk": 9
+      }
+    },
+    "10": {
+      "name": "ドワーフ",
+      "max_level": 140,
+      "base": {
+        "str": 12,
+        "int": 6,
+        "men": 8,
+        "vit": 12,
+        "agi": 6,
+        "luk": 9
+      }
+    },
+    "11": {
+      "name": "ダークエルフ",
+      "max_level": 150,
+      "base": {
+        "str": 9,
+        "int": 12,
+        "men": 5,
+        "vit": 8,
+        "agi": 10,
+        "luk": 7
+      }
+    },
+    "12": {
+      "name": "吸血鬼",
+      "max_level": 130,
+      "base": {
+        "str": 12,
+        "int": 10,
+        "men": 6,
+        "vit": 11,
+        "agi": 9,
+        "luk": 10
+      }
+    },
+    "13": {
+      "name": "魔造生物",
+      "max_level": 99,
+      "base": {
+        "str": 5,
+        "int": 5,
+        "men": 5,
+        "vit": 5,
+        "agi": 5,
+        "luk": 5
+      }
+    },
+    "14": {
+      "name": "アンデッドマン",
+      "max_level": 140,
+      "base": {
+        "str": 8,
+        "int": 8,
+        "men": 8,
+        "vit": 16,
+        "agi": 8,
+        "luk": 8
+      }
+    },
+    "15": {
+      "name": "鬼",
+      "max_level": 130,
+      "base": {
+        "str": 15,
+        "int": 6,
+        "men": 9,
+        "vit": 10,
+        "agi": 7,
+        "luk": 8
+      }
+    },
+    "16": {
+      "name": "巨人",
+      "max_level": 130,
+      "base": {
+        "str": 13,
+        "int": 5,
+        "men": 9,
+        "vit": 15,
+        "agi": 5,
+        "luk": 6
+      }
+    },
+    "17": {
+      "name": "天狗",
+      "max_level": 130,
+      "base": {
+        "str": 8,
+        "int": 11,
+        "men": 8,
+        "vit": 7,
+        "agi": 13,
+        "luk": 7
+      }
+    },
+    "18": {
+      "name": "サイボーグ",
+      "max_level": 130,
+      "base": {
+        "str": 8,
+        "int": 7,
+        "men": 6,
+        "vit": 7,
+        "agi": 15,
+        "luk": 10
+      }
+    },
+    "19": {
+      "name": "NPCヒューマノイド男",
+      "max_level": null,
+      "base": {
+        "str": 6,
+        "int": 7,
+        "men": 6,
+        "vit": 7,
+        "agi": 6,
+        "luk": 4
+      }
+    },
+    "20": {
+      "name": "NPCヒューマノイド女",
+      "max_level": null,
+      "base": {
+        "str": 4,
+        "int": 11,
+        "men": 12,
+        "vit": 4,
+        "agi": 8,
+        "luk": 3
+      }
+    }
   },
   "addons": {
-    "current_fields":["adon_exp","adon_gp","adon_rare","adon_name"],
-    "per_field_min":0,
-    "per_field_max":9,
-    "absolute_total_max":23,
+    "current_fields": [
+      "adon_exp",
+      "adon_gp",
+      "adon_rare",
+      "adon_name"
+    ],
+    "per_field_min": 0,
+    "per_field_max": 9,
+    "absolute_total_max": 23,
     "effects": {
-      "adon_exp":{"label":"獲得経験値","values":["1.00倍","1.30倍","1.60倍","1.90倍","2.20倍","2.50倍","2.80倍","3.10倍","3.50倍","4.00倍"]},
-      "adon_gp":{"label":"獲得GP","values":["1.00倍","1.30倍","1.60倍","1.90倍","2.20倍","2.50倍","2.80倍","3.10倍","3.50倍","4.00倍"]},
-      "adon_rare":{"label":"レア取得率","values":["1.00倍","1.20倍","1.40倍","1.60倍","1.80倍","2.00倍","2.20倍","2.40倍","2.60倍","3.00倍"]},
-      "adon_name":{"label":"称号付与率","values":["+0%","+10%","+20%","+30%","+40%","+50%","+60%","+70%","+80%","+100%"]}
+      "adon_exp": {
+        "label": "獲得経験値",
+        "values": [
+          "1.00倍",
+          "1.30倍",
+          "1.60倍",
+          "1.90倍",
+          "2.20倍",
+          "2.50倍",
+          "2.80倍",
+          "3.10倍",
+          "3.50倍",
+          "4.00倍"
+        ]
+      },
+      "adon_gp": {
+        "label": "獲得GP",
+        "values": [
+          "1.00倍",
+          "1.30倍",
+          "1.60倍",
+          "1.90倍",
+          "2.20倍",
+          "2.50倍",
+          "2.80倍",
+          "3.10倍",
+          "3.50倍",
+          "4.00倍"
+        ]
+      },
+      "adon_rare": {
+        "label": "レア取得率",
+        "values": [
+          "1.00倍",
+          "1.20倍",
+          "1.40倍",
+          "1.60倍",
+          "1.80倍",
+          "2.00倍",
+          "2.20倍",
+          "2.40倍",
+          "2.60倍",
+          "3.00倍"
+        ]
+      },
+      "adon_name": {
+        "label": "称号付与率",
+        "values": [
+          "+0%",
+          "+10%",
+          "+20%",
+          "+30%",
+          "+40%",
+          "+50%",
+          "+60%",
+          "+70%",
+          "+80%",
+          "+100%"
+        ]
+      }
     },
-    "legacy_time":{"key":"adon_time","editable":false,"expected_v730":0},
-    "addition_number":{"editable":false}
+    "legacy_time": {
+      "key": "adon_time",
+      "editable": false,
+      "expected_v730": 0
+    },
+    "addition_number": {
+      "editable": false
+    }
   },
   "premium_time": {
-    "key":"premiumTimePoint","mirror_key":"premiumTimePoint_appo","hours":24,"hour_min":0,"hour_max":3,"total_max":32,"multipliers":[0.5,1.0,1.5,2.0],"editable":false
+    "key": "premiumTimePoint",
+    "mirror_key": "premiumTimePoint_appo",
+    "hours": 24,
+    "hour_min": 0,
+    "hour_max": 3,
+    "total_max": 32,
+    "multipliers": [
+      0.5,
+      1.0,
+      1.5,
+      2.0
+    ],
+    "editable": true
   },
   "resources": {
-    "rabbit":{"min":0,"max":999,"step":1,"label":"ラビットチケット"},
-    "gp":{"min":0,"max":null,"step":1,"label":"GP"},
-    "rp":{"min":0,"max":null,"step":1,"label":"RP"},
-    "rpPoint":{"min":0,"max":null,"step":1,"label":"RP Point"}
+    "rabbit": {
+      "min": 0,
+      "max": 999,
+      "step": 1,
+      "label": "ラビットチケット"
+    },
+    "gp": {
+      "min": 0,
+      "max": null,
+      "step": 1,
+      "label": "GP"
+    },
+    "rp": {
+      "min": 0,
+      "max": null,
+      "step": 1,
+      "label": "RP"
+    },
+    "rpPoint": {
+      "min": 0,
+      "max": null,
+      "step": 1,
+      "label": "RP Point"
+    }
   },
   "evidence": {
-    "ipa_v510":"adon_exp/gp/rare/time と adonPow_* は0～9のテーブル参照を確認。",
-    "wiki_current":"現行アドオンは経験値/GP/レア/称号、各0～9、総ポイント最大23。基本能力は種族基礎値+10まで。"
+    "ipa_v510": "adon_exp/gp/rare/time と adonPow_* は0～9のテーブル参照を確認。",
+    "wiki_current": "現行アドオンは経験値/GP/レア/称号、各0～9、総ポイント最大23。基本能力は種族基礎値+10まで。"
+  },
+  "twitter_bonus": {
+    "key": "twitter_last_time",
+    "trusted_time_keys": [
+      "last_net_time",
+      "last_inner_time"
+    ],
+    "refresh_on_export": true,
+    "duration_seconds": 604800,
+    "note": "書出し時にセーブ内の信頼済み時刻へ更新する。未来時刻は生成しない。"
+  },
+  "abnormal_flag": {
+    "flag": "8d84d86dd",
+    "paired_flag": "86dd8d84d",
+    "flags_key": "flags",
+    "triggers": [
+      {
+        "field": "rabbit",
+        "op": ">",
+        "value": 999,
+        "confidence": "confirmed"
+      },
+      {
+        "field": "adon_exp",
+        "op": ">=",
+        "value": 10,
+        "confidence": "confirmed"
+      },
+      {
+        "field": "adon_gp",
+        "op": ">=",
+        "value": 10,
+        "confidence": "confirmed"
+      },
+      {
+        "field": "adon_rare",
+        "op": ">=",
+        "value": 10,
+        "confidence": "confirmed"
+      },
+      {
+        "field": "adon_time",
+        "op": ">=",
+        "value": 10,
+        "confidence": "confirmed"
+      }
+    ]
   }
 }

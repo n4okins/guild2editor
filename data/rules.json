@@ -1,95 +1,62 @@
 {
-  "format_version": 1,
-  "data_version": "2026-08-26-ranges-v1",
+  "format_version": 2,
+  "data_version": "2026-08-26-ranges-v2",
   "character": {
-    "level": {
-      "min": 1,
-      "reset_next_exp_on_change": true,
-      "note": "Lv上限は種族ごとに異なる。標準UIでは現在種族の上限を超える値を書き込まない。"
-    },
+    "level": {"min": 1, "reset_next_exp_on_change": true},
     "growth": {
       "min": 0,
       "max": 10,
-      "fields": {
-        "_p_str": "力",
-        "_p_int": "知恵",
-        "_p_men": "精神",
-        "_p_vit": "体力",
-        "_p_agi": "敏捷",
-        "_p_luk": "運"
-      },
-      "note": "_p_* は表示能力値そのものではなく、種族基礎能力値への成長加算。通常0～10。"
+      "fields": {"_p_str":"力","_p_int":"知恵","_p_men":"精神","_p_vit":"体力","_p_agi":"敏捷","_p_luk":"運"}
     },
-    "current_hp": {
-      "editable_standard": false,
-      "note": "最大HPはLv・職業・装備・スキル等から計算されるため、標準UIでは現在HPの生値を変更しない。"
-    }
+    "current_hp": {"editable": false}
   },
   "races": {
-    "1":  {"name":"人間男",       "max_level":200, "base":{"str":7,"int":7,"men":8,"vit":7,"agi":7,"luk":7}},
-    "2":  {"name":"人間女",       "max_level":200, "base":{"str":6,"int":6,"men":7,"vit":8,"agi":8,"luk":8}},
-    "3":  {"name":"エルフ",       "max_level":150, "base":{"str":6,"int":10,"men":13,"vit":7,"agi":11,"luk":12}},
-    "4":  {"name":"サイキック",   "max_level":140, "base":{"str":5,"int":15,"men":10,"vit":6,"agi":7,"luk":8}},
-    "5":  {"name":"ワーキャット", "max_level":135, "base":{"str":9,"int":6,"men":6,"vit":9,"agi":11,"luk":11}},
-    "6":  {"name":"ドラゴニュート","max_level":135,"base":{"str":11,"int":7,"men":6,"vit":12,"agi":7,"luk":9}},
-    "7":  {"name":"アマゾネス",   "max_level":135, "base":{"str":11,"int":8,"men":7,"vit":10,"agi":10,"luk":8}},
-    "8":  {"name":"ピグミーチャム","max_level":135,"base":{"str":7,"int":9,"men":7,"vit":6,"agi":12,"luk":15}},
-    "9":  {"name":"ノーム",       "max_level":140, "base":{"str":8,"int":10,"men":12,"vit":9,"agi":5,"luk":9}},
-    "10": {"name":"ドワーフ",     "max_level":140, "base":{"str":12,"int":6,"men":8,"vit":12,"agi":6,"luk":9}},
-    "11": {"name":"ダークエルフ", "max_level":150, "base":{"str":9,"int":12,"men":5,"vit":8,"agi":10,"luk":7}},
-    "12": {"name":"吸血鬼",       "max_level":130, "base":{"str":12,"int":10,"men":6,"vit":11,"agi":9,"luk":10}},
-    "13": {"name":"魔造生物",     "max_level":99,  "base":{"str":5,"int":5,"men":5,"vit":5,"agi":5,"luk":5}, "note":"個体固有の改造・補正は別途存在する。"},
-    "14": {"name":"アンデッドマン","max_level":140,"base":{"str":8,"int":8,"men":8,"vit":16,"agi":8,"luk":8}},
-    "15": {"name":"鬼",           "max_level":130, "base":{"str":15,"int":6,"men":9,"vit":10,"agi":7,"luk":8}},
-    "16": {"name":"巨人",         "max_level":130, "base":{"str":13,"int":5,"men":9,"vit":15,"agi":5,"luk":6}},
-    "17": {"name":"天狗",         "max_level":130, "base":{"str":8,"int":11,"men":8,"vit":7,"agi":13,"luk":7}},
-    "18": {"name":"サイボーグ",   "max_level":130, "base":{"str":8,"int":7,"men":6,"vit":7,"agi":15,"luk":10}},
-    "19": {"name":"NPCヒューマノイド男", "max_level":null, "base":{"str":6,"int":7,"men":6,"vit":7,"agi":6,"luk":4}, "standard_level_edit":false},
-    "20": {"name":"NPCヒューマノイド女", "max_level":null, "base":{"str":4,"int":11,"men":12,"vit":4,"agi":8,"luk":3}, "standard_level_edit":false}
+    "1":{"name":"人間男","max_level":200,"base":{"str":7,"int":7,"men":8,"vit":7,"agi":7,"luk":7}},
+    "2":{"name":"人間女","max_level":200,"base":{"str":6,"int":6,"men":7,"vit":8,"agi":8,"luk":8}},
+    "3":{"name":"エルフ","max_level":150,"base":{"str":6,"int":10,"men":13,"vit":7,"agi":11,"luk":12}},
+    "4":{"name":"サイキック","max_level":140,"base":{"str":5,"int":15,"men":10,"vit":6,"agi":7,"luk":8}},
+    "5":{"name":"ワーキャット","max_level":135,"base":{"str":9,"int":6,"men":6,"vit":9,"agi":11,"luk":11}},
+    "6":{"name":"ドラゴニュート","max_level":135,"base":{"str":11,"int":7,"men":6,"vit":12,"agi":7,"luk":9}},
+    "7":{"name":"アマゾネス","max_level":135,"base":{"str":11,"int":8,"men":7,"vit":10,"agi":10,"luk":8}},
+    "8":{"name":"ピグミーチャム","max_level":135,"base":{"str":7,"int":9,"men":7,"vit":6,"agi":12,"luk":15}},
+    "9":{"name":"ノーム","max_level":140,"base":{"str":8,"int":10,"men":12,"vit":9,"agi":5,"luk":9}},
+    "10":{"name":"ドワーフ","max_level":140,"base":{"str":12,"int":6,"men":8,"vit":12,"agi":6,"luk":9}},
+    "11":{"name":"ダークエルフ","max_level":150,"base":{"str":9,"int":12,"men":5,"vit":8,"agi":10,"luk":7}},
+    "12":{"name":"吸血鬼","max_level":130,"base":{"str":12,"int":10,"men":6,"vit":11,"agi":9,"luk":10}},
+    "13":{"name":"魔造生物","max_level":99,"base":{"str":5,"int":5,"men":5,"vit":5,"agi":5,"luk":5}},
+    "14":{"name":"アンデッドマン","max_level":140,"base":{"str":8,"int":8,"men":8,"vit":16,"agi":8,"luk":8}},
+    "15":{"name":"鬼","max_level":130,"base":{"str":15,"int":6,"men":9,"vit":10,"agi":7,"luk":8}},
+    "16":{"name":"巨人","max_level":130,"base":{"str":13,"int":5,"men":9,"vit":15,"agi":5,"luk":6}},
+    "17":{"name":"天狗","max_level":130,"base":{"str":8,"int":11,"men":8,"vit":7,"agi":13,"luk":7}},
+    "18":{"name":"サイボーグ","max_level":130,"base":{"str":8,"int":7,"men":6,"vit":7,"agi":15,"luk":10}},
+    "19":{"name":"NPCヒューマノイド男","max_level":null,"base":{"str":6,"int":7,"men":6,"vit":7,"agi":6,"luk":4}},
+    "20":{"name":"NPCヒューマノイド女","max_level":null,"base":{"str":4,"int":11,"men":12,"vit":4,"agi":8,"luk":3}}
   },
   "addons": {
-    "current_fields": ["adon_exp", "adon_gp", "adon_rare", "adon_name"],
-    "per_field_min": 0,
-    "per_field_max": 9,
-    "absolute_total_max": 23,
-    "safe_budget": "current_allocation",
-    "safe_budget_note": "購入済みアドオンポイント総数はセーブZIPだけから確実に復元できないため、標準モードでは読み込み時の現在割当総数を上限にして再配分する。理論上限23は明示的な上級モードのみ。",
+    "current_fields":["adon_exp","adon_gp","adon_rare","adon_name"],
+    "per_field_min":0,
+    "per_field_max":9,
+    "absolute_total_max":23,
     "effects": {
-      "adon_exp":  {"label":"獲得経験値", "values":["1.00倍","1.30倍","1.60倍","1.90倍","2.20倍","2.50倍","2.80倍","3.10倍","3.50倍","4.00倍"]},
-      "adon_gp":   {"label":"獲得GP",     "values":["1.00倍","1.30倍","1.60倍","1.90倍","2.20倍","2.50倍","2.80倍","3.10倍","3.50倍","4.00倍"]},
-      "adon_rare": {"label":"レア取得率", "values":["1.00倍","1.20倍","1.40倍","1.60倍","1.80倍","2.00倍","2.20倍","2.40倍","2.60倍","3.00倍"]},
-      "adon_name": {"label":"称号付与率", "values":["+0%","+10%","+20%","+30%","+40%","+50%","+60%","+70%","+80%","+100%"]}
+      "adon_exp":{"label":"獲得経験値","values":["1.00倍","1.30倍","1.60倍","1.90倍","2.20倍","2.50倍","2.80倍","3.10倍","3.50倍","4.00倍"]},
+      "adon_gp":{"label":"獲得GP","values":["1.00倍","1.30倍","1.60倍","1.90倍","2.20倍","2.50倍","2.80倍","3.10倍","3.50倍","4.00倍"]},
+      "adon_rare":{"label":"レア取得率","values":["1.00倍","1.20倍","1.40倍","1.60倍","1.80倍","2.00倍","2.20倍","2.40倍","2.60倍","3.00倍"]},
+      "adon_name":{"label":"称号付与率","values":["+0%","+10%","+20%","+30%","+40%","+50%","+60%","+70%","+80%","+100%"]}
     },
-    "legacy_time": {
-      "key": "adon_time",
-      "editable_standard": false,
-      "expected_v730": 0,
-      "note": "旧『時間短縮』アドオンポイントの互換フィールド。Ver2.00で時間短縮はアドオンポイント配分から廃止され『時間の秘宝』へ移行。Premium Timeとは別物。"
-    },
-    "addition_number": {
-      "editable_standard": false,
-      "note": "意味を購入済み/未使用ポイントと断定できないため標準UIでは読み取り専用。"
-    }
+    "legacy_time":{"key":"adon_time","editable":false,"expected_v730":0},
+    "addition_number":{"editable":false}
   },
   "premium_time": {
-    "key": "premiumTimePoint",
-    "mirror_key": "premiumTimePoint_appo",
-    "hours": 24,
-    "hour_min": 0,
-    "hour_max": 3,
-    "total_max": 32,
-    "multipliers": [0.5, 1.0, 1.5, 2.0],
-    "editable_standard": false,
-    "note": "24桁の0～3で各時間帯を表す。添付v7.30セーブは24桁・合計32。mirror_keyとの更新規則を未確定のため現状は可視化のみ。"
+    "key":"premiumTimePoint","mirror_key":"premiumTimePoint_appo","hours":24,"hour_min":0,"hour_max":3,"total_max":32,"multipliers":[0.5,1.0,1.5,2.0],"editable":false
   },
   "resources": {
-    "rabbit": {"min":0,"max":999,"step":1,"label":"ラビットチケット"},
-    "gp": {"min":0,"max":null,"step":1,"label":"GP","note":"ウォレットのハード上限は未確認。"},
-    "rp": {"min":0,"max":null,"step":1,"label":"RP","note":"ハード上限未確認。"},
-    "rpPoint": {"min":0,"max":null,"step":1,"label":"RP Point","note":"ハード上限未確認。"}
+    "rabbit":{"min":0,"max":999,"step":1,"label":"ラビットチケット"},
+    "gp":{"min":0,"max":null,"step":1,"label":"GP"},
+    "rp":{"min":0,"max":null,"step":1,"label":"RP"},
+    "rpPoint":{"min":0,"max":null,"step":1,"label":"RP Point"}
   },
   "evidence": {
-    "ipa_v510": "Data_Player has adon_exp/gp/rare/time and adonPow_* indexes only values 0..9; legacy time field remains for compatibility.",
-    "wiki_current": "Current addon allocation is EXP/GP/rare/title, each 0..9, total obtainable points up to 23. Basic ability growth is lineage base +10 maximum; race-specific Lv caps are applied."
+    "ipa_v510":"adon_exp/gp/rare/time と adonPow_* は0～9のテーブル参照を確認。",
+    "wiki_current":"現行アドオンは経験値/GP/レア/称号、各0～9、総ポイント最大23。基本能力は種族基礎値+10まで。"
   }
 }

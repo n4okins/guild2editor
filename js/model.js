@@ -83,11 +83,31 @@ function loadInventory(){
 }
 function validQuantity(q){return Number.isSafeInteger(q)&&q>=0;}
 function setInventory(row,q){q=Number(q);if(!validQuantity(q))throw Error('アイテム個数は0以上の整数で指定してください');const a=row.archive;if(q===0)a.dictDelete(a.rootRef(),row.code);else a.dictSet(a.rootRef(),row.code,q);state.dirty=true;loadInventory();}
+function itemDiscoveryFlags(){if(!state.entries.has('flagItems'))return[];const v=get('flagItems');return Array.isArray(v)?v.map(String):[];}
+function itemDiscoveryHashes(code){
+  code=String(code);if(!ITEM_CODE.test(code))throw Error('アイテムIDは12桁である必要があります');
+  const base=String(Number(code.slice(0,4)));return [G2MD5(base),G2MD5(code)];
+}
+function ensureItemDiscovery(code){
+  const wanted=itemDiscoveryHashes(code);if(!state.entries.has('flagItems'))return{changed:false,added:[],wanted,missingKey:true};
+  const flags=itemDiscoveryFlags(),seen=new Set(flags),added=wanted.filter(h=>!seen.has(h));
+  if(added.length){const a=entry('flagItems').archive;a.setArray(a.rootRef(),flags.concat(added));state.dirty=true;}
+  return{changed:added.length>0,added,wanted,missingKey:false};
+}
+function repairInventoryDiscoveryFlags(){
+  if(!state.entries.has('flagItems'))return{changed:0,items:0,added:[],missingKey:true};
+  const flags=itemDiscoveryFlags(),seen=new Set(flags),added=[];let items=0;
+  for(const r of state.inventory){let touched=false;for(const h of itemDiscoveryHashes(r.code))if(!seen.has(h)){seen.add(h);flags.push(h);added.push({code:r.code,hash:h});touched=true;}if(touched)items++;}
+  if(added.length){const a=entry('flagItems').archive;a.setArray(a.rootRef(),flags);state.dirty=true;}
+  return{changed:added.length,items,added,missingKey:false};
+}
 function addInventory(category,code,q=1){
   category=Number(category);code=String(code);q=Number(q);
   if(!Number.isInteger(category)||category<0||category>18||!state.entries.has(`items${category}`))throw Error('アイテムカテゴリが不正です');
   if(!ITEM_CODE.test(code))throw Error('アイテムIDは12桁である必要があります');if(!validQuantity(q)||q<1)throw Error('個数は1以上の整数で指定してください');
-  const k=`items${category}`,ex=state.inventory.find(r=>r.category===category&&r.code===code);if(ex)setInventory(ex,ex.quantity+q);else{entry(k).archive.dictSet(entry(k).archive.rootRef(),code,q);state.dirty=true;loadInventory();}
+  const k=`items${category}`,ex=state.inventory.find(r=>r.category===category&&r.code===code);
+  if(ex)ex.archive.dictSet(ex.archive.rootRef(),code,ex.quantity+q);else entry(k).archive.dictSet(entry(k).archive.rootRef(),code,q);
+  ensureItemDiscovery(code);state.dirty=true;loadInventory();
 }
 function catalogCategoryForCode(code){const base=itemParts(code).base,def=state.catalog?.items?.[base];return def?Number(def.category_id):null;}
 function returnKnownEquipment(c){
@@ -157,7 +177,7 @@ function normalTitleName(code){const c=state.catalog?.normal_titles||{},k=String
 function ultraTitleMeta(code){return state.catalog?.ultra_title_meta?.[String(code)]||null;}
 function ultraCodeFromLegacyOrdinal(n){n=Number(n);if(n>=1&&n<=70)return String(n+20).padStart(2,'0');if(n>=71&&n<=80)return String(n-61).padStart(2,'0');return null;}
 function legacyUltraIssue(code){const p=itemParts(code),g=Number(p.gem);if(p.ultra!=='00'||!Number.isInteger(g)||g<1||g>80)return null;const ultra=ultraCodeFromLegacyOrdinal(g);if(!ultra)return null;return{ordinal:g,ultra,confidence:g<=70?'confirmed-v5.10-static':'inferred-high',fixed:`${p.base}${ultra}${p.title}0000`};}
-function repairLegacyUltra(row){const issue=legacyUltraIssue(row.code);if(!issue)throw Error('v0.5旧形式の超レア誤書込みではありません');const q=row.quantity,a=row.archive;a.dictDelete(a.rootRef(),row.code);const existing=state.inventory.find(r=>r.category===row.category&&r.code===issue.fixed);if(existing)a.dictSet(a.rootRef(),issue.fixed,existing.quantity+q);else a.dictSet(a.rootRef(),issue.fixed,q);state.dirty=true;loadInventory();return issue;}
+function repairLegacyUltra(row){const issue=legacyUltraIssue(row.code);if(!issue)throw Error('v0.5旧形式の超レア誤書込みではありません');const q=row.quantity,a=row.archive;a.dictDelete(a.rootRef(),row.code);const existing=state.inventory.find(r=>r.category===row.category&&r.code===issue.fixed);if(existing)a.dictSet(a.rootRef(),issue.fixed,existing.quantity+q);else a.dictSet(a.rootRef(),issue.fixed,q);ensureItemDiscovery(issue.fixed);state.dirty=true;loadInventory();return issue;}
 function itemName(code){const p=itemParts(code),c=state.catalog||{},base=c.items?.[p.base]?.name||`ID ${p.base}`,t=normalTitleName(p.title),u=c.ultra_titles?.[p.ultra]||'',g=p.gem!=='0000'?`宝石${p.gem}`:'';return [u,t==='称号なし'||t==='無称号'?'':t,base,g].filter(Boolean).join(' ');}
 function summary(){return{entries:state.entries.size,characters:state.characters.length,inventory:state.inventory.length,gp:state.entries.has('gp')?get('gp'):null,rabbit:state.entries.has('rabbit')?get('rabbit'):null};}
 function validateCurrent(){
@@ -172,9 +192,11 @@ function validateCurrent(){
     if(Object.prototype.hasOwnProperty.call(d,'_next_exp')){const v=Number(d._next_exp);if(!Number.isSafeInteger(v)||v<0)errors.push(`${title}: _next_expが不正`);}
     if(Object.prototype.hasOwnProperty.call(d,'_hp')){const v=Number(d._hp);if(!Number.isSafeInteger(v)||v<0)warnings.push(`${title}: 現在HP(_hp)=${d._hp} を確認してください`);}
   }
+  const discovery=state.entries.has('flagItems')?new Set(itemDiscoveryFlags()):null;if(!discovery)warnings.push('flagItemsが見つからないため、アイテム発見状態を検証できません');
   for(const r of state.inventory){
     if(!ITEM_CODE.test(r.code))errors.push(`${r.key}: 不正なアイテムID ${r.code}`);
     if(!validQuantity(r.quantity)||r.quantity<1)errors.push(`${r.key}/${r.code}: 個数が不正`);
+    if(discovery&&ITEM_CODE.test(r.code)){const missing=itemDiscoveryHashes(r.code).filter(h=>!discovery.has(h));if(missing.length)warnings.push(`${r.code}: flagItemsの発見フラグが${missing.length}件不足`);}
     const p=itemParts(r.code),gem=Number(p.gem),legacy=legacyUltraIssue(r.code);if(legacy)errors.push(`${r.code}: v0.5旧形式の超レア誤書込みです。修復候補 ${legacy.fixed}`);else if(p.gem!=='0000'&&!(Number.isInteger(gem)&&gem>=6501&&gem<=6557))errors.push(`${r.code}: gem欄 ${p.gem} は 0000 または6501～6557である必要があります`);if(p.ultra!=='00'&&!state.catalog?.ultra_titles?.[p.ultra])warnings.push(`${r.code}: 超レア/UQ ID ${p.ultra} はカタログ未登録`);
     const expected=catalogCategoryForCode(r.code);if(expected!==null&&expected!==r.category)warnings.push(`${r.code}: セーブ上カテゴリ${r.category} / カタログ定義${expected}。既存データは保持（カタログの版差・誤同定候補）`);
   }
@@ -192,5 +214,5 @@ function validateCurrent(){
   const abnormal=abnormalFlagReport();for(const h of abnormal.hits)errors.push(`異常フラグ既知条件: ${h.field}=${h.current} ${h.op} ${h.value}`);if(abnormal.flag_present&&!abnormal.paired_present)warnings.push(`異常フラグ ${abnormal.flag} が保存済みです`);
   return{ok:errors.length===0,errors,warnings,abnormal};
 }
-return{state,loadEntries,loadCharacters,loadInventory,entry,get,setScalar,setCharacterField,setCharacterLevel,setCharacterGrowth,setCharacterLineage,raceRule,levelCap,setTraits,setInventory,addInventory,flush,itemParts,itemName,summary,specialCodes,cloneCharacter,deleteCharacter,validateCurrent,catalogCategoryForCode,flagsList,addonPointBudget,unlockAddonMaximum,addonAllocation,setAddon,repairAddonAbnormalFlags,parsePremiumTime,setPremiumTime,refreshTwitterBonus,abnormalFlagReport,legacyUltraIssue,repairLegacyUltra,ultraTitleMeta};
+return{state,loadEntries,loadCharacters,loadInventory,entry,get,setScalar,setCharacterField,setCharacterLevel,setCharacterGrowth,setCharacterLineage,raceRule,levelCap,setTraits,setInventory,addInventory,itemDiscoveryFlags,itemDiscoveryHashes,ensureItemDiscovery,repairInventoryDiscoveryFlags,flush,itemParts,itemName,summary,specialCodes,cloneCharacter,deleteCharacter,validateCurrent,catalogCategoryForCode,flagsList,addonPointBudget,unlockAddonMaximum,addonAllocation,setAddon,repairAddonAbnormalFlags,parsePremiumTime,setPremiumTime,refreshTwitterBonus,abnormalFlagReport,legacyUltraIssue,repairLegacyUltra,ultraTitleMeta};
 })();

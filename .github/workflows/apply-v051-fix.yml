@@ -18,6 +18,25 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Normalize patch matchers
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('tools/apply_v051_fix.py')
+          s=p.read_text()
+          def replace_assignment(name,next_name,value):
+              global s
+              a=s.index(name+'=')
+              b=s.index(next_name+'=',a)
+              s=s[:a]+f'{name}=r"{value}"\n'+s[b:]
+          replace_assignment('old_block','new_block',r'function addonAllocation\(\)\{.*?(?=function parsePremiumTime\(\))')
+          replace_assignment('old_ab','new_ab',r'function abnormalFlagReport\(\)\{.*?(?=function flush\(\))')
+          replace_assignment('old_item','new_item',r'function itemParts\(code\)\{.*?(?=function summary\(\))')
+          a=s.index('pat=r"function renderItems')
+          b=s.index('\nold_match=',a)
+          s=s[:a]+'pat=r"function renderItems\\(\\)\\{.*?(?=function addItem\\(\\))"'+s[b:]
+          p.write_text(s)
+          PY
       - name: Apply fix
         run: python tools/apply_v051_fix.py
       - name: Validate generated files

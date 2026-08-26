@@ -36,6 +36,10 @@ jobs:
           const rules=JSON.parse(fs.readFileSync('data/rules.json','utf8'));
           if(rules.character?.growth?.min!==0 || rules.character?.growth?.max!==10) throw new Error('growth range mismatch');
           if(rules.addons?.per_field_max!==9 || rules.addons?.absolute_total_max!==23) throw new Error('addon range mismatch');
+          const mats=wiki.ordered?.['17']||{},flatMats=Object.values(mats).flat();
+          if(flatMats.length!==97) throw new Error(`expected 97 synthesis materials, got ${flatMats.length}`);
+          let materialId=8001;for(const name of flatMats){const m=wiki.unresolved_meta?.[name];if(m?.category_id!==17||m?.id_guess!==String(materialId).padStart(4,'0')||m?.guess!=='high')throw new Error(`material mapping mismatch ${name} -> ${m?.id_guess} expected ${materialId}`);materialId++;}
+          if(wiki.unresolved_meta?.['ウサギのしっぽ']?.id_guess!=='8001'||wiki.unresolved_meta?.['絵本']?.id_guess!=='8004'||wiki.unresolved_meta?.['大地龍の涙']?.id_guess!=='8097') throw new Error('material mapping anchors mismatch');
           if(rules.addons?.budget_from_flags?.confirmed_pow_max_v510!==10) throw new Error('v5.10 addonPow static limit mismatch');
           if(rules.addons?.budget_from_flags?.current_pow_max!==15) throw new Error('current addonPow limit mismatch');
           if(rules.addons?.budget_from_flags?.business_bonus?.['Guild2.adonBisiness1']!==5) throw new Error('premium addon bonus mismatch');
@@ -51,6 +55,10 @@ jobs:
           if(!model.includes('function unlockAddonMaximum()')) throw new Error('addon maximum unlock missing');
           if(!model.includes('Number.isFinite(v)||v<rr.min||v>rr.max')) throw new Error('rabbit float-range validation missing');
           if(!app.includes("x.base_id+ultra+title+'0000'")) throw new Error('item preview/write format mismatch');
+          for(const s of ['itemDiscoveryHashes','ensureItemDiscovery','repairInventoryDiscoveryFlags','G2MD5(base)','G2MD5(code)']) if(!model.includes(s)) throw new Error(`missing discovery sync ${s}`);
+          if(!app.includes('M.repairInventoryDiscoveryFlags()')) throw new Error('export must repair item discovery flags');
+          if(!app.includes("fixedPlain=[17,18].includes")) throw new Error('material/magic IDs must be plain-title fixed');
+          if(!app.includes('M.addInventory(cat,code,q)')) throw new Error('item add must use discovery-aware path');
 
           function repair(code){
             const s=String(code).padStart(12,'0');

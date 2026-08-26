@@ -297,6 +297,121 @@
         "イザナミ",
         "オメガ"
       ]
+    },
+    "17": {
+      "エクストラ": [
+        "ウサギのしっぽ",
+        "ジェル",
+        "ネバネバ",
+        "絵本",
+        "ミサンガ",
+        "大地のドラム",
+        "ロイヤルゼリー",
+        "腰巻き",
+        "青い破片",
+        "嵐神の眼",
+        "大蛇のしっぽ",
+        "雷神の帯",
+        "クローン細胞"
+      ],
+      "一章": [
+        "謎の骨",
+        "棘鎌",
+        "岩鱗",
+        "免許皆伝",
+        "黒い翼",
+        "伸びる蔦",
+        "銀のペンダント",
+        "捕縛の鞍",
+        "チャンピオンベルト"
+      ],
+      "二章": [
+        "ワイングラス",
+        "古代の石",
+        "恐竜の牙",
+        "燃えさかる布",
+        "死のかけら",
+        "牛王の角",
+        "マナメタル",
+        "銀の毛皮",
+        "象牙",
+        "赤竜の鱗",
+        "氷竜の鱗",
+        "黒竜の鱗",
+        "緑竜の鱗",
+        "雷竜の鱗",
+        "銀竜の鱗",
+        "金竜の鱗"
+      ],
+      "三章": [
+        "メダリオン",
+        "核廃棄物",
+        "裏切りの杯"
+      ],
+      "四章": [
+        "ヒドラのしっぽ",
+        "レバノンスギ",
+        "精霊の仮面",
+        "チタニウム",
+        "執行者の証",
+        "銀の車輪",
+        "盟友の杯",
+        "獅子の腰布",
+        "アマゾネスの腰帯"
+      ],
+      "五章": [
+        "鉄の顎",
+        "ビッグジョー",
+        "堅い皮膚",
+        "海神のひげ",
+        "亀のしっぽ",
+        "ロイヤルサイン",
+        "竜王の涙",
+        "七つ道具",
+        "虎の巻",
+        "扇子",
+        "祈祷棒",
+        "キリンの角",
+        "メデューサの首",
+        "奇妙な椅子",
+        "思い出の日記",
+        "王者の遺骨",
+        "忠義の兜",
+        "首輪",
+        "金の鍵",
+        "あぶらあげ",
+        "般若の面",
+        "荒魂"
+      ],
+      "六章": [
+        "菩提樹の葉",
+        "フォースピラー",
+        "聖騎士の証",
+        "突撃ラッパ",
+        "力天使の翼",
+        "ねじれた角"
+      ],
+      "七章": [
+        "竜骨",
+        "ピラミッドストーン",
+        "香水",
+        "しゃれこうべ",
+        "将軍の勲章",
+        "核の灰",
+        "ワイヤーフレーム",
+        "鷲の翼",
+        "要塞竜の鱗",
+        "霧のしずく",
+        "吸血王の牙",
+        "凍りついたアゴ髯",
+        "魔界の爵位証",
+        "殺戮衝動",
+        "エルダーサイン",
+        "高潔なる血",
+        "悪魔のしっぽ",
+        "冥界の王",
+        "大地龍の涙"
+      ]
     }
   },
   "unresolved_meta": {
@@ -378,6 +493,685 @@
       "id_guess": "8538",
       "guess": "high",
       "effect": "内部IDは高確度推定。v5.10の魔造生物IDが8501～8537で連続し、現行Wikiではオメガが後続追加。"
+    },
+    "ウサギのしっぽ": {
+      "category_id": 17,
+      "group": "エクストラ",
+      "id_guess": "8001",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "ジェル": {
+      "category_id": 17,
+      "group": "エクストラ",
+      "id_guess": "8002",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "ネバネバ": {
+      "category_id": 17,
+      "group": "エクストラ",
+      "id_guess": "8003",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "絵本": {
+      "category_id": 17,
+      "group": "エクストラ",
+      "id_guess": "8004",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "ミサンガ": {
+      "category_id": 17,
+      "group": "エクストラ",
+      "id_guess": "8005",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "大地のドラム": {
+      "category_id": 17,
+      "group": "エクストラ",
+      "id_guess": "8006",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "ロイヤルゼリー": {
+      "category_id": 17,
+      "group": "エクストラ",
+      "id_guess": "8007",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "腰巻き": {
+      "category_id": 17,
+      "group": "エクストラ",
+      "id_guess": "8008",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "青い破片": {
+      "category_id": 17,
+      "group": "エクストラ",
+      "id_guess": "8009",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "嵐神の眼": {
+      "category_id": 17,
+      "group": "エクストラ",
+      "id_guess": "8010",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "大蛇のしっぽ": {
+      "category_id": 17,
+      "group": "エクストラ",
+      "id_guess": "8011",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "雷神の帯": {
+      "category_id": 17,
+      "group": "エクストラ",
+      "id_guess": "8012",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "クローン細胞": {
+      "category_id": 17,
+      "group": "エクストラ",
+      "id_guess": "8013",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "謎の骨": {
+      "category_id": 17,
+      "group": "一章",
+      "id_guess": "8014",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "棘鎌": {
+      "category_id": 17,
+      "group": "一章",
+      "id_guess": "8015",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "岩鱗": {
+      "category_id": 17,
+      "group": "一章",
+      "id_guess": "8016",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "免許皆伝": {
+      "category_id": 17,
+      "group": "一章",
+      "id_guess": "8017",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "黒い翼": {
+      "category_id": 17,
+      "group": "一章",
+      "id_guess": "8018",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "伸びる蔦": {
+      "category_id": 17,
+      "group": "一章",
+      "id_guess": "8019",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "銀のペンダント": {
+      "category_id": 17,
+      "group": "一章",
+      "id_guess": "8020",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "捕縛の鞍": {
+      "category_id": 17,
+      "group": "一章",
+      "id_guess": "8021",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "チャンピオンベルト": {
+      "category_id": 17,
+      "group": "一章",
+      "id_guess": "8022",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "ワイングラス": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8023",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "古代の石": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8024",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "恐竜の牙": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8025",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "燃えさかる布": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8026",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "死のかけら": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8027",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "牛王の角": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8028",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "マナメタル": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8029",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "銀の毛皮": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8030",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "象牙": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8031",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "赤竜の鱗": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8032",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "氷竜の鱗": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8033",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "黒竜の鱗": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8034",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "緑竜の鱗": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8035",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "雷竜の鱗": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8036",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "銀竜の鱗": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8037",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "金竜の鱗": {
+      "category_id": 17,
+      "group": "二章",
+      "id_guess": "8038",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "メダリオン": {
+      "category_id": 17,
+      "group": "三章",
+      "id_guess": "8039",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "核廃棄物": {
+      "category_id": 17,
+      "group": "三章",
+      "id_guess": "8040",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "裏切りの杯": {
+      "category_id": 17,
+      "group": "三章",
+      "id_guess": "8041",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "ヒドラのしっぽ": {
+      "category_id": 17,
+      "group": "四章",
+      "id_guess": "8042",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "レバノンスギ": {
+      "category_id": 17,
+      "group": "四章",
+      "id_guess": "8043",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "精霊の仮面": {
+      "category_id": 17,
+      "group": "四章",
+      "id_guess": "8044",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "チタニウム": {
+      "category_id": 17,
+      "group": "四章",
+      "id_guess": "8045",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "執行者の証": {
+      "category_id": 17,
+      "group": "四章",
+      "id_guess": "8046",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "銀の車輪": {
+      "category_id": 17,
+      "group": "四章",
+      "id_guess": "8047",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "盟友の杯": {
+      "category_id": 17,
+      "group": "四章",
+      "id_guess": "8048",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "獅子の腰布": {
+      "category_id": 17,
+      "group": "四章",
+      "id_guess": "8049",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "アマゾネスの腰帯": {
+      "category_id": 17,
+      "group": "四章",
+      "id_guess": "8050",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "鉄の顎": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8051",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "ビッグジョー": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8052",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "堅い皮膚": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8053",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "海神のひげ": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8054",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "亀のしっぽ": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8055",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "ロイヤルサイン": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8056",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "竜王の涙": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8057",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "七つ道具": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8058",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "虎の巻": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8059",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "扇子": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8060",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "祈祷棒": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8061",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "キリンの角": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8062",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "メデューサの首": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8063",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "奇妙な椅子": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8064",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "思い出の日記": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8065",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "王者の遺骨": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8066",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "忠義の兜": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8067",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "首輪": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8068",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "金の鍵": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8069",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "あぶらあげ": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8070",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "般若の面": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8071",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "荒魂": {
+      "category_id": 17,
+      "group": "五章",
+      "id_guess": "8072",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "菩提樹の葉": {
+      "category_id": 17,
+      "group": "六章",
+      "id_guess": "8073",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "フォースピラー": {
+      "category_id": 17,
+      "group": "六章",
+      "id_guess": "8074",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "聖騎士の証": {
+      "category_id": 17,
+      "group": "六章",
+      "id_guess": "8075",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "突撃ラッパ": {
+      "category_id": 17,
+      "group": "六章",
+      "id_guess": "8076",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "力天使の翼": {
+      "category_id": 17,
+      "group": "六章",
+      "id_guess": "8077",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "ねじれた角": {
+      "category_id": 17,
+      "group": "六章",
+      "id_guess": "8078",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "竜骨": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8079",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "ピラミッドストーン": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8080",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "香水": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8081",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "しゃれこうべ": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8082",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "将軍の勲章": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8083",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "核の灰": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8084",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "ワイヤーフレーム": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8085",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "鷲の翼": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8086",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "要塞竜の鱗": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8087",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "霧のしずく": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8088",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "吸血王の牙": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8089",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "凍りついたアゴ髯": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8090",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "魔界の爵位証": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8091",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "殺戮衝動": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8092",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "エルダーサイン": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8093",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "高潔なる血": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8094",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "悪魔のしっぽ": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8095",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "冥界の王": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8096",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
+    },
+    "大地龍の涙": {
+      "category_id": 17,
+      "group": "七章",
+      "id_guess": "8097",
+      "guess": "high",
+      "effect": "合成素材カテゴリ17の80xx帯とWiki掲載順から高確度推定。追加時は無称号固定でflagItemsも同期します。"
     }
   }
 }

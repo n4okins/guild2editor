@@ -1,7 +1,8 @@
 window.G2Model=(()=>{
-const state={zip:null,tmp2:null,originalTmp3:'',outer:null,entries:new Map(),characters:[],inventory:[],dirty:false,sourceName:'',catalog:null,location:null};
+const state={zip:null,tmp2:null,originalTmp3:'',outer:null,entries:new Map(),characters:[],inventory:[],dirty:false,sourceName:'',catalog:null,rules:null,location:null};
 const {KeyedArchive,isBplist}=G2Keyed;
 const ITEM_CODE=/^\d{12}$/;
+const GROWTH_KEYS=['_p_str','_p_int','_p_men','_p_vit','_p_agi','_p_luk'];
 function loadEntries(){
   state.entries.clear();
   const a=state.outer,o=a.raw(a.rootRef());
@@ -32,6 +33,29 @@ function loadCharacters(){
 }
 function syncCharacter(c){const ga=entry('groups').archive;ga.raw(c.parentDataIndex)['NS.data']=c.archive.toBytes();ga.dirty=true;state.dirty=true;c.data=c.archive.decodeRoot();}
 function setCharacterField(c,key,v){c.archive.customSet(c.archive.rootRef(),key,v);syncCharacter(c);}
+function raceRule(lineage){return state.rules?.races?.[String(lineage)]||null;}
+function levelCap(c){return raceRule(c?.data?._lineage)?.max_level??null;}
+function setCharacterLevel(c,value){
+  const v=Number(value),cap=levelCap(c);
+  if(!Number.isSafeInteger(v)||v<1)throw Error('Lvは1以上の整数で指定してください');
+  if(cap===null)throw Error('この種族/NPCはLv上限を確認できないため標準UIでは変更できません');
+  if(v>cap)throw Error(`この種族のLv上限は ${cap} です`);
+  c.archive.customSet(c.archive.rootRef(),'_lv',v);
+  const raw=c.archive.raw(c.archive.rootRef());
+  if(Object.prototype.hasOwnProperty.call(raw,'_next_exp'))c.archive.customSet(c.archive.rootRef(),'_next_exp',0);
+  syncCharacter(c);
+}
+function setCharacterGrowth(c,key,value){
+  if(!GROWTH_KEYS.includes(key))throw Error('能力値フィールドが不正です');
+  const r=state.rules?.character?.growth||{min:0,max:10},v=Number(value);
+  if(!Number.isSafeInteger(v)||v<r.min||v>r.max)throw Error(`${key} は ${r.min}～${r.max} の整数で指定してください`);
+  c.archive.customSet(c.archive.rootRef(),key,v);syncCharacter(c);
+}
+function setCharacterLineage(c,value){
+  const v=Number(value),r=raceRule(v);if(!Number.isSafeInteger(v)||!r)throw Error('種族IDが不正です');
+  const lv=Number(c.data._lv);if(r.max_level!==null&&lv>r.max_level)throw Error(`Lv${lv}は${r.name}の上限Lv${r.max_level}を超えます。先にLvを下げてください`);
+  c.archive.customSet(c.archive.rootRef(),'_lineage',v);syncCharacter(c);
+}
 function specialCodes(c){const v=c.archive.customGet(c.archive.rootRef(),'_specialItems');return Array.isArray(v)?v.map(String):[];}
 function setTraits(c,p1,p2){
   const keep=specialCodes(c).filter(code=>{const b=Number(String(code).slice(0,4));return !(b>=8807&&b<=8821)&&!(b>=8901&&b<=8918)});
@@ -80,32 +104,48 @@ function deleteCharacter(c,{returnEquipment=true}={}){
   const ga=entry('groups').archive,pageRef=ga.arrayRefs(ga.rootRef())[c.page],arr=ga.arrayRaw(pageRef)['NS.objects'];
   if(c.slot<0||c.slot>=arr.length)throw Error('キャラクタースロットが不正です');arr.splice(c.slot,1);ga.dirty=true;state.dirty=true;loadCharacters();loadInventory();return info;
 }
+function addonAllocation(){const fields=state.rules?.addons?.current_fields||['adon_exp','adon_gp','adon_rare','adon_name'];const values={};let total=0;for(const k of fields){const v=state.entries.has(k)?Number(get(k)):0;values[k]=v;if(Number.isInteger(v))total+=v;}return{fields,values,total};}
+function setAddon(key,value,budget=null){
+  const rule=state.rules?.addons,fields=rule?.current_fields||['adon_exp','adon_gp','adon_rare','adon_name'];if(!fields.includes(key)||!state.entries.has(key))throw Error('現在版のアドオン項目ではありません');
+  const v=Number(value),min=rule?.per_field_min??0,max=rule?.per_field_max??9;if(!Number.isInteger(v)||v<min||v>max)throw Error(`${key} は ${min}～${max} の整数です`);
+  const a=addonAllocation();const next=a.total-a.values[key]+v,absolute=rule?.absolute_total_max??23;if(next>absolute)throw Error(`アドオン配分合計は最大 ${absolute} です`);if(budget!==null&&next>budget)throw Error(`安全予算 ${budget}pt を超えます（現在 ${next}pt）`);setScalar(key,v);return next;
+}
+function parsePremiumTime(){
+  if(!state.entries.has('premiumTimePoint'))return null;const s=String(get('premiumTimePoint')),r=state.rules?.premium_time||{};
+  if(!/^\d{24}$/.test(s))return{valid:false,raw:s,values:[],total:null};const values=[...s].map(Number),valid=values.every(v=>v>=(r.hour_min??0)&&v<=(r.hour_max??3)),total=values.reduce((a,b)=>a+b,0);return{valid:valid&&total<=(r.total_max??32),raw:s,values,total};
+}
 function flush(){for(const e of state.entries.values())if(e.archive.dirty){state.outer.raw(e.dataObjectIndex)['NS.data']=e.archive.toBytes();state.outer.dirty=true;}return state.outer.toBytes();}
 function itemParts(code){const s=String(code).padStart(12,'0');return{base:s.slice(0,4),title:s.slice(4,8),ultra:s.slice(8,12)};}
 function itemName(code){const p=itemParts(code),c=state.catalog||{},base=c.items?.[p.base]?.name||`ID ${p.base}`,t=c.normal_titles?.[p.title]||'',u=c.ultra_titles?.[p.ultra]||'';return [u,t==='称号なし'||t==='無称号'?'':t,base].filter(Boolean).join(' ');}
 function summary(){return{entries:state.entries.size,characters:state.characters.length,inventory:state.inventory.length,gp:state.entries.has('gp')?get('gp'):null,rabbit:state.entries.has('rabbit')?get('rabbit'):null};}
 function validateCurrent(){
-  const errors=[],warnings=[],ids=new Set();
+  const errors=[],warnings=[],ids=new Set(),growth=state.rules?.character?.growth||{min:0,max:10};
   if(!state.outer)errors.push('セーブ未読込');
   for(const c of state.characters){
-    const d=c.data,id=Number(d._createID),num=d._number;
-    if(!Number.isSafeInteger(id)||id<0)errors.push(`${d._title||'冒険者'}: createIDが不正`);else if(ids.has(id))errors.push(`createID重複: ${id}`);else ids.add(id);
-    if(typeof num==='bigint'||!Number.isSafeInteger(Number(num)))errors.push(`${d._title||id}: _numberが安全な整数ではありません`);
-    else if(Number(num)<-1)errors.push(`${d._title||id}: _number=${num} は不正`);
-    if(!Number.isSafeInteger(Number(d._lv))||Number(d._lv)<0)errors.push(`${d._title||id}: Lvが不正`);
+    const d=c.data,id=Number(d._createID),num=d._number,title=d._title||id;
+    if(!Number.isSafeInteger(id)||id<0)errors.push(`${title}: createIDが不正`);else if(ids.has(id))errors.push(`createID重複: ${id}`);else ids.add(id);
+    if(typeof num==='bigint'||!Number.isSafeInteger(Number(num)))errors.push(`${title}: _numberが安全な整数ではありません`);else if(Number(num)<-1)errors.push(`${title}: _number=${num} は不正`);
+    const lv=Number(d._lv),rr=raceRule(d._lineage);if(!Number.isSafeInteger(lv)||lv<1)errors.push(`${title}: Lvが不正`);else if(rr?.max_level!==null&&rr?.max_level!==undefined&&lv>rr.max_level)errors.push(`${title}: Lv${lv} > ${rr.name}上限Lv${rr.max_level}`);else if(!rr)warnings.push(`${title}: 種族${d._lineage}のLv上限ルール未登録`);
+    for(const k of GROWTH_KEYS){const v=Number(d[k]);if(!Number.isSafeInteger(v)||v<growth.min||v>growth.max)errors.push(`${title}: ${k}=${d[k]} は通常範囲${growth.min}～${growth.max}外`);}
+    if(Object.prototype.hasOwnProperty.call(d,'_next_exp')){const v=Number(d._next_exp);if(!Number.isSafeInteger(v)||v<0)errors.push(`${title}: _next_expが不正`);}
+    if(Object.prototype.hasOwnProperty.call(d,'_hp')){const v=Number(d._hp);if(!Number.isSafeInteger(v)||v<0)warnings.push(`${title}: 現在HP(_hp)=${d._hp} を確認してください`);}
   }
   for(const r of state.inventory){
     if(!ITEM_CODE.test(r.code))errors.push(`${r.key}: 不正なアイテムID ${r.code}`);
     if(!validQuantity(r.quantity)||r.quantity<1)errors.push(`${r.key}/${r.code}: 個数が不正`);
-    const expected=catalogCategoryForCode(r.code);if(expected!==null&&expected!==r.category)errors.push(`${r.code}: カテゴリ${r.category}ですが定義は${expected}`);
+    const expected=catalogCategoryForCode(r.code);if(expected!==null&&expected!==r.category)warnings.push(`${r.code}: セーブ上カテゴリ${r.category} / カタログ定義${expected}。既存データは保持（カタログの版差・誤同定候補）`);
   }
   if(state.entries.has('partys')){
     const pa=entry('partys').archive;
     for(const ref of pa.arrayRefs(pa.rootRef())){const d=pa.decode(ref);if(!d||typeof d!=='object')continue;for(let i=0;i<6;i++){const v=Number(d[`${i}_createID`]);if(Number.isSafeInteger(v)&&v!==-1&&!ids.has(v))errors.push(`パーティ参照先が存在しません: ${v}`);}}
   }
-  for(const key of ['adon_exp','adon_gp','adon_rare','adon_name'])if(state.entries.has(key)){const v=Number(get(key));if(!Number.isInteger(v)||v<0||v>9)warnings.push(`${key}=${v}: 通常範囲0～9外`);}
+  const add=addonAllocation(),ar=state.rules?.addons||{};for(const key of add.fields){const v=add.values[key];if(!Number.isInteger(v)||v<(ar.per_field_min??0)||v>(ar.per_field_max??9))errors.push(`${key}=${v}: 許容範囲${ar.per_field_min??0}～${ar.per_field_max??9}外`);}if(add.total>(ar.absolute_total_max??23))errors.push(`アドオン配分合計${add.total} > 理論最大${ar.absolute_total_max??23}`);
+  if(state.entries.has('adon_time')){const v=Number(get('adon_time'));if(v!==0)warnings.push(`adon_time=${v}: Ver2.00で廃止された旧時間短縮配分の互換フィールド。v7.30では0維持を推奨`);}
+  if(state.entries.has('rabbit')){const v=Number(get('rabbit')),rr=state.rules?.resources?.rabbit||{min:0,max:999};if(!Number.isInteger(v)||v<rr.min||v>rr.max)errors.push(`rabbit=${v}: 許容範囲${rr.min}～${rr.max}外`);}
+  for(const k of ['gp','rp','rpPoint'])if(state.entries.has(k)){const v=Number(get(k));if(!Number.isSafeInteger(v)||v<0)errors.push(`${k}=${v}: 0以上の安全な整数ではありません`);}
+  const pt=parsePremiumTime();if(pt&&!pt.valid)warnings.push(`premiumTimePoint=${pt.raw}: 24桁(各0～3、合計32以下)の形式から外れています`);
   if(state.entries.has('addition_Number')){const v=Number(get('addition_Number'));if(!Number.isInteger(v)||v<0)warnings.push(`addition_Number=${v}: 負値/非整数`);}
   return{ok:errors.length===0,errors,warnings};
 }
-return{state,loadEntries,loadCharacters,loadInventory,entry,get,setScalar,setCharacterField,setTraits,setInventory,addInventory,flush,itemParts,itemName,summary,specialCodes,cloneCharacter,deleteCharacter,validateCurrent,catalogCategoryForCode};
+return{state,loadEntries,loadCharacters,loadInventory,entry,get,setScalar,setCharacterField,setCharacterLevel,setCharacterGrowth,setCharacterLineage,raceRule,levelCap,setTraits,setInventory,addInventory,flush,itemParts,itemName,summary,specialCodes,cloneCharacter,deleteCharacter,validateCurrent,catalogCategoryForCode,addonAllocation,setAddon,parsePremiumTime};
 })();

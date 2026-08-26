@@ -39,6 +39,18 @@ jobs:
           PY
       - name: Apply fix
         run: python tools/apply_v051_fix.py
+      - name: Normalize generated compact handler
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('js/app.js')
+          s=p.read_text()
+          old="toast('倉庫から削除しました')});}document.querySelectorAll('[data-fixultra]')"
+          new="toast('倉庫から削除しました')});document.querySelectorAll('[data-fixultra]')"
+          if old not in s:
+              raise SystemExit('generated inventory handler boundary not found')
+          p.write_text(s.replace(old,new,1))
+          PY
       - name: Validate generated files
         run: |
           node --check js/app.js

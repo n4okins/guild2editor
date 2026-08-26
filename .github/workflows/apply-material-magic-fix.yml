@@ -1,0 +1,38 @@
+name: Apply material and magic item fix
+
+on:
+  push:
+    branches: [fix/material-magic-item-add]
+    paths: [.github/workflows/apply-material-magic-fix.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/material-magic-item-add
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply material and magic item fix
+        run: python tools/apply_material_magic_fix.py
+      - name: Validate generated files
+        run: |
+          node --check js/app.js
+          node --check js/model.js
+          python -m json.tool data/wiki_items.json >/dev/null
+          grep -q 'repairInventoryDiscoveryFlags' js/model.js
+          grep -q 'fixedPlain=.17,18..includes' js/app.js
+          grep -q '"id_guess": "8001"' data/wiki_items.json
+          grep -q '"id_guess": "8097"' data/wiki_items.json
+      - name: Commit generated source
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add js/model.js js/app.js data/wiki_items.json index.html .github/workflows/web-validate.yml
+          git commit -m "Fix material and magic item additions"
+          git push origin HEAD:fix/material-magic-item-add

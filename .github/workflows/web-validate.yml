@@ -36,8 +36,34 @@ jobs:
           const rules=JSON.parse(fs.readFileSync('data/rules.json','utf8'));
           if(rules.character?.growth?.min!==0 || rules.character?.growth?.max!==10) throw new Error('growth range mismatch');
           if(rules.addons?.per_field_max!==9 || rules.addons?.absolute_total_max!==23) throw new Error('addon range mismatch');
+          if(rules.addons?.budget_from_flags?.confirmed_pow_max_v510!==10) throw new Error('v5.10 addonPow static limit mismatch');
+          if(rules.addons?.budget_from_flags?.current_pow_max!==15) throw new Error('current addonPow limit mismatch');
+          if(rules.addons?.budget_from_flags?.business_bonus?.['Guild2.adonBisiness1']!==5) throw new Error('premium addon bonus mismatch');
           if(rules.premium_time?.editable!==true || rules.premium_time?.total_max!==32) throw new Error('premium time rule mismatch');
           const abnormal=JSON.parse(fs.readFileSync('data/abnormal_flags.json','utf8'));
           if(!abnormal.known_value_triggers.some(x=>x.field==='rabbit'&&x.operator==='>'&&x.value===999)) throw new Error('rabbit abnormal trigger missing');
           for(const k of ['adon_exp','adon_gp','adon_rare','adon_time']) if(!abnormal.known_value_triggers.some(x=>x.field===k&&x.operator==='>='&&x.value===10)) throw new Error(`${k} abnormal trigger missing`);
+
+          const model=fs.readFileSync('js/model.js','utf8');
+          const app=fs.readFileSync('js/app.js','utf8');
+          if(!model.includes("base:s.slice(0,4),ultra:s.slice(4,6),title:s.slice(6,8),gem:s.slice(8,12)")) throw new Error('item flag must use BBBB-UU-TT-GGGG');
+          if(!model.includes('currentPowMax=cfg.current_pow_max??15')) throw new Error('current addon budget logic missing');
+          if(!model.includes('function unlockAddonMaximum()')) throw new Error('addon maximum unlock missing');
+          if(!model.includes('Number.isFinite(v)||v<rr.min||v>rr.max')) throw new Error('rabbit float-range validation missing');
+          if(!app.includes("x.base_id+ultra+title+'0000'")) throw new Error('item preview/write format mismatch');
+
+          function repair(code){
+            const s=String(code).padStart(12,'0');
+            const base=s.slice(0,4), ultra=s.slice(4,6), title=s.slice(6,8), gem=s.slice(8,12);
+            const n=Number(gem);
+            if(ultra!=='00'||n<1||n>80) return null;
+            const uq=n<=70?String(n+20).padStart(2,'0'):String(n-61).padStart(2,'0');
+            return `${base}${uq}${title}0000`;
+          }
+          const cases={
+            '853100090003':'853123090000',
+            '650100090031':'650151090000',
+            '401300090069':'401389090000'
+          };
+          for(const [oldCode,newCode] of Object.entries(cases)) if(repair(oldCode)!==newCode) throw new Error(`legacy ultra repair mismatch ${oldCode}`);
           NODE

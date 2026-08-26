@@ -19,7 +19,7 @@ function unlockAddonMaximum(){
   for(let n=1;n<=maxPow;n++){const f=`Guild2.adonPow${n}`;if(!flags.includes(f))flags.push(f);}if(!flags.includes(businessFlag))flags.push(businessFlag);setFlagsList(flags);return addonPointBudget();
 }
 '''
-m,n=re.subn(r'function addonPointBudget\(\)\{.*?(?=function addonAllocation\(\))',new_budget,m,count=1,flags=re.S)
+m,n=re.subn(r'function addonPointBudget\(\)\{.*?(?=function addonAllocation\(\))',lambda _:new_budget,m,count=1,flags=re.S)
 if n!=1: raise SystemExit(f'budget block replacement failed: {n}')
 m=m.replace('flagsList,addonPointBudget,addonAllocation,setAddon,repairAddonAbnormalFlags,','flagsList,addonPointBudget,unlockAddonMaximum,addonAllocation,setAddon,repairAddonAbnormalFlags,',1)
 MODEL.write_text(m)
@@ -37,9 +37,7 @@ anchor="if($('repairSysAPov'))$('repairSysAPov').onclick=()=>{try{const x=M.repa
 if anchor not in app: raise SystemExit('repair handler anchor not found')
 handler="if($('unlockAddonMax'))$('unlockAddonMax').onclick=()=>{if(!confirm(`アドオン解放フラグを補完し、上限を${budget.absolute}ptへ拡張します。続行しますか？`))return;try{const b=M.unlockAddonMaximum();let repaired=false;const ar=M.abnormalFlagReport();if(ar.specific_flags?.includes('sysAPov')&&ar.addon.total<=b.max)repaired=M.repairAddonAbnormalFlags().changed;dirty();renderResources();toast(`アドオン上限を${b.max}ptへ拡張しました${repaired?' / sysAPov修復済み':''}`,4800)}catch(e){toast('上限拡張失敗: '+e.message,4800)}};"+anchor
 app=app.replace(anchor,handler,1)
-# rabbit is stored as a floating value in real saves; tolerate tiny/non-integer decimals as long as range is valid.
 oldrabbit="if(state.entries.has('rabbit')){const v=Number(get('rabbit')),rr=state.rules?.resources?.rabbit||{min:0,max:999};if(!Number.isInteger(v)||v<rr.min||v>rr.max)errors.push(`rabbit=${v}: 許容範囲${rr.min}～${rr.max}外`);}"
-# This block lives in model, not app; handle below.
 APP.write_text(app)
 
 m=MODEL.read_text()

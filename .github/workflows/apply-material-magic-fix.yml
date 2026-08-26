@@ -18,21 +18,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Apply material and magic item fix
-        run: python tools/apply_material_magic_fix.py
+      - name: Apply malformed material repair
+        run: python tools/apply_material_magic_followup.py
       - name: Validate generated files
         run: |
           node --check js/app.js
           node --check js/model.js
-          python -m json.tool data/wiki_items.json >/dev/null
-          grep -q 'repairInventoryDiscoveryFlags' js/model.js
-          grep -q 'fixedPlain=.17,18..includes' js/app.js
-          grep -q '"id_guess": "8001"' data/wiki_items.json
-          grep -q '"id_guess": "8097"' data/wiki_items.json
+          grep -q 'repairSpecialMaterialCodes' js/model.js
+          grep -q 'canonicalPlainMaterialCode' js/model.js
+          grep -q 'M.repairSpecialMaterialCodes()' js/app.js
       - name: Commit generated source
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add js/model.js js/app.js data/wiki_items.json index.html
-          git commit -m "Fix material and magic item additions"
+          git add js/model.js js/app.js
+          git commit -m "Repair malformed material and magic item IDs"
           git push origin HEAD:fix/material-magic-item-add

@@ -1,0 +1,31 @@
+name: Validate editor
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JavaScript syntax
+        run: |
+          for f in js/*.js; do node --check "$f"; done
+      - name: JSON syntax and data invariants
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          for(const f of ['data/catalog.json','data/rules.json','data/item_coverage.json','data/wiki_items.json']) JSON.parse(fs.readFileSync(f,'utf8'));
+          const rows=fs.readFileSync('data/items.tsv','utf8').trim().split(/\r?\n/).slice(1).map(x=>x.split('\t'));
+          const sheep=rows.find(r=>r[0]==='0229');
+          if(!sheep || sheep[2]!=='12') throw new Error('0229 must resolve to category 12');
+          const wiki=JSON.parse(fs.readFileSync('data/wiki_items.json','utf8'));
+          if(!wiki.ordered?.['1']?.['ナックル']?.includes('大地龍の爪')) throw new Error('大地龍の爪 missing from Wiki order');
+          const rules=JSON.parse(fs.readFileSync('data/rules.json','utf8'));
+          if(rules.character?.growth?.min!==0 || rules.character?.growth?.max!==10) throw new Error('growth range mismatch');
+          if(rules.addons?.per_field_max!==9 || rules.addons?.absolute_total_max!==23) throw new Error('addon range mismatch');
+          NODE

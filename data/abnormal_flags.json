@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "flag": "8d84d86dd",
+  "paired_flag": "86dd8d84d",
+  "message": "正常なiOSと異なる環境においてのアプリケーションの使用が検出されました。アプリケーションは正常ではない環境において動作を保証するものではありません。",
+  "source": "IPA v5.10 static analysis",
+  "known_value_triggers": [
+    {"field":"rabbit","operator":">","value":999,"severity":"error","confidence":"confirmed","note":"rabbit > 999 で異常フラグをSETする分岐を確認"},
+    {"field":"adon_exp","operator":">=","value":10,"severity":"error","confidence":"confirmed"},
+    {"field":"adon_gp","operator":">=","value":10,"severity":"error","confidence":"confirmed"},
+    {"field":"adon_rare","operator":">=","value":10,"severity":"error","confidence":"confirmed"},
+    {"field":"adon_time","operator":">=","value":10,"severity":"error","confidence":"confirmed"}
+  ],
+  "notes": [
+    "同じ異常フラグは値検査以外の複数コードパスからもSETされる。ここではセーブ値から事前判定できる条件のみ検査する。",
+    "v7.30の現行アドオン4枠目はadon_nameだが、v5.10で直接確認した異常判定対象はadon_time。adon_nameは通常UI上限0..9を維持する。"
+  ]
+}

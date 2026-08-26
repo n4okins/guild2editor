@@ -19,13 +19,25 @@ jobs:
         run: |
           node <<'NODE'
           const fs=require('fs');
-          for(const f of ['data/catalog.json','data/rules.json','data/item_coverage.json','data/wiki_items.json']) JSON.parse(fs.readFileSync(f,'utf8'));
+          const jsonFiles=['data/catalog.json','data/rules.json','data/item_coverage.json','data/wiki_items.json','data/magic_creatures.json','data/abnormal_flags.json'];
+          for(const f of jsonFiles) JSON.parse(fs.readFileSync(f,'utf8'));
           const rows=fs.readFileSync('data/items.tsv','utf8').trim().split(/\r?\n/).slice(1).map(x=>x.split('\t'));
+          const confirmed=new Map(rows.map(r=>[r[0],r[1]]));
           const sheep=rows.find(r=>r[0]==='0229');
           if(!sheep || sheep[2]!=='12') throw new Error('0229 must resolve to category 12');
           const wiki=JSON.parse(fs.readFileSync('data/wiki_items.json','utf8'));
           if(!wiki.ordered?.['1']?.['ナックル']?.includes('大地龍の爪')) throw new Error('大地龍の爪 missing from Wiki order');
+          const guesses=Object.entries(wiki.unresolved_meta||{}).filter(([,m])=>/^\d{4}$/.test(String(m.id_guess||'')));
+          for(const [name,m] of guesses){const hit=confirmed.get(String(m.id_guess));if(hit && hit!==name) throw new Error(`inferred ID collision ${m.id_guess}: ${name} vs ${hit}`);}
+          const magic=JSON.parse(fs.readFileSync('data/magic_creatures.json','utf8'));
+          if(magic.items.filter(x=>!x.inferred).length!==37) throw new Error('expected 37 confirmed magic creatures');
+          if(magic.items.find(x=>x.name==='オメガ')?.base_id!=='8538') throw new Error('Omega inferred ID mismatch');
+          for(let id=8501;id<=8537;id++) if(!confirmed.has(String(id))) throw new Error(`missing magic creature ${id}`);
           const rules=JSON.parse(fs.readFileSync('data/rules.json','utf8'));
           if(rules.character?.growth?.min!==0 || rules.character?.growth?.max!==10) throw new Error('growth range mismatch');
           if(rules.addons?.per_field_max!==9 || rules.addons?.absolute_total_max!==23) throw new Error('addon range mismatch');
+          if(rules.premium_time?.editable!==true || rules.premium_time?.total_max!==32) throw new Error('premium time rule mismatch');
+          const abnormal=JSON.parse(fs.readFileSync('data/abnormal_flags.json','utf8'));
+          if(!abnormal.known_value_triggers.some(x=>x.field==='rabbit'&&x.operator==='>'&&x.value===999)) throw new Error('rabbit abnormal trigger missing');
+          for(const k of ['adon_exp','adon_gp','adon_rare','adon_time']) if(!abnormal.known_value_triggers.some(x=>x.field===k&&x.operator==='>='&&x.value===10)) throw new Error(`${k} abnormal trigger missing`);
           NODE

@@ -1,6 +1,6 @@
 {
   "format_version": 3,
-  "data_version": "2026-08-26-ranges-v4",
+  "data_version": "2026-08-26-ranges-v5-addon23",
   "character": {
     "level": {
       "min": 1,
@@ -352,7 +352,8 @@
         "Guild2.adonBisiness1": 5
       },
       "absolute_total_max": 23,
-      "note": "v5.10 adonPoint_max is base 3 + adonPow1..10 each +1 + adonBisiness1 +5. Later adonPowN are counted by the same naming pattern and capped at 23; N>10 is inferred for current versions."
+      "note": "v5.10 static analysis confirms base 3 + adonPow1..10 each +1 + adonBisiness1 +5 (=18). Current game specification permits 15 purchased points plus Premium Pack 5, so v7.30-compatible editing uses adonPow1..15 + adonBisiness1 for max 23.",
+      "current_pow_max": 15
     }
   },
   "premium_time": {
@@ -398,7 +399,8 @@
   },
   "evidence": {
     "ipa_v510": "adon_exp/gp/rare/time と adonPow_* は0～9のテーブル参照を確認。",
-    "wiki_current": "現行アドオンは経験値/GP/レア/称号、各0～9、総ポイント最大23。基本能力は種族基礎値+10まで。"
+    "wiki_current": "現行アドオンは経験値/GP/レア/称号、各0～9、総ポイント最大23。基本能力は種族基礎値+10まで。",
+    "current_addon": "Current Wiki: initial 3 + up to 15 purchased + Premium Pack 5 = max 23; version history documents +5 purchasable points after older builds."
   },
   "twitter_bonus": {
     "key": "twitter_last_time",

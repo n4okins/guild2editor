@@ -107,11 +107,15 @@ function deleteCharacter(c,{returnEquipment=true}={}){
 function flagsList(){if(!state.entries.has('flags'))return[];const v=get('flags');return Array.isArray(v)?v.map(String):[];}
 function setFlagsList(values){const a=entry('flags').archive,ref=a.rootRef();a.setArray(ref,values.map(String));state.dirty=true;}
 function addonPointBudget(){
-  const rule=state.rules?.addons||{},cfg=rule.budget_from_flags||{},flags=flagsList(),base=cfg.base??3,absolute=cfg.absolute_total_max??rule.absolute_total_max??23;
+  const rule=state.rules?.addons||{},cfg=rule.budget_from_flags||{},flags=flagsList(),base=cfg.base??3,absolute=cfg.absolute_total_max??rule.absolute_total_max??23,currentPowMax=cfg.current_pow_max??15,confirmedPowMax=cfg.confirmed_pow_max_v510??10;
   const pow=[],unknown=[];let max=base;
-  for(const f of flags){const x=/^Guild2\.adonPow(\d+)$/.exec(f);if(!x)continue;const n=Number(x[1]);if(!pow.includes(n)){pow.push(n);max+=1;if(n>(cfg.confirmed_pow_max_v510??10))unknown.push(n);}}
+  for(const f of flags){const x=/^Guild2\.adonPow(\d+)$/.exec(f);if(!x)continue;const n=Number(x[1]);if(n>=1&&n<=currentPowMax&&!pow.includes(n)){pow.push(n);max+=1;}else if(n>currentPowMax)unknown.push(n);}
   const business=[];for(const [f,bonus] of Object.entries(cfg.business_bonus||{'Guild2.adonBisiness1':5}))if(flags.includes(f)){max+=Number(bonus)||0;business.push(f);}
-  max=Math.min(max,absolute);pow.sort((a,b)=>a-b);return{max,absolute,base,pow,business,confidence:unknown.length?'inferred-current':'confirmed-v5.10',inferred_pow:unknown};
+  max=Math.min(max,absolute);pow.sort((a,b)=>a-b);const currentOnly=pow.filter(n=>n>confirmedPowMax);return{max,absolute,base,pow,business,confidence:currentOnly.length?'confirmed-current-spec':'confirmed-v5.10-static',current_only_pow:currentOnly,unknown_pow:unknown};
+}
+function unlockAddonMaximum(){
+  const cfg=state.rules?.addons?.budget_from_flags||{},maxPow=cfg.current_pow_max??15,businessFlag=Object.keys(cfg.business_bonus||{'Guild2.adonBisiness1':5})[0]||'Guild2.adonBisiness1';let flags=flagsList();
+  for(let n=1;n<=maxPow;n++){const f=`Guild2.adonPow${n}`;if(!flags.includes(f))flags.push(f);}if(!flags.includes(businessFlag))flags.push(businessFlag);setFlagsList(flags);return addonPointBudget();
 }
 function addonAllocation(){const fields=state.rules?.addons?.current_fields||['adon_exp','adon_gp','adon_rare','adon_name'];const values={};let total=0;for(const k of fields){const v=state.entries.has(k)?Number(get(k)):0;values[k]=v;if(Number.isInteger(v))total+=v;}return{fields,values,total};}
 function setAddon(key,value){
@@ -180,7 +184,7 @@ function validateCurrent(){
   }
   const add=addonAllocation(),ar=state.rules?.addons||{};for(const key of add.fields){const v=add.values[key];if(!Number.isInteger(v)||v<(ar.per_field_min??0)||v>(ar.per_field_max??9))errors.push(`${key}=${v}: 許容範囲${ar.per_field_min??0}～${ar.per_field_max??9}外`);}if(add.total>(ar.absolute_total_max??23))errors.push(`アドオン配分合計${add.total} > 理論最大${ar.absolute_total_max??23}`);
   if(state.entries.has('adon_time')){const v=Number(get('adon_time'));if(v!==0)warnings.push(`adon_time=${v}: Ver2.00で廃止された旧時間短縮配分の互換フィールド。v7.30では0維持を推奨`);}
-  if(state.entries.has('rabbit')){const v=Number(get('rabbit')),rr=state.rules?.resources?.rabbit||{min:0,max:999};if(!Number.isInteger(v)||v<rr.min||v>rr.max)errors.push(`rabbit=${v}: 許容範囲${rr.min}～${rr.max}外`);}
+  if(state.entries.has('rabbit')){const v=Number(get('rabbit')),rr=state.rules?.resources?.rabbit||{min:0,max:999};if(!Number.isFinite(v)||v<rr.min||v>rr.max)errors.push(`rabbit=${v}: 許容範囲${rr.min}～${rr.max}外`);}
   for(const k of ['gp','rp','rpPoint'])if(state.entries.has(k)){const v=Number(get(k));if(!Number.isSafeInteger(v)||v<0)errors.push(`${k}=${v}: 0以上の安全な整数ではありません`);}
   const pt=parsePremiumTime();if(pt&&!pt.valid)errors.push(`premiumTimePoint=${pt.raw}: 24桁(各0～3、合計32以下)の形式から外れています`);
   if(state.entries.has('addition_Number')){const v=Number(get('addition_Number'));if(!Number.isInteger(v)||v<0)warnings.push(`addition_Number=${v}: 負値/非整数`);}
@@ -188,5 +192,5 @@ function validateCurrent(){
   const abnormal=abnormalFlagReport();for(const h of abnormal.hits)errors.push(`異常フラグ既知条件: ${h.field}=${h.current} ${h.op} ${h.value}`);if(abnormal.flag_present&&!abnormal.paired_present)warnings.push(`異常フラグ ${abnormal.flag} が保存済みです`);
   return{ok:errors.length===0,errors,warnings,abnormal};
 }
-return{state,loadEntries,loadCharacters,loadInventory,entry,get,setScalar,setCharacterField,setCharacterLevel,setCharacterGrowth,setCharacterLineage,raceRule,levelCap,setTraits,setInventory,addInventory,flush,itemParts,itemName,summary,specialCodes,cloneCharacter,deleteCharacter,validateCurrent,catalogCategoryForCode,flagsList,addonPointBudget,addonAllocation,setAddon,repairAddonAbnormalFlags,parsePremiumTime,setPremiumTime,refreshTwitterBonus,abnormalFlagReport,legacyUltraIssue,repairLegacyUltra,ultraTitleMeta};
+return{state,loadEntries,loadCharacters,loadInventory,entry,get,setScalar,setCharacterField,setCharacterLevel,setCharacterGrowth,setCharacterLineage,raceRule,levelCap,setTraits,setInventory,addInventory,flush,itemParts,itemName,summary,specialCodes,cloneCharacter,deleteCharacter,validateCurrent,catalogCategoryForCode,flagsList,addonPointBudget,unlockAddonMaximum,addonAllocation,setAddon,repairAddonAbnormalFlags,parsePremiumTime,setPremiumTime,refreshTwitterBonus,abnormalFlagReport,legacyUltraIssue,repairLegacyUltra,ultraTitleMeta};
 })();

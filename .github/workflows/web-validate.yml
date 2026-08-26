@@ -56,7 +56,10 @@ jobs:
           if(!model.includes('Number.isFinite(v)||v<rr.min||v>rr.max')) throw new Error('rabbit float-range validation missing');
           if(!app.includes("x.base_id+ultra+title+'0000'")) throw new Error('item preview/write format mismatch');
           for(const s of ['itemDiscoveryHashes','ensureItemDiscovery','repairInventoryDiscoveryFlags','G2MD5(base)','G2MD5(code)']) if(!model.includes(s)) throw new Error(`missing discovery sync ${s}`);
+          if(!model.includes('function repairSpecialMaterialCodes()')) throw new Error('existing material/magic repair missing');
+          if(!model.includes('return `${p.base}00030000`')) throw new Error('material/magic canonical code mismatch');
           if(!app.includes('M.repairInventoryDiscoveryFlags()')) throw new Error('export must repair item discovery flags');
+          if(!app.includes('M.repairSpecialMaterialCodes()')) throw new Error('export must repair malformed material/magic IDs');
           if(!app.includes("fixedPlain=[17,18].includes")) throw new Error('material/magic IDs must be plain-title fixed');
           if(!app.includes('M.addInventory(cat,code,q)')) throw new Error('item add must use discovery-aware path');
 
@@ -74,4 +77,7 @@ jobs:
             '401300090069':'401389090000'
           };
           for(const [oldCode,newCode] of Object.entries(cases)) if(repair(oldCode)!==newCode) throw new Error(`legacy ultra repair mismatch ${oldCode}`);
+          const canonicalSpecial=code=>String(code).slice(0,4)+'00030000';
+          if(canonicalSpecial('853123090000')!=='853100030000') throw new Error('magic material canonical repair mismatch');
+          if(canonicalSpecial('800123090000')!=='800100030000') throw new Error('synthesis material canonical repair mismatch');
           NODE

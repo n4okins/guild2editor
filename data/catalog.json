@@ -82,86 +82,86 @@
     "0009": "壊れた"
   },
   "ultra_titles": {
-    "0001": "災いの中心にある",
-    "0002": "超",
-    "0003": "世界を征する",
-    "0004": "選ばれし",
-    "0005": "ありえない",
-    "0006": "存在の許されない",
-    "0007": "世界が変わる",
-    "0008": "触れてはならない",
-    "0009": "神の封じた",
-    "0010": "永久なる",
-    "0011": "最後の",
-    "0012": "最初の",
-    "0013": "血に飢えし",
-    "0014": "奇跡的な",
-    "0015": "恍惚なる",
-    "0016": "幸福なる",
-    "0017": "異次元にある",
-    "0018": "時空を超える",
-    "0019": "全てを破壊する",
-    "0020": "真実を知る",
-    "0021": "全てが見える",
-    "0022": "幸運を呼ぶ",
-    "0023": "虚空から現れし",
-    "0024": "手元に戻る",
-    "0025": "質量がおかしい",
-    "0026": "理解出来ない",
-    "0027": "残像が残る",
-    "0028": "秘密を語る",
-    "0029": "逆らい続ける",
-    "0030": "どう見ても",
-    "0031": "引き寄せる",
-    "0032": "知られざる",
-    "0033": "偽装されし",
-    "0034": "勝手に動く",
-    "0035": "北を向く",
-    "0036": "摂理を超える",
-    "0037": "透き通る",
-    "0038": "自慢したい",
-    "0039": "いずれ奪われる",
-    "0040": "明日には消える",
-    "0041": "先を行く",
-    "0042": "夢の中で手に入れし",
-    "0043": "世を導く",
-    "0044": "ウサギに噛まれる",
-    "0045": "天に与えられし",
-    "0046": "未来の運を吸う",
-    "0047": "求め続けた",
-    "0048": "主を導く",
-    "0049": "攻め続ける",
-    "0050": "もう手放せない",
-    "0051": "直視出来ない",
-    "0052": "舞い降りた",
-    "0053": "強い気がする",
-    "0054": "息が止まる",
-    "0055": "解き放つ",
-    "0056": "夜に光る",
-    "0057": "べっとりと付いた",
-    "0058": "焼き尽くす",
-    "0059": "石にめり込む",
-    "0060": "歓喜を呼ぶ",
-    "0061": "引き継がれる",
-    "0062": "落とし物の",
-    "0063": "天下無双の",
-    "0064": "終わらない",
-    "0065": "主人より賢い",
-    "0066": "死期に手に入る",
-    "0067": "投擲用の",
-    "0068": "鈍器になる",
-    "0069": "拳で語る",
-    "0070": "主を欺く",
-    "0071": "混沌の",
-    "0072": "成長する",
-    "0073": "空飛ぶ",
-    "0074": "お気に入りの",
-    "0075": "顔が映る",
-    "0076": "逃げ出したい",
-    "0077": "美味しそうな",
-    "0078": "未知と遭遇する",
-    "0079": "呪われし",
-    "0080": "名状しがたい"
+    "21": "災いの中心にある",
+    "22": "超",
+    "23": "世界を征する",
+    "24": "選ばれし",
+    "25": "ありえない",
+    "26": "存在の許されない",
+    "27": "世界が変わる",
+    "28": "触れてはならない",
+    "29": "神の封じた",
+    "30": "永久なる",
+    "31": "最後の",
+    "32": "最初の",
+    "33": "血に飢えし",
+    "34": "奇跡的な",
+    "35": "恍惚なる",
+    "36": "幸福なる",
+    "37": "異次元にある",
+    "38": "時空を超える",
+    "39": "全てを破壊する",
+    "40": "真実を知る",
+    "41": "全てが見える",
+    "42": "幸運を呼ぶ",
+    "43": "虚空から現れし",
+    "44": "手元に戻る",
+    "45": "質量がおかしい",
+    "46": "理解出来ない",
+    "47": "残像が残る",
+    "48": "秘密を語る",
+    "49": "逆らい続ける",
+    "50": "どう見ても",
+    "51": "引き寄せる",
+    "52": "知られざる",
+    "53": "偽装されし",
+    "54": "勝手に動く",
+    "55": "北を向く",
+    "56": "摂理を超える",
+    "57": "透き通る",
+    "58": "自慢したい",
+    "59": "いずれ奪われる",
+    "60": "明日には消える",
+    "61": "先を行く",
+    "62": "夢の中で手に入れし",
+    "63": "世を導く",
+    "64": "ウサギに噛まれる",
+    "65": "天に与えられし",
+    "66": "未来の運を吸う",
+    "67": "求め続けた",
+    "68": "主を導く",
+    "69": "攻め続ける",
+    "70": "もう手放せない",
+    "71": "直視出来ない",
+    "72": "舞い降りた",
+    "73": "強い気がする",
+    "74": "息が止まる",
+    "75": "解き放つ",
+    "76": "夜に光る",
+    "77": "べっとりと付いた",
+    "78": "焼き尽くす",
+    "79": "石にめり込む",
+    "80": "歓喜を呼ぶ",
+    "81": "引き継がれる",
+    "82": "落とし物の",
+    "83": "天下無双の",
+    "84": "終わらない",
+    "85": "主人より賢い",
+    "86": "死期に手に入る",
+    "87": "投擲用の",
+    "88": "鈍器になる",
+    "89": "拳で語る",
+    "90": "主を欺く",
+    "10": "混沌の",
+    "11": "成長する",
+    "12": "空飛ぶ",
+    "13": "お気に入りの",
+    "14": "顔が映る",
+    "15": "逃げ出したい",
+    "16": "美味しそうな",
+    "17": "未知と遭遇する",
+    "18": "呪われし",
+    "19": "名状しがたい"
   },
   "categories": {
     "0": "未使用/特殊",
@@ -257,6 +257,433 @@
       "min": 0
     }
   ],
-  "data_version": "2026-08-26-v7.30-validated",
-  "personality1_note": "8909〜8915/8918は内部ID対応未確定のため選択肢から除外。既存セーブ値は保持される。"
+  "data_version": "2026-08-26-v7.30-v051-itemflag-fix",
+  "personality1_note": "8909〜8915/8918は内部ID対応未確定のため選択肢から除外。既存セーブ値は保持される。",
+  "ultra_title_meta": {
+    "21": {
+      "display_order": 1,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "22": {
+      "display_order": 2,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "23": {
+      "display_order": 3,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "24": {
+      "display_order": 4,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "25": {
+      "display_order": 5,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "26": {
+      "display_order": 6,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "27": {
+      "display_order": 7,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "28": {
+      "display_order": 8,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "29": {
+      "display_order": 9,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "30": {
+      "display_order": 10,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "31": {
+      "display_order": 11,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "32": {
+      "display_order": 12,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "33": {
+      "display_order": 13,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "34": {
+      "display_order": 14,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "35": {
+      "display_order": 15,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "36": {
+      "display_order": 16,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "37": {
+      "display_order": 17,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "38": {
+      "display_order": 18,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "39": {
+      "display_order": 19,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "40": {
+      "display_order": 20,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "41": {
+      "display_order": 21,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "42": {
+      "display_order": 22,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "43": {
+      "display_order": 23,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "44": {
+      "display_order": 24,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "45": {
+      "display_order": 25,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "46": {
+      "display_order": 26,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "47": {
+      "display_order": 27,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "48": {
+      "display_order": 28,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "49": {
+      "display_order": 29,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "50": {
+      "display_order": 30,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "51": {
+      "display_order": 31,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "52": {
+      "display_order": 32,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "53": {
+      "display_order": 33,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "54": {
+      "display_order": 34,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "55": {
+      "display_order": 35,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "56": {
+      "display_order": 36,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "57": {
+      "display_order": 37,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "58": {
+      "display_order": 38,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "59": {
+      "display_order": 39,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "60": {
+      "display_order": 40,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "61": {
+      "display_order": 41,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "62": {
+      "display_order": 42,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "63": {
+      "display_order": 43,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "64": {
+      "display_order": 44,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "65": {
+      "display_order": 45,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "66": {
+      "display_order": 46,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "67": {
+      "display_order": 47,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "68": {
+      "display_order": 48,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "69": {
+      "display_order": 49,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "70": {
+      "display_order": 50,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "71": {
+      "display_order": 51,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "72": {
+      "display_order": 52,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "73": {
+      "display_order": 53,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "74": {
+      "display_order": 54,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "75": {
+      "display_order": 55,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "76": {
+      "display_order": 56,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "77": {
+      "display_order": 57,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "78": {
+      "display_order": 58,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "79": {
+      "display_order": 59,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "80": {
+      "display_order": 60,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "81": {
+      "display_order": 61,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "82": {
+      "display_order": 62,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "83": {
+      "display_order": 63,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "84": {
+      "display_order": 64,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "85": {
+      "display_order": 65,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "86": {
+      "display_order": 66,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "87": {
+      "display_order": 67,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "88": {
+      "display_order": 68,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "89": {
+      "display_order": 69,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "90": {
+      "display_order": 70,
+      "confidence": "confirmed-v5.10-static",
+      "source": "Info_Addition initWithNumber: / Data_Item uniqeWithItemFlag:"
+    },
+    "10": {
+      "display_order": 71,
+      "confidence": "inferred-high",
+      "source": "v5.10 reserved 10..20 + current Wiki append order"
+    },
+    "11": {
+      "display_order": 72,
+      "confidence": "inferred-high",
+      "source": "v5.10 reserved 10..20 + current Wiki append order"
+    },
+    "12": {
+      "display_order": 73,
+      "confidence": "inferred-high",
+      "source": "v5.10 reserved 10..20 + current Wiki append order"
+    },
+    "13": {
+      "display_order": 74,
+      "confidence": "inferred-high",
+      "source": "v5.10 reserved 10..20 + current Wiki append order"
+    },
+    "14": {
+      "display_order": 75,
+      "confidence": "inferred-high",
+      "source": "v5.10 reserved 10..20 + current Wiki append order"
+    },
+    "15": {
+      "display_order": 76,
+      "confidence": "inferred-high",
+      "source": "v5.10 reserved 10..20 + current Wiki append order"
+    },
+    "16": {
+      "display_order": 77,
+      "confidence": "inferred-high",
+      "source": "v5.10 reserved 10..20 + current Wiki append order"
+    },
+    "17": {
+      "display_order": 78,
+      "confidence": "inferred-high",
+      "source": "v5.10 reserved 10..20 + current Wiki append order"
+    },
+    "18": {
+      "display_order": 79,
+      "confidence": "inferred-high",
+      "source": "v5.10 reserved 10..20 + current Wiki append order"
+    },
+    "19": {
+      "display_order": 80,
+      "confidence": "inferred-high",
+      "source": "v5.10 reserved 10..20 + current Wiki append order"
+    }
+  },
+  "item_code_format": {
+    "format": "BBBBUUTTGGGG",
+    "base": {
+      "start": 0,
+      "length": 4
+    },
+    "unique_title": {
+      "start": 4,
+      "length": 2,
+      "none": "00"
+    },
+    "normal_title": {
+      "start": 6,
+      "length": 2,
+      "none": "03"
+    },
+    "gem": {
+      "start": 8,
+      "length": 4,
+      "none": "0000",
+      "valid_min": 6501,
+      "valid_max": 6557
+    },
+    "source": "Data_Item stringItemFlag:adduq:add:gem: uses %0.4d%0.2d%0.2d%0.4d; v5.10 static analysis"
+  }
 }

@@ -1,6 +1,6 @@
 {
   "format_version": 3,
-  "data_version": "2026-08-26-ranges-v3",
+  "data_version": "2026-08-26-ranges-v4",
   "character": {
     "level": {
       "min": 1,
@@ -343,6 +343,16 @@
     },
     "addition_number": {
       "editable": false
+    },
+    "budget_from_flags": {
+      "base": 3,
+      "pow_flag_pattern": "^Guild2\\.adonPow([0-9]+)$",
+      "confirmed_pow_max_v510": 10,
+      "business_bonus": {
+        "Guild2.adonBisiness1": 5
+      },
+      "absolute_total_max": 23,
+      "note": "v5.10 adonPoint_max is base 3 + adonPow1..10 each +1 + adonBisiness1 +5. Later adonPowN are counted by the same naming pattern and capped at 23; N>10 is inferred for current versions."
     }
   },
   "premium_time": {
@@ -435,6 +445,24 @@
         "value": 10,
         "confidence": "confirmed"
       }
-    ]
+    ],
+    "save_file_flags": {
+      "sysAPov": {
+        "meaning": "adonPoint_now > adonPoint_max",
+        "confidence": "confirmed-v5.10-static"
+      },
+      "sysWrit": {
+        "meaning": "private filesystem write environment check succeeded",
+        "confidence": "confirmed-v5.10-static"
+      },
+      "sysCynst": {
+        "meaning": "system/Cydia-style environment check",
+        "confidence": "confirmed-v5.10-static"
+      },
+      "sysRbt": {
+        "meaning": "rabbit-related abnormal check",
+        "confidence": "confirmed-v5.10-static"
+      }
+    }
   }
 }

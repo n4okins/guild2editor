@@ -104,11 +104,28 @@ function deleteCharacter(c,{returnEquipment=true}={}){
   const ga=entry('groups').archive,pageRef=ga.arrayRefs(ga.rootRef())[c.page],arr=ga.arrayRaw(pageRef)['NS.objects'];
   if(c.slot<0||c.slot>=arr.length)throw Error('キャラクタースロットが不正です');arr.splice(c.slot,1);ga.dirty=true;state.dirty=true;loadCharacters();loadInventory();return info;
 }
+function flagsList(){if(!state.entries.has('flags'))return[];const v=get('flags');return Array.isArray(v)?v.map(String):[];}
+function setFlagsList(values){const a=entry('flags').archive,ref=a.rootRef();a.setArray(ref,values.map(String));state.dirty=true;}
+function addonPointBudget(){
+  const rule=state.rules?.addons||{},cfg=rule.budget_from_flags||{},flags=flagsList(),base=cfg.base??3,absolute=cfg.absolute_total_max??rule.absolute_total_max??23;
+  const pow=[],unknown=[];let max=base;
+  for(const f of flags){const x=/^Guild2\.adonPow(\d+)$/.exec(f);if(!x)continue;const n=Number(x[1]);if(!pow.includes(n)){pow.push(n);max+=1;if(n>(cfg.confirmed_pow_max_v510??10))unknown.push(n);}}
+  const business=[];for(const [f,bonus] of Object.entries(cfg.business_bonus||{'Guild2.adonBisiness1':5}))if(flags.includes(f)){max+=Number(bonus)||0;business.push(f);}
+  max=Math.min(max,absolute);pow.sort((a,b)=>a-b);return{max,absolute,base,pow,business,confidence:unknown.length?'inferred-current':'confirmed-v5.10',inferred_pow:unknown};
+}
 function addonAllocation(){const fields=state.rules?.addons?.current_fields||['adon_exp','adon_gp','adon_rare','adon_name'];const values={};let total=0;for(const k of fields){const v=state.entries.has(k)?Number(get(k)):0;values[k]=v;if(Number.isInteger(v))total+=v;}return{fields,values,total};}
-function setAddon(key,value,budget=null){
+function setAddon(key,value){
   const rule=state.rules?.addons,fields=rule?.current_fields||['adon_exp','adon_gp','adon_rare','adon_name'];if(!fields.includes(key)||!state.entries.has(key))throw Error('現在版のアドオン項目ではありません');
   const v=Number(value),min=rule?.per_field_min??0,max=rule?.per_field_max??9;if(!Number.isInteger(v)||v<min||v>max)throw Error(`${key} は ${min}～${max} の整数です`);
-  const a=addonAllocation();const next=a.total-a.values[key]+v,absolute=rule?.absolute_total_max??23;if(next>absolute)throw Error(`アドオン配分合計は最大 ${absolute} です`);if(budget!==null&&next>budget)throw Error(`安全予算 ${budget}pt を超えます（現在 ${next}pt）`);setScalar(key,v);return next;
+  const a=addonAllocation(),budget=addonPointBudget(),next=a.total-a.values[key]+v;if(next>budget.absolute)throw Error(`アドオン配分合計は絶対上限 ${budget.absolute} です`);
+  if(next>budget.max&&next>=a.total)throw Error(`このセーブの解放済みアドオン上限は ${budget.max}pt です（現在/変更後 ${next}pt）。超過すると sysAPov が記録されます`);
+  setScalar(key,v);return next;
+}
+function repairAddonAbnormalFlags(){
+  const allocation=addonAllocation(),budget=addonPointBudget();if(allocation.total>budget.max)throw Error(`先にアドオン合計を ${budget.max}pt 以下へ戻してください（現在 ${allocation.total}pt）`);
+  let flags=flagsList();if(!flags.includes('sysAPov'))return{changed:false,allocation,budget};
+  flags=flags.filter(x=>x!=='sysAPov');const otherSys=flags.filter(x=>/^sys/.test(x));if(!otherSys.length)flags=flags.filter(x=>x!=='8d84d86dd');setFlagsList(flags);
+  if(!otherSys.length&&state.entries.has('error_time'))setScalar('error_time',0);return{changed:true,allocation,budget,otherSys};
 }
 function parsePremiumTime(){
   if(!state.entries.has('premiumTimePoint'))return null;const s=String(get('premiumTimePoint')),r=state.rules?.premium_time||{};
@@ -127,12 +144,17 @@ function refreshTwitterBonus(){
 }
 function abnormalFlagReport(){
   const r=state.rules?.abnormal_flag||{},hits=[];for(const t of (r.triggers||[])){if(!state.entries.has(t.field))continue;const v=Number(get(t.field));let hit=false;if(t.op==='>')hit=v>t.value;else if(t.op==='>=')hit=v>=t.value;else if(t.op==='<')hit=v<t.value;else if(t.op==='<=')hit=v<=t.value;if(hit)hits.push({...t,current:v});}
-  let flags=[];if(state.entries.has(r.flags_key||'flags')){const v=get(r.flags_key||'flags');if(Array.isArray(v))flags=v.map(String);}
-  return{flag:r.flag||'8d84d86dd',paired_flag:r.paired_flag||'86dd8d84d',flag_present:flags.includes(r.flag||'8d84d86dd'),paired_present:flags.includes(r.paired_flag||'86dd8d84d'),hits};
+  const flags=flagsList(),allocation=addonAllocation(),budget=addonPointBudget();if(allocation.total>budget.max)hits.push({field:'addon_points',op:'>',value:budget.max,current:allocation.total,flag:'sysAPov',confidence:'confirmed-v5.10-static'});
+  const specific=flags.filter(x=>/^sys/.test(x));return{flag:r.flag||'8d84d86dd',paired_flag:r.paired_flag||'86dd8d84d',flag_present:flags.includes(r.flag||'8d84d86dd'),paired_present:flags.includes(r.paired_flag||'86dd8d84d'),flags,specific_flags:specific,hits,addon:allocation,addon_budget:budget};
 }
 function flush(){for(const e of state.entries.values())if(e.archive.dirty){state.outer.raw(e.dataObjectIndex)['NS.data']=e.archive.toBytes();state.outer.dirty=true;}return state.outer.toBytes();}
-function itemParts(code){const s=String(code).padStart(12,'0');return{base:s.slice(0,4),title:s.slice(4,8),ultra:s.slice(8,12)};}
-function itemName(code){const p=itemParts(code),c=state.catalog||{},base=c.items?.[p.base]?.name||`ID ${p.base}`,t=c.normal_titles?.[p.title]||'',u=c.ultra_titles?.[p.ultra]||'';return [u,t==='称号なし'||t==='無称号'?'':t,base].filter(Boolean).join(' ');}
+function itemParts(code){const s=String(code).padStart(12,'0');return{base:s.slice(0,4),ultra:s.slice(4,6),title:s.slice(6,8),gem:s.slice(8,12)};}
+function normalTitleName(code){const c=state.catalog?.normal_titles||{},k=String(Number(code)).padStart(4,'0');return c[k]||c[code]||'';}
+function ultraTitleMeta(code){return state.catalog?.ultra_title_meta?.[String(code)]||null;}
+function ultraCodeFromLegacyOrdinal(n){n=Number(n);if(n>=1&&n<=70)return String(n+20).padStart(2,'0');if(n>=71&&n<=80)return String(n-61).padStart(2,'0');return null;}
+function legacyUltraIssue(code){const p=itemParts(code),g=Number(p.gem);if(p.ultra!=='00'||!Number.isInteger(g)||g<1||g>80)return null;const ultra=ultraCodeFromLegacyOrdinal(g);if(!ultra)return null;return{ordinal:g,ultra,confidence:g<=70?'confirmed-v5.10-static':'inferred-high',fixed:`${p.base}${ultra}${p.title}0000`};}
+function repairLegacyUltra(row){const issue=legacyUltraIssue(row.code);if(!issue)throw Error('v0.5旧形式の超レア誤書込みではありません');const q=row.quantity,a=row.archive;a.dictDelete(a.rootRef(),row.code);const existing=state.inventory.find(r=>r.category===row.category&&r.code===issue.fixed);if(existing)a.dictSet(a.rootRef(),issue.fixed,existing.quantity+q);else a.dictSet(a.rootRef(),issue.fixed,q);state.dirty=true;loadInventory();return issue;}
+function itemName(code){const p=itemParts(code),c=state.catalog||{},base=c.items?.[p.base]?.name||`ID ${p.base}`,t=normalTitleName(p.title),u=c.ultra_titles?.[p.ultra]||'',g=p.gem!=='0000'?`宝石${p.gem}`:'';return [u,t==='称号なし'||t==='無称号'?'':t,base,g].filter(Boolean).join(' ');}
 function summary(){return{entries:state.entries.size,characters:state.characters.length,inventory:state.inventory.length,gp:state.entries.has('gp')?get('gp'):null,rabbit:state.entries.has('rabbit')?get('rabbit'):null};}
 function validateCurrent(){
   const errors=[],warnings=[],ids=new Set(),growth=state.rules?.character?.growth||{min:0,max:10};
@@ -149,6 +171,7 @@ function validateCurrent(){
   for(const r of state.inventory){
     if(!ITEM_CODE.test(r.code))errors.push(`${r.key}: 不正なアイテムID ${r.code}`);
     if(!validQuantity(r.quantity)||r.quantity<1)errors.push(`${r.key}/${r.code}: 個数が不正`);
+    const p=itemParts(r.code),gem=Number(p.gem),legacy=legacyUltraIssue(r.code);if(legacy)errors.push(`${r.code}: v0.5旧形式の超レア誤書込みです。修復候補 ${legacy.fixed}`);else if(p.gem!=='0000'&&!(Number.isInteger(gem)&&gem>=6501&&gem<=6557))errors.push(`${r.code}: gem欄 ${p.gem} は 0000 または6501～6557である必要があります`);if(p.ultra!=='00'&&!state.catalog?.ultra_titles?.[p.ultra])warnings.push(`${r.code}: 超レア/UQ ID ${p.ultra} はカタログ未登録`);
     const expected=catalogCategoryForCode(r.code);if(expected!==null&&expected!==r.category)warnings.push(`${r.code}: セーブ上カテゴリ${r.category} / カタログ定義${expected}。既存データは保持（カタログの版差・誤同定候補）`);
   }
   if(state.entries.has('partys')){
@@ -161,8 +184,9 @@ function validateCurrent(){
   for(const k of ['gp','rp','rpPoint'])if(state.entries.has(k)){const v=Number(get(k));if(!Number.isSafeInteger(v)||v<0)errors.push(`${k}=${v}: 0以上の安全な整数ではありません`);}
   const pt=parsePremiumTime();if(pt&&!pt.valid)errors.push(`premiumTimePoint=${pt.raw}: 24桁(各0～3、合計32以下)の形式から外れています`);
   if(state.entries.has('addition_Number')){const v=Number(get('addition_Number'));if(!Number.isInteger(v)||v<0)warnings.push(`addition_Number=${v}: 負値/非整数`);}
+  const addonBudget=addonPointBudget(),addonNow=addonAllocation();if(addonNow.total>addonBudget.max)errors.push(`アドオン合計 ${addonNow.total}pt > このセーブの解放済み上限 ${addonBudget.max}pt（sysAPov発火条件）`);
   const abnormal=abnormalFlagReport();for(const h of abnormal.hits)errors.push(`異常フラグ既知条件: ${h.field}=${h.current} ${h.op} ${h.value}`);if(abnormal.flag_present&&!abnormal.paired_present)warnings.push(`異常フラグ ${abnormal.flag} が保存済みです`);
   return{ok:errors.length===0,errors,warnings,abnormal};
 }
-return{state,loadEntries,loadCharacters,loadInventory,entry,get,setScalar,setCharacterField,setCharacterLevel,setCharacterGrowth,setCharacterLineage,raceRule,levelCap,setTraits,setInventory,addInventory,flush,itemParts,itemName,summary,specialCodes,cloneCharacter,deleteCharacter,validateCurrent,catalogCategoryForCode,addonAllocation,setAddon,parsePremiumTime,setPremiumTime,refreshTwitterBonus,abnormalFlagReport};
+return{state,loadEntries,loadCharacters,loadInventory,entry,get,setScalar,setCharacterField,setCharacterLevel,setCharacterGrowth,setCharacterLineage,raceRule,levelCap,setTraits,setInventory,addInventory,flush,itemParts,itemName,summary,specialCodes,cloneCharacter,deleteCharacter,validateCurrent,catalogCategoryForCode,flagsList,addonPointBudget,addonAllocation,setAddon,repairAddonAbnormalFlags,parsePremiumTime,setPremiumTime,refreshTwitterBonus,abnormalFlagReport,legacyUltraIssue,repairLegacyUltra,ultraTitleMeta};
 })();

@@ -1,4 +1,4 @@
-name: Apply v0.5.1 repair patch
+name: Apply addon maximum patch
 
 on:
   push:
@@ -18,51 +18,22 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Normalize patch matchers
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          p=Path('tools/apply_v051_fix.py')
-          s=p.read_text()
-          def replace_assignment(name,next_name,value):
-              global s
-              a=s.index(name+'=')
-              b=s.index(next_name+'=',a)
-              s=s[:a]+f'{name}=r"{value}"\n'+s[b:]
-          replace_assignment('old_block','new_block',r'function addonAllocation\(\)\{.*?(?=function parsePremiumTime\(\))')
-          replace_assignment('old_ab','new_ab',r'function abnormalFlagReport\(\)\{.*?(?=function flush\(\))')
-          replace_assignment('old_item','new_item',r'function itemParts\(code\)\{.*?(?=function summary\(\))')
-          a=s.index('pat=r"function renderItems')
-          b=s.index('\nold_match=',a)
-          s=s[:a]+'pat=r"function renderItems\\(\\)\\{.*?(?=function addItem\\(\\))"'+s[b:]
-          p.write_text(s)
-          PY
-      - name: Apply fix
-        run: python tools/apply_v051_fix.py
-      - name: Normalize generated compact handler
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          p=Path('js/app.js')
-          s=p.read_text()
-          old="toast('倉庫から削除しました')});}document.querySelectorAll('[data-fixultra]')"
-          new="toast('倉庫から削除しました')});document.querySelectorAll('[data-fixultra]')"
-          if old not in s:
-              raise SystemExit('generated inventory handler boundary not found')
-          p.write_text(s.replace(old,new,1))
-          PY
+      - name: Apply current addon maximum fix
+        run: python tools/apply_addon_max_patch.py
       - name: Validate generated files
         run: |
           node --check js/app.js
           node --check js/model.js
           python -m json.tool data/catalog.json >/dev/null
           python -m json.tool data/rules.json >/dev/null
-          grep -q 'BBBBUUTTGGGG' data/catalog.json
-          grep -q 'sysAPov' js/model.js
+          grep -q 'current_pow_max' data/rules.json
+          grep -q 'unlockAddonMaximum' js/model.js
+          grep -q '23ptへ拡張' js/app.js
+          grep -q "x.base_id+ultra+title+'0000'" js/app.js
       - name: Commit generated source
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add js/app.js js/model.js index.html data/catalog.json data/rules.json
-          git commit -m "Fix addon budget detection and super-rare item flags"
+          git add js/app.js js/model.js index.html data/rules.json
+          git commit -m "Support current 23-point addon maximum"
           git push origin HEAD:fix/abnormal-superrare-format

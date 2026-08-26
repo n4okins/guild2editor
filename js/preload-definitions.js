@@ -1,9 +1,9 @@
-/* Load and normalize the dedicated magic-creature material catalog before app.js requests definitions. */
+/* Correct v7.30 warehouse material namespaces before app.js loads definitions. */
 (function(g){
   'use strict';
   const nativeFetch = g.fetch.bind(g);
-  const VERSION = '20260826-0530';
-  let magicPromise = null;
+  const VERSION = '20260826-0540';
+  let overridePromise = null;
 
   function requestPath(input){
     try{
@@ -12,12 +12,12 @@
     }catch(_){ return ''; }
   }
 
-  function magicDefinitions(){
-    if(!magicPromise){
-      magicPromise = nativeFetch(`data/magic_creatures.json?v=${VERSION}`, {cache:'no-store'})
-        .then(r => { if(!r.ok) throw new Error(`magic_creatures.json: HTTP ${r.status}`); return r.json(); });
+  function materialOverrides(){
+    if(!overridePromise){
+      overridePromise = nativeFetch(`data/current_material_overrides.json?v=${VERSION}`, {cache:'no-store'})
+        .then(r => { if(!r.ok) throw new Error(`current_material_overrides.json: HTTP ${r.status}`); return r.json(); });
     }
-    return magicPromise;
+    return overridePromise;
   }
 
   function responseLike(source, body, contentType){
@@ -31,22 +31,29 @@
     });
   }
 
-  function mergeItemsTsv(text, magic){
+  function isLegacyCreatureCatalogRow(row){
+    const id = Number(row && row[0]);
+    return row && row[3] === 'MagicCreature' && id >= 8501 && id <= 8538;
+  }
+
+  function mergeItemsTsv(text, overrides){
     const lines = String(text || '').replace(/\r/g,'').split('\n');
     const header = lines.shift() || '';
-    const rows = lines.filter(Boolean).map(line => line.split('\t'));
+    const rows = lines.filter(Boolean).map(line => line.split('\t')).filter(row => !isLegacyCreatureCatalogRow(row));
     const byId = new Map(rows.map((r,i) => [r[0], i]));
-    for(const item of (magic && magic.items) || []){
+
+    for(const item of (overrides && overrides.items) || []){
+      if(item.confidence !== 'confirmed') continue;
       const id = String(item.base_id || '');
       if(!/^\d{4}$/.test(id) || !item.name) continue;
       const row = [
         id,
         String(item.name),
-        '18',
-        'MagicCreature',
-        item.confidence === 'confirmed' ? 'confirmed' : (item.confidence || 'high'),
-        item.inferred ? 'current-wiki+sequence-inference' : 'ipa-v5.10-static+current-wiki',
-        item.inferred ? 'current' : '5.10',
+        String(item.category_id),
+        String(item.subgroup || 'Material'),
+        'confirmed',
+        String(item.source || 'current-save+screenshots'),
+        String(overrides.observed_version || 'current'),
         'selectable'
       ];
       if(byId.has(id)) rows[byId.get(id)] = row;
@@ -55,29 +62,59 @@
     return [header, ...rows.map(r => r.join('\t')), ''].join('\n');
   }
 
-  function patchCatalog(catalog){
+  function patchCatalog(catalog, overrides){
     if(!catalog || typeof catalog !== 'object') return catalog;
     catalog.categories = catalog.categories || {};
-    catalog.categories['18'] = '魔造素材';
-    catalog.data_version = `${catalog.data_version || 'unknown'}+magic-catalog-${VERSION}`;
+    for(const [id,name] of Object.entries((overrides && overrides.categories) || {})) catalog.categories[id] = name;
+    catalog.data_version = `${catalog.data_version || 'unknown'}+v730-material-${VERSION}`;
     return catalog;
   }
 
-  function patchWiki(wiki, magic){
+  function clearRejectedSequentialGuesses(meta){
+    if(!meta || typeof meta !== 'object') return;
+    for(const m of Object.values(meta)){
+      const id = Number(m && m.id_guess);
+      if(Number(m && m.category_id) === 17 && id >= 8001 && id <= 8097){
+        delete m.id_guess;
+        m.guess = 'rejected-v730-save';
+      }
+    }
+  }
+
+  function patchWiki(wiki, overrides){
     if(!wiki || typeof wiki !== 'object') wiki = {};
-    const ordered = ((magic && magic.items) || [])
-      .filter(x => x && x.name)
-      .slice()
-      .sort((a,b) => (Number(a.display_order)||999) - (Number(b.display_order)||999))
-      .map(x => String(x.name));
     wiki.categories = wiki.categories || {};
-    wiki.categories['18'] = {groups:['魔造生物']};
     wiki.ordered = wiki.ordered || {};
-    wiki.ordered['18'] = {'魔造生物': ordered};
+    wiki.unresolved_meta = wiki.unresolved_meta || {};
+
+    clearRejectedSequentialGuesses(wiki.unresolved_meta);
+
+    wiki.categories['16'] = {groups:['合成アイテム（エクストラ）','合成アイテム（一章）']};
+    wiki.categories['17'] = {groups:['魔造生物']};
+    wiki.categories['18'] = {groups:[]};
+
+    wiki.ordered['16'] = {
+      '合成アイテム（エクストラ）': ['ウサギのしっぽ'],
+      '合成アイテム（一章)': ['棘鎌','岩鱗']
+    };
+    wiki.ordered['17'] = {'魔造生物':['ゴリアテ','ホワイトドラゴン']};
+    wiki.ordered['18'] = {};
+
+    for(const item of (overrides && overrides.items) || []){
+      if(item.confidence === 'confirmed') continue;
+      wiki.unresolved_meta[item.name] = {
+        ...(wiki.unresolved_meta[item.name] || {}),
+        category_id: Number(item.category_id),
+        id_guess: String(item.base_id),
+        guess: item.confidence || 'high',
+        source: item.source || 'current-save+screenshots',
+        effect: wiki.unresolved_meta[item.name]?.effect || ''
+      };
+    }
     return wiki;
   }
 
-  g.G2DefinitionPreload = {VERSION, mergeItemsTsv, patchCatalog, patchWiki, magicDefinitions};
+  g.G2DefinitionPreload = {VERSION, mergeItemsTsv, patchCatalog, patchWiki, materialOverrides};
 
   g.fetch = async function(input, init){
     const res = await nativeFetch(input, init);
@@ -85,19 +122,19 @@
     const path = requestPath(input);
     try{
       if(path.endsWith('/data/items.tsv') || path === 'data/items.tsv'){
-        const [text, magic] = await Promise.all([res.clone().text(), magicDefinitions()]);
-        return responseLike(res, mergeItemsTsv(text, magic), 'text/tab-separated-values; charset=utf-8');
+        const [text, overrides] = await Promise.all([res.clone().text(), materialOverrides()]);
+        return responseLike(res, mergeItemsTsv(text, overrides), 'text/tab-separated-values; charset=utf-8');
       }
       if(path.endsWith('/data/catalog.json') || path === 'data/catalog.json'){
-        const catalog = patchCatalog(await res.clone().json());
-        return responseLike(res, JSON.stringify(catalog), 'application/json; charset=utf-8');
+        const [catalog, overrides] = await Promise.all([res.clone().json(), materialOverrides()]);
+        return responseLike(res, JSON.stringify(patchCatalog(catalog, overrides)), 'application/json; charset=utf-8');
       }
       if(path.endsWith('/data/wiki_items.json') || path === 'data/wiki_items.json'){
-        const [wiki, magic] = await Promise.all([res.clone().json(), magicDefinitions()]);
-        return responseLike(res, JSON.stringify(patchWiki(wiki, magic)), 'application/json; charset=utf-8');
+        const [wiki, overrides] = await Promise.all([res.clone().json(), materialOverrides()]);
+        return responseLike(res, JSON.stringify(patchWiki(wiki, overrides)), 'application/json; charset=utf-8');
       }
     }catch(err){
-      console.error('Guild2 definition preload failed; using original response', err);
+      console.error('Guild2 v7.30 material definition patch failed; using original response', err);
     }
     return res;
   };

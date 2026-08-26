@@ -1,0 +1,38 @@
+name: Validate v7.30 material mappings
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  material-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate observed warehouse material mappings
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const o=JSON.parse(fs.readFileSync('data/current_material_overrides.json','utf8'));
+          const byId=new Map(o.items.map(x=>[x.base_id,x]));
+          const assert=(v,m)=>{if(!v)throw new Error(m)};
+          assert(o.categories['16']==='合成素材','items16 must be synthesis materials');
+          assert(o.categories['17']==='魔造素材','items17 must be magic materials');
+          assert(o.categories['18']==='予約/未使用','items18 must remain reserved/unused');
+          assert(byId.get('7507')?.name==='棘鎌','7507 mapping mismatch');
+          assert(byId.get('7509')?.name==='岩鱗','7509 mapping mismatch');
+          assert(byId.get('7509')?.confidence==='confirmed','7509 quantity anchor must remain confirmed');
+          assert(byId.get('7528')?.name==='ウサギのしっぽ','7528 mapping mismatch');
+          assert(byId.get('8001')?.name==='ゴリアテ','8001 mapping mismatch');
+          assert(byId.get('8004')?.name==='ホワイトドラゴン','8004 mapping mismatch');
+          assert(!o.items.some(x=>x.base_id==='8004'&&x.name==='絵本'),'8004 must not map to 絵本');
+          const preload=fs.readFileSync('js/preload-definitions.js','utf8');
+          for(const s of ['current_material_overrides.json','isLegacyCreatureCatalogRow','clearRejectedSequentialGuesses',"wiki.ordered['16']","wiki.ordered['17']"])
+            assert(preload.includes(s),`preload missing ${s}`);
+          assert(preload.includes('id >= 8501 && id <= 8538'),'legacy 85xx warehouse rows must be filtered');
+          NODE
+      - name: JavaScript syntax
+        run: node --check js/preload-definitions.js

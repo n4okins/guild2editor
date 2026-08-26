@@ -1,0 +1,75 @@
+{
+  "format_version": 1,
+  "observed_version": "7.30",
+  "evidence_date": "2026-08-26",
+  "scope": "warehouse material item IDs",
+  "categories": {
+    "16": "合成素材",
+    "17": "魔造素材",
+    "18": "予約/未使用"
+  },
+  "items": [
+    {
+      "base_id": "7507",
+      "name": "棘鎌",
+      "category_id": 16,
+      "subgroup": "合成アイテム（一章）",
+      "confidence": "high",
+      "source": "v7.30-save+shop-screenshot+prior-static-analysis",
+      "evidence": "items16 has 7507 x1; screenshot has 棘鎌 x1. Distinguished from 7528 by chapter/extra grouping and prior static mapping."
+    },
+    {
+      "base_id": "7509",
+      "name": "岩鱗",
+      "category_id": 16,
+      "subgroup": "合成アイテム（一章）",
+      "confidence": "confirmed",
+      "source": "v7.30-save+shop-screenshot-quantity-anchor",
+      "evidence": "items16 has 7509 x3 and screenshot uniquely shows 岩鱗 x3."
+    },
+    {
+      "base_id": "7528",
+      "name": "ウサギのしっぽ",
+      "category_id": 16,
+      "subgroup": "合成アイテム（エクストラ）",
+      "confidence": "high",
+      "source": "v7.30-save+shop-screenshot+grouping",
+      "evidence": "items16 has 7528 x1; screenshot has ウサギのしっぽ x1 under エクストラ. Remaining one-chapter item maps to 7507."
+    },
+    {
+      "base_id": "8001",
+      "name": "ゴリアテ",
+      "category_id": 17,
+      "subgroup": "魔造生物",
+      "confidence": "high",
+      "source": "v7.30-save+shop-screenshot+material-order",
+      "evidence": "items17 has 8001 x1 and 8004 x1; screenshot shows ゴリアテ and ホワイトドラゴン. Ascending material order maps 8001 to ゴリアテ."
+    },
+    {
+      "base_id": "8004",
+      "name": "ホワイトドラゴン",
+      "category_id": 17,
+      "subgroup": "魔造生物",
+      "confidence": "high",
+      "source": "v7.30-save+shop-screenshot+material-order",
+      "evidence": "items17 has 8001 x1 and 8004 x1; screenshot shows ゴリアテ and ホワイトドラゴン. 8004 is not 絵本 in this warehouse namespace."
+    }
+  ],
+  "invalidated_inferences": [
+    {
+      "claim": "8004 = 絵本",
+      "status": "rejected",
+      "reason": "The supplied v7.30 save stores 8004 in items17, and the in-game shop shows only ゴリアテ/ホワイトドラゴン in the magic-material section; 絵本 is absent."
+    },
+    {
+      "claim": "8501..8538 are warehouse magic-material base IDs",
+      "status": "rejected",
+      "reason": "Those values belong to a separate Hmn/creature-internal namespace. The supplied v7.30 warehouse uses items17 with 8001/8004 for magic materials."
+    },
+    {
+      "claim": "category 17 is synthesis material and category 18 is magic material",
+      "status": "rejected",
+      "reason": "The supplied v7.30 save has synthesis materials in items16, magic materials in items17, and items18 empty."
+    }
+  ]
+}

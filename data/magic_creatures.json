@@ -1,15 +1,19 @@
 {
-  "format_version": 2,
+  "format_version": 3,
+  "namespace": "v5.10-Hmn-creature-internal-ids",
   "category_id": 18,
-  "group": "魔造生物",
+  "category_id_note": "Legacy editor bucket retained for compatibility only. 8501–8538 are NOT v7.30 warehouse magic-material base IDs.",
+  "group": "魔造生物内部ID",
+  "warehouse_material_ids_ref": "data/current_material_overrides.json",
   "sources": {
     "internal_ids": "IPA v5.10 Info_Item ___initWithNumber_Hmn: static analysis",
-    "display_order": "冒険者ギルド物語2 Wiki アイテム一覧（current, checked 2026-08-26）"
+    "display_order": "冒険者ギルド物語2 Wiki 魔造素材/魔造生物"
   },
   "notes": [
-    "8501–8537 are v5.10 Hmn internal IDs confirmed by control-flow/CFString pairing.",
-    "Current Wiki display order moves サリエル after イザナミ; display_order is therefore separate from base_id order.",
-    "8538 オメガ remains a high-confidence inference; it is not present in the supplied v5.10 binary."
+    "8501–8537 are v5.10 Hmn/creature internal IDs confirmed by control-flow/CFString pairing.",
+    "The supplied v7.30 save stores actual magic-material warehouse items in items17 using 8001/8004 for the observed ゴリアテ/ホワイトドラゴン pair.",
+    "Do not merge these 85xx IDs into warehouse items.tsv at runtime.",
+    "8538 オメガ remains a high-confidence Hmn sequence inference and is not present in the supplied v5.10 binary."
   ],
   "items": [
     {"base_id":"8501","name":"ゴリアテ","confidence":"confirmed","display_order":1},
@@ -49,6 +53,6 @@
     {"base_id":"8535","name":"銀竜","confidence":"confirmed","display_order":34},
     {"base_id":"8536","name":"金竜","confidence":"confirmed","display_order":35},
     {"base_id":"8537","name":"イザナミ","confidence":"confirmed","display_order":36},
-    {"base_id":"8538","name":"オメガ","confidence":"high","display_order":38,"inferred":true,"reason":"current Wiki adds Omega after v5.10; next free Hmn ID is 8538"}
+    {"base_id":"8538","name":"オメガ","confidence":"high","display_order":38,"inferred":true,"reason":"current Wiki adds Omega after v5.10; next free Hmn internal ID is 8538"}
   ]
 }

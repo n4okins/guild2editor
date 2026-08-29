@@ -1,0 +1,48 @@
+{
+  "format_version": 1,
+  "observed_version": "7.30",
+  "evidence_date": "2026-08-29",
+  "category_id": 17,
+  "storage_key": "items17",
+  "code_layout": "BBBBUUTTGGGG",
+  "fields": {
+    "BBBB": "4-digit magic-material base ID (8001..8037 confirmed; 8038 Omega inferred-high)",
+    "UU": "2-digit ultra-rare/UQ title code; 00 means none",
+    "TT": "2-digit ordinary title code; 03 means no ordinary title",
+    "GGGG": "4-digit gem field; 0000 means no gem"
+  },
+  "write_behavior": {
+    "plain_material": "BBBB00030000",
+    "titled_material": "preserve UU and TT; do not normalize category 17 back to plain",
+    "discovery_flags": "synchronize MD5(decimal base ID) and MD5(full 12-digit item code) in flagItems"
+  },
+  "constructed_examples": [
+    {
+      "name": "世界を征する ゴリアテ",
+      "base_id": "8001",
+      "ultra_code": "23",
+      "ordinary_title": "03",
+      "code": "800123030000",
+      "observed_in_uploaded_save": false
+    },
+    {
+      "name": "拳で語る ホワイトドラゴン",
+      "base_id": "8004",
+      "ultra_code": "89",
+      "ordinary_title": "03",
+      "code": "800489030000",
+      "observed_in_uploaded_save": false
+    }
+  ],
+  "evidence": {
+    "uploaded_save_5": "items17 contains plain 800100030000 and 800400030000 only; no direct ultra-rare magic-material sample was present.",
+    "wiki": "Current Guild2 Wiki documents that magic materials can carry ordinary and ultra-rare titles, ultra-rare skills remain after character creation/dismissal, and magic materials support title inheritance and gem modification.",
+    "generic_item_encoding": "The editor's current Data_Item parser and prior decoded saves place UQ in digits 5-6, ordinary title in digits 7-8, and gem in digits 9-12. Historical non-material examples include 401389090000 and 650123090000.",
+    "confidence": "title capability confirmed by current game documentation; category-17 UQ byte layout inferred from the shared Data_Item encoding and v5.10 ultra-title static mapping, not from a direct category-17 ultra sample in save 5."
+  },
+  "sources": [
+    "https://wikiwiki.jp/guildmono2/魔造生物データ",
+    "https://wikiwiki.jp/guildmono2/称号継承合成",
+    "https://wikiwiki.jp/guildmono2/アイテム一覧"
+  ]
+}

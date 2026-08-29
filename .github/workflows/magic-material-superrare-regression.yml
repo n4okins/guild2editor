@@ -1,0 +1,37 @@
+name: Validate titled magic materials
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  magic-material-titles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate magic-material title encoding and runtime patch
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const assert=(v,m)=>{if(!v)throw new Error(m)};
+          const p=JSON.parse(fs.readFileSync('data/magic_material_title_policy.json','utf8'));
+          const c=JSON.parse(fs.readFileSync('data/catalog.json','utf8'));
+          const index=fs.readFileSync('index.html','utf8');
+          const patch=fs.readFileSync('js/magic-material-titles.js','utf8');
+          assert(p.category_id===17 && p.storage_key==='items17','magic materials must remain in items17');
+          assert(p.code_layout==='BBBBUUTTGGGG','item code layout changed unexpectedly');
+          assert(c.ultra_titles['23']==='世界を征する','UQ 23 mapping mismatch');
+          assert(c.ultra_titles['89']==='拳で語る','UQ 89 mapping mismatch');
+          const make=(base,uq,title='03',gem='0000')=>`${base}${uq}${title}${gem}`;
+          assert(make('8001','23')==='800123030000','Goliath ultra example mismatch');
+          assert(make('8004','89')==='800489030000','White Dragon ultra example mismatch');
+          assert(index.includes('js/magic-material-titles.js?v=0560'),'runtime title patch must be loaded');
+          for(const s of ['preserved_category17:true',"Number(row?.category)===17",'カテゴリ17は無称号固定です','M.addInventory(17,code,q)','ultraTitleCode()','ordinaryTitleCode()'])
+            assert(patch.includes(s),`title patch missing ${s}`);
+          assert(p.evidence.uploaded_save_5.includes('no direct ultra-rare magic-material sample was present'),'save-5 evidence must explicitly state that no direct ultra sample was observed');
+          NODE
+      - name: JavaScript syntax
+        run: node --check js/magic-material-titles.js

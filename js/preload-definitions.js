@@ -1,8 +1,8 @@
-/* Correct v7.30 warehouse material namespaces before app.js loads definitions. */
+/* Patch v7.30 warehouse material namespaces before app.js loads definitions. */
 (function(g){
   'use strict';
   const nativeFetch = g.fetch.bind(g);
-  const VERSION = '20260826-0540';
+  const VERSION = '20260829-0550';
   let overridePromise = null;
 
   function requestPath(input){
@@ -31,15 +31,19 @@
     });
   }
 
-  function isLegacyCreatureCatalogRow(row){
-    const id = Number(row && row[0]);
-    return row && row[3] === 'MagicCreature' && id >= 8501 && id <= 8538;
+  function isRejectedWarehouseCatalogRow(row){
+    if(!row) return false;
+    const id = Number(row[0]);
+    const category = Number(row[2]);
+    const subgroup = String(row[3] || '');
+    if(subgroup === 'MagicCreature' && id >= 8501 && id <= 8538) return true;
+    return category === 17 && id >= 8001 && id <= 8097;
   }
 
   function mergeItemsTsv(text, overrides){
     const lines = String(text || '').replace(/\r/g,'').split('\n');
     const header = lines.shift() || '';
-    const rows = lines.filter(Boolean).map(line => line.split('\t')).filter(row => !isLegacyCreatureCatalogRow(row));
+    const rows = lines.filter(Boolean).map(line => line.split('\t')).filter(row => !isRejectedWarehouseCatalogRow(row));
     const byId = new Map(rows.map((r,i) => [r[0], i]));
 
     for(const item of (overrides && overrides.items) || []){
@@ -52,7 +56,7 @@
         String(item.category_id),
         String(item.subgroup || 'Material'),
         'confirmed',
-        String(item.source || 'current-save+screenshots'),
+        String(item.source || 'current-save+static-analysis'),
         String(overrides.observed_version || 'current'),
         'selectable'
       ];
@@ -97,17 +101,24 @@
       '合成アイテム（エクストラ）': ['ウサギのしっぽ'],
       '合成アイテム（一章)': ['棘鎌','岩鱗']
     };
-    wiki.ordered['17'] = {'魔造生物':['ゴリアテ','ホワイトドラゴン']};
+
+    const magic = ((overrides && overrides.items) || [])
+      .filter(item => Number(item.category_id) === 17)
+      .sort((a,b) => Number(a.display_order || 999) - Number(b.display_order || 999));
+    wiki.ordered['17'] = {'魔造生物': magic.map(item => item.name)};
     wiki.ordered['18'] = {};
 
     for(const item of (overrides && overrides.items) || []){
-      if(item.confidence === 'confirmed') continue;
+      if(item.confidence === 'confirmed'){
+        delete wiki.unresolved_meta[item.name];
+        continue;
+      }
       wiki.unresolved_meta[item.name] = {
         ...(wiki.unresolved_meta[item.name] || {}),
         category_id: Number(item.category_id),
         id_guess: String(item.base_id),
         guess: item.confidence || 'high',
-        source: item.source || 'current-save+screenshots',
+        source: item.source || 'current-save+static-analysis',
         effect: wiki.unresolved_meta[item.name]?.effect || ''
       };
     }

@@ -1,75 +1,65 @@
 {
-  "format_version": 1,
+  "format_version": 2,
   "observed_version": "7.30",
-  "evidence_date": "2026-08-26",
+  "evidence_date": "2026-08-29",
   "scope": "warehouse material item IDs",
   "categories": {
     "16": "合成素材",
     "17": "魔造素材",
     "18": "予約/未使用"
   },
+  "write_policy": {
+    "category_17": "Write to items17 as BBBB00030000 (plain material code) and synchronize flagItems with MD5(base-decimal) and MD5(full-12-digit-code).",
+    "confirmed_magic_materials": "8001..8037 are writable as confirmed static mappings.",
+    "omega": "8038 is writable but remains explicitly high-confidence inferred."
+  },
   "items": [
-    {
-      "base_id": "7507",
-      "name": "棘鎌",
-      "category_id": 16,
-      "subgroup": "合成アイテム（一章）",
-      "confidence": "high",
-      "source": "v7.30-save+shop-screenshot+prior-static-analysis",
-      "evidence": "items16 has 7507 x1; screenshot has 棘鎌 x1. Distinguished from 7528 by chapter/extra grouping and prior static mapping."
-    },
-    {
-      "base_id": "7509",
-      "name": "岩鱗",
-      "category_id": 16,
-      "subgroup": "合成アイテム（一章）",
-      "confidence": "confirmed",
-      "source": "v7.30-save+shop-screenshot-quantity-anchor",
-      "evidence": "items16 has 7509 x3 and screenshot uniquely shows 岩鱗 x3."
-    },
-    {
-      "base_id": "7528",
-      "name": "ウサギのしっぽ",
-      "category_id": 16,
-      "subgroup": "合成アイテム（エクストラ）",
-      "confidence": "high",
-      "source": "v7.30-save+shop-screenshot+grouping",
-      "evidence": "items16 has 7528 x1; screenshot has ウサギのしっぽ x1 under エクストラ. Remaining one-chapter item maps to 7507."
-    },
-    {
-      "base_id": "8001",
-      "name": "ゴリアテ",
-      "category_id": 17,
-      "subgroup": "魔造生物",
-      "confidence": "high",
-      "source": "v7.30-save+shop-screenshot+material-order",
-      "evidence": "items17 has 8001 x1 and 8004 x1; screenshot shows ゴリアテ and ホワイトドラゴン. Ascending material order maps 8001 to ゴリアテ."
-    },
-    {
-      "base_id": "8004",
-      "name": "ホワイトドラゴン",
-      "category_id": 17,
-      "subgroup": "魔造生物",
-      "confidence": "high",
-      "source": "v7.30-save+shop-screenshot+material-order",
-      "evidence": "items17 has 8001 x1 and 8004 x1; screenshot shows ゴリアテ and ホワイトドラゴン. 8004 is not 絵本 in this warehouse namespace."
-    }
+    {"base_id":"7507","name":"棘鎌","category_id":16,"subgroup":"合成アイテム（一章）","confidence":"high","source":"v7.30-save+shop-screenshot+prior-static-analysis","evidence":"items16 has 7507 x1; screenshot has 棘鎌 x1. Distinguished from 7528 by chapter/extra grouping and prior static mapping."},
+    {"base_id":"7509","name":"岩鱗","category_id":16,"subgroup":"合成アイテム（一章）","confidence":"confirmed","source":"v7.30-save+shop-screenshot-quantity-anchor","evidence":"items16 has 7509 x3 and screenshot uniquely shows 岩鱗 x3."},
+    {"base_id":"7528","name":"ウサギのしっぽ","category_id":16,"subgroup":"合成アイテム（エクストラ）","confidence":"high","source":"v7.30-save+shop-screenshot+grouping","evidence":"items16 has 7528 x1; screenshot has ウサギのしっぽ x1 under エクストラ. Remaining one-chapter item maps to 7507."},
+    {"base_id":"8001","name":"ゴリアテ","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":1,"source":"ipa-v5.10-Hmn-material-static+v7.30-save+shop-screenshot-anchor","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID. v7.30 items17 contains 800100030000 and the in-game shop shows ゴリアテ."},
+    {"base_id":"8002","name":"ケルピー","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":3,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8003","name":"デーモン","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":4,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8004","name":"ホワイトドラゴン","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":5,"source":"ipa-v5.10-Hmn-material-static+v7.30-save+shop-screenshot-anchor","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID. v7.30 items17 contains 800400030000 and the in-game shop shows ホワイトドラゴン."},
+    {"base_id":"8005","name":"フライングソード","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":6,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8006","name":"ミノタウロス","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":7,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8007","name":"サキュバス","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":8,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8008","name":"タロス","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":2,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8009","name":"ユニコーン","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":9,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8010","name":"ブロッブ","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":10,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8011","name":"サスカッチ","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":11,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8012","name":"ハッピーラビット","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":12,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8013","name":"デスナイト","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":14,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8014","name":"サイコドッグ","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":15,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8015","name":"サンダーバード","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":16,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8016","name":"リッチー","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":17,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8017","name":"踊る人形","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":18,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8018","name":"コロッサス","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":19,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8019","name":"タイタン","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":20,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8020","name":"アントマン","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":21,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8021","name":"ダイダラボッチ","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":22,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8022","name":"キリン","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":23,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8023","name":"プライドドラゴン","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":24,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8024","name":"サリエル","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":37,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8025","name":"ペガサス","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":25,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8026","name":"銀竜","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":34,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8027","name":"黒い仔山羊","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":26,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8028","name":"統治の天使","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":27,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8029","name":"ミストドラゴン","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":28,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8030","name":"火ノ鳥","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":29,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8031","name":"黒狼","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":30,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8032","name":"ウィルオウィスプ","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":13,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8033","name":"高潔な天使","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":31,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8034","name":"エンキドゥ","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":33,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8035","name":"ネメアーの獅子","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":32,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8036","name":"金竜","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":35,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8037","name":"イザナミ","category_id":17,"subgroup":"魔造生物","confidence":"confirmed","display_order":36,"source":"ipa-v5.10-Hmn-material-static","evidence":"v5.10 Info_Item Hmn static analysis pairs this magic creature with the corresponding 80xx warehouse material ID."},
+    {"base_id":"8038","name":"オメガ","category_id":17,"subgroup":"魔造生物","confidence":"high","display_order":38,"source":"current-wiki+post-v5.10-sequence-inference","evidence":"Omega is absent from v5.10; 8001..8037 are completely occupied by the 37 v5.10 magic materials, so the next free material ID 8038 is the high-confidence current-version inference."}
   ],
   "invalidated_inferences": [
-    {
-      "claim": "8004 = 絵本",
-      "status": "rejected",
-      "reason": "The supplied v7.30 save stores 8004 in items17, and the in-game shop shows only ゴリアテ/ホワイトドラゴン in the magic-material section; 絵本 is absent."
-    },
-    {
-      "claim": "8501..8538 are warehouse magic-material base IDs",
-      "status": "rejected",
-      "reason": "Those values belong to a separate Hmn/creature-internal namespace. The supplied v7.30 warehouse uses items17 with 8001/8004 for magic materials."
-    },
-    {
-      "claim": "category 17 is synthesis material and category 18 is magic material",
-      "status": "rejected",
-      "reason": "The supplied v7.30 save has synthesis materials in items16, magic materials in items17, and items18 empty."
-    }
+    {"claim":"8004 = 絵本","status":"rejected","reason":"The supplied v7.30 save stores 8004 in items17, and the in-game shop shows ホワイトドラゴン; 絵本 is absent."},
+    {"claim":"8501..8538 are warehouse magic-material base IDs","status":"rejected","reason":"Those values belong to a separate Hmn/creature-internal namespace. Warehouse magic materials use 80xx IDs."},
+    {"claim":"category 17 is synthesis material and category 18 is magic material","status":"rejected","reason":"The supplied v7.30 save has synthesis materials in items16, magic materials in items17, and items18 empty."},
+    {"claim":"8001..8097 are synthesis-material sequential guesses","status":"rejected","reason":"v5.10 Hmn static analysis and v7.30 save/screenshot anchors establish 8001..8037 as the magic-material warehouse namespace."}
   ]
 }

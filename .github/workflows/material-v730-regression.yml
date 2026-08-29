@@ -17,6 +17,7 @@ jobs:
           node <<'NODE'
           const fs=require('fs');
           const o=JSON.parse(fs.readFileSync('data/current_material_overrides.json','utf8'));
+          const titlePolicy=JSON.parse(fs.readFileSync('data/magic_material_title_policy.json','utf8'));
           const byId=new Map(o.items.map(x=>[x.base_id,x]));
           const assert=(v,m)=>{if(!v)throw new Error(m)};
           assert(o.categories['16']==='合成素材','items16 must be synthesis materials');
@@ -60,10 +61,16 @@ jobs:
 
           const app=fs.readFileSync('js/app.js','utf8');
           const model=fs.readFileSync('js/model.js','utf8');
-          assert(app.includes("fixedPlain=[17,18].includes(cat)"),'category 17 must use plain material codes');
-          assert(app.includes("x.base_id+ultra+title+'0000'"),'item code construction changed unexpectedly');
+          const titlePatch=fs.readFileSync('js/magic-material-titles.js','utf8');
+          assert(app.includes("x.base_id+ultra+title+'0000'"),'base item code construction changed unexpectedly');
           assert(model.includes('ensureItemDiscovery(code);state.dirty=true;loadInventory();'),'addInventory must synchronize discovery flags');
           assert(model.includes('const base=String(Number(code.slice(0,4)));return [G2MD5(base),G2MD5(code)]'),'discovery hash rule changed unexpectedly');
+          assert(titlePolicy.category_id===17 && titlePolicy.code_layout==='BBBBUUTTGGGG','category 17 title policy mismatch');
+          assert(titlePolicy.write_behavior.titled_material.includes('do not normalize category 17'),'category 17 titles must be preserved');
+          assert(titlePatch.includes('preserved_category17:true'),'runtime patch must preserve titled category-17 material codes');
+          assert(titlePatch.includes('M.addInventory(17,code,q)'),'runtime patch must write titled materials to items17');
           NODE
       - name: JavaScript syntax
-        run: node --check js/preload-definitions.js
+        run: |
+          node --check js/preload-definitions.js
+          node --check js/magic-material-titles.js
